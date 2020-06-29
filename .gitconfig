@@ -1,0 +1,25 @@
+# This is Git's per-user configuration file.
+[core]
+    editor = code --wait
+    filemode = false
+    ignorecase = false
+	excludesfile = /home/rshirohara/.gitignore_global
+
+[user]
+    name = Ray Shirohara
+    email = 47940764+RShirohara@users.noreply.github.com
+
+[color]
+    ui = auto
+
+[merge]
+    tool = code --wait \"$MERGED\"
+
+[push]
+    default = simple
+
+[diff]
+    tool = default-difftool
+
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE
