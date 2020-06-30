@@ -3,13 +3,7 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
-# Modified by RShirohara
-
-#
-# Browser
-#
-
-export BROWSER=open
+# Modified by @RShirohara
 
 #
 # Editors
@@ -42,7 +36,9 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   /usr/local/{bin,sbin}
-  ~/go/bin
+  if [[ -d $GOPATH ]]; then
+    ~/go/bin
+  fi
   $path
 )
 
