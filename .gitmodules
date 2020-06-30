@@ -1,0 +1,3 @@
+[submodule "bin/WSL-command"]
+	path = bin/WSL-command
+	url = https://github.com/RShirohara/WSL-command.git
