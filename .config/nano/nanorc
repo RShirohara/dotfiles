@@ -239,8 +239,8 @@ set tabstospaces
 ##   include "/path/to/syntax_file.nanorc"
 
 ## To include all existing syntax definitions, you can do:
-include "/usr/share/nano/*.nanorc"
-
+# include "/usr/share/nano/*.nanorc"
+# include "/data/data/com.termux/files/usr/share/nano/*.nanorc"
 
 ## If <Tab> should always produce four spaces when editing a Python file,
 ## independent of the settings of 'tabsize' and 'tabstospaces':
