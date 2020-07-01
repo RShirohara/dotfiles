@@ -15,13 +15,9 @@
     ~/.zpreztorc: .zpreztorc
     ~/.zprofile: .zprofile
     ~/.zshrc: .zshrc
-    ~/bin/:
+    ~/.local/bin/:
         glob: true
-        path: bin/WSL-command/*.sh
-        if: "[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]"
-    ~/bin/:
-        glob: true
-        path: bin/WSL-command/*.py
+        path: ./local/bin/WSL-command/*.sh
         if: "[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]"
     ~/.config/:
         glob: true
