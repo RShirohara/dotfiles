@@ -5,3 +5,4 @@
 [submodule ".local/bin/WSL-command"]
 	path = .local/bin/WSL-command
 	url = https://github.com/RShirohara/WSL-command.git
+	ignore = dirty
