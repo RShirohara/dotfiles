@@ -1,0 +1,36 @@
+- defaults:
+    link:
+        relink: true
+        create: true
+    clean:
+        recursive: true
+
+- clean: ["~"]
+
+- link:
+    ~/.gitconfig: .gitconfig
+    ~/.gitignore_global: .gitignore_global
+    ~/.p10k.zsh: .p10k.zsh
+    ~/.profile: .profile
+    ~/.zpreztorc: .zpreztorc
+    ~/.zprofile: .zprofile
+    ~/.zshrc: .zshrc
+    ~/bin/:
+        glob: true
+        path: bin/WSL-command/*.sh
+        if: "[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]"
+    ~/bin/:
+        glob: true
+        path: bin/WSL-command/*.py
+        if: "[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]"
+    ~/.config/:
+        glob: true
+        path: .config/*
+
+- shell:
+    -
+        command: sed -i -e "s/\/usr\/share\/nano/\/data\/data\/com.termux\/files\/usr\/share\/nano/" ~/.config/nano/nanorc
+        description: nanorc path setting in Termux.
+        if: "[ $OS = 'Android' ]"
+    -
+        command: 
