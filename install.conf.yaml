@@ -17,7 +17,7 @@
     ~/.zshrc: .zshrc
     ~/.local/bin/:
         glob: true
-        path: ./local/bin/WSL-command/*.sh
+        path: .local/bin/WSL-command/*.sh
         if: "[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]"
     ~/.config/:
         glob: true
@@ -25,8 +25,14 @@
 
 - shell:
     -
-        command: sed -i -e "s/\/usr\/share\/nano/\/data\/data\/com.termux\/files\/usr\/share\/nano/" ~/.config/nano/nanorc
+        command: if [[ $OSTYPE = 'linux-android' ]]; then sed -i -e 's/# include \"\/data\/data\/com.termux/include \"\/data\/data\/com.termux/' ~/.config/nano/nanorc ;fi
         description: nanorc path setting in Termux.
-        if: "[ $OS = 'Android' ]"
     -
-        command: 
+        command: if [[ $OSTYPE = 'linux-gnu' ]]; then sed -i -e 's/# include \"\/usr/include \"\/usr/' ~/.config/nano/nanorc ;fi
+        description: nanorc path setting in Linux.
+    -
+        command: if [[ -d ~/.local/bin ]]; then rename .sh "" ~/.local/bin/*.* ; fi
+        description: Remove file extension in ~/.local/bin
+    -
+        command: if [[ -d ~/.dotfiles/.local/bin/WSL-command ]]; then chmod 755 ~/.dotfiles/.local/bin/WSL-command/* ;fi
+        desctiption: Add execute authority in WSL-command
