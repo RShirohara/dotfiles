@@ -86,7 +86,7 @@
       # =========================[ Line #2 ]=========================
       newline
       # public_ip             # public IP address
-      # proxy                 # system-wide http/https/ftp proxy
+      proxy                   # system-wide http/https/ftp proxy
       battery                 # internal battery
       # example               # example user-defined segment (see prompt_example function below)
   )
