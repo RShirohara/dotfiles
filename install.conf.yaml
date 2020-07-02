@@ -2,8 +2,6 @@
     link:
         relink: true
         create: true
-    clean:
-        recursive: true
 
 - clean: ["~"]
 
@@ -11,7 +9,6 @@
     ~/.gitconfig: .gitconfig
     ~/.gitignore_global: .gitignore_global
     ~/.p10k.zsh: .p10k.zsh
-    ~/.profile: .profile
     ~/.zpreztorc: .zpreztorc
     ~/.zprofile: .zprofile
     ~/.zshrc: .zshrc
