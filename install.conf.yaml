@@ -1,7 +1,8 @@
 - defaults:
     link:
-        relink: true
         create: true
+        relink: true
+        force: true
 
 - clean: ["~"]
 
@@ -9,12 +10,15 @@
     ~/.gitconfig: .gitconfig
     ~/.gitignore_global: .gitignore_global
     ~/.p10k.zsh: .p10k.zsh
+    ~/.zlogin: .zprezto/runcoms/zlogin
+    ~/.zlogout: .zprezto/runcoms/zlogout
     ~/.zpreztorc: .zpreztorc
     ~/.zprofile: .zprofile
+    ~/.zshenv: .zprezto/runcoms/zshenv
     ~/.zshrc: .zshrc
     ~/.local/bin/:
         glob: true
-        path: .local/bin/WSL-command/*.sh
+        path: .local/bin/*
         if: "[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]"
     ~/.config/:
         glob: true
@@ -28,8 +32,8 @@
         command: if [[ $OSTYPE = 'linux-gnu' ]]; then sed -i -e 's/# include \"\/usr/include \"\/usr/' ~/.config/nano/nanorc ;fi
         description: nanorc path setting in Linux.
     -
-        command: if [[ -d ~/.local/bin ]]; then rename .sh "" ~/.local/bin/*.* ; fi
+        command: if [[ -f ~/.local/bin/proxy.sh ]]; then rm ~/.local/bin/proxy.sh ; fi
         description: Remove file extension in ~/.local/bin
     -
-        command: if [[ -d ~/.dotfiles/.local/bin/WSL-command ]]; then chmod 755 ~/.dotfiles/.local/bin/WSL-command/* ;fi
+        command: if [[ -d ~/.dotfiles/.local/bin ]]; then chmod 755 ~/.dotfiles/.local/bin/* ;fi
         desctiption: Add execute authority in WSL-command
