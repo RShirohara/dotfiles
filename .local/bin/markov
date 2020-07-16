@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""markov word generator"""
+
+import re
+import sys
+from argparse import ArgumentParser
+
+import markovify
+import MeCab
+
+
+def get_args():
+    _parser = ArgumentParser(description="Markov word generator")
+    _parser.add_argument("-p", "--path", type=str)
+    _parser.add_argument("-r", "--repeat", type=int, default=10)
+    _parser.add_argument("-s", "--state_size", type=int, default=2)
+    return _parser.parse_args()
+
+
+def format_text(_dat):
+    _dat = _dat.replace("　", " ")  # Full width spaces
+    _dat = re.sub(r"\n+", r"\n", _dat).rstrip("\n")  # Empty lines
+    _dat = re.sub(r"\n +", "\n", _dat)  # Spaces
+    return _dat
+
+
+def get_data(_path):
+    if _path:
+        with open(_path, "r") as _file:
+            _data = _file.read()
+    else:
+        _data = sys.stdin.read()
+    _format_data = format_text(_data)
+    _parsed_data = ""
+    _mecab = MeCab.Tagger(
+        "-Owakati -d /usr/lib/mecab/dic/mecab-ipadic-neologd"
+    )
+    for _line in _format_data.splitlines():
+        _parsed_data += _mecab.parse(_line)
+    return _parsed_data
+
+
+def markov(_str, _repeat, _size):
+    _model = markovify.NewlineText(_str, state_size=_size)
+    _data = str()
+    for _cnt in range(_repeat):
+        _result = _model.make_sentence()
+        if _result:
+            if _result[:1] != "「":
+                _head = "　"
+            else:
+                _head = ""
+            _data += _head + _result.replace(" ", "") + "\n"
+    return _data
+
+
+if __name__ == "__main__":
+    args = get_args()
+    data = get_data(args.path)
+    result = markov(data, args.repeat, args.state_size)
+    print(result)

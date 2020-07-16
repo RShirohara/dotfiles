@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# encoding: UTF-8
+# author: RShirohara
+# copy & paste (textdata only)
+
+cat=$(which cat)
+clip=$(which clip.exe)
+ps=$(which powershell.exe)
+
+if [ -p /dev/stdin ]; then
+    $cat /dev/stdin | $clip
+else
+    $ps /c Get-Clipboard
+fi
+
+exit 0

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# encoding: UTF-8
+# author: RShirohara
+# open on windows
+
+ps=$(which powershell.exe)
+trg=$(readlink -f "$1")
+wpath=$(wslpath -w "$trg" 2>/dev/null)
+
+if [ $? -ne 0 ] || [ "${1:0:4}" = "http" ]; then
+    wpath="$1"
+fi
+
+$ps /c start "'$wpath'"
+
+exit

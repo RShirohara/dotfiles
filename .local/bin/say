@@ -1,0 +1,16 @@
+#/usr/bin/env bash
+# encoding: UTF-8
+# author: RShirohara
+# Say command
+
+ps=$(which powershell.exe)
+
+if [ -p /dev/stdin ]; then
+    speak="$(cat /dev/stdin)"
+else
+    speak="$1"
+fi
+
+$ps "Add-Type -AssemblyName System.speech; \$object = New-Object System.Speech.Synthesis.SpeechSynthesizer; \$object.Speak('$speak')"
+
+exit 0
