@@ -26,7 +26,7 @@
 
 - shell:
     -
-        command: if [[ $OSTYPE = 'linux-android' ]]; then curl https://raw.githubusercontent.com/sorin-ionescu/prezto/87fbb98e2526f78e9017420e3bd1238a18a87e21/init.zsh -o ~/dotfiles/.zprezto/init.zsh ;fi
+        command: if [[ $OSTYPE = 'linux-android' ]]; then curl https://raw.githubusercontent.com/sorin-ionescu/prezto/87fbb98e2526f78e9017420e3bd1238a18a87e21/init.zsh -o ~/.dotfiles/.zprezto/init.zsh ;fi
         description: Fix shell prompts on Termux.
     -
         command: if [[ $OSTYPE = 'linux-android' ]]; then sed -i -e 's/# include \"\/data\/data\/com.termux/include \"\/data\/data\/com.termux/' ~/.config/nano/nanorc ;fi
