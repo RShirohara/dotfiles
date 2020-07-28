@@ -10,7 +10,12 @@
 - link:
     ~/.gitconfig: .gitconfig
     ~/.gitignore_global: .gitignore_global
-    ~/.p10k.zsh: .p10k.zsh
+    ~/.p10k.zsh: 
+        path: .p10k.zsh
+        if: "[ $SHELL = '/bin/zsh' ]"
+    ~/.p10k.zsh: 
+        path: termux/.p10k.zsh
+        if: "[ $SHELL = '/data/data/com.termux/files/usr/bin/zsh' ]"
     ~/.zlogin: .zprezto/runcoms/zlogin
     ~/.zlogout: .zprezto/runcoms/zlogout
     ~/.zpreztorc: .zpreztorc
