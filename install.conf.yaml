@@ -1,8 +1,9 @@
 - defaults:
     link:
         create: true
-        relink: true
         force: true
+        glob: true
+        relink: true
 
 - clean: ["~"]
 
@@ -16,24 +17,20 @@
     ~/.zprofile: .zprofile
     ~/.zshenv: .zprezto/runcoms/zshenv
     ~/.zshrc: .zshrc
-    ~/.local/bin/:
-        glob: true
-        path: .local/bin/*
-        if: "[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]"
+    ~/.dotfiles/.zprezto/init.zsh: 
+        path: .zprezto.init_termux.zsh
+        if: "[ $SHELL = '/data/data/com.termux/files/usr/bin/zsh' ]"
     ~/.config/:
-        glob: true
         path: .config/*
+        if: "[ $OSTYPE = 'linux-gnu' ]"
+    ~/.config/:
+        path: termux/.config/*
+        if: "[ $OSTYPE = 'linux-android' ]"
+    ~/.local/bin/:
+        path: wsl/.local/bin/*
+        if: "[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]"
 
 - shell:
-    -
-        command: if [[ $OSTYPE = 'linux-android' ]]; then curl https://raw.githubusercontent.com/sorin-ionescu/prezto/87fbb98e2526f78e9017420e3bd1238a18a87e21/init.zsh -o ~/.dotfiles/.zprezto/init.zsh ;fi
-        description: Fix shell prompts on Termux.
-    -
-        command: if [[ $OSTYPE = 'linux-android' ]]; then sed -i -e 's/# include \"\/data\/data\/com.termux/include \"\/data\/data\/com.termux/' ~/.config/nano/nanorc ;fi
-        description: nanorc path setting in Termux.
-    -
-        command: if [[ $OSTYPE = 'linux-gnu' ]]; then sed -i -e 's/# include \"\/usr/include \"\/usr/' ~/.config/nano/nanorc ;fi
-        description: nanorc path setting in Linux.
     -
         command: if [[ -f ~/.local/bin/proxy.sh ]]; then rm ~/.local/bin/proxy.sh ; fi
         description: Remove file extension in ~/.local/bin
