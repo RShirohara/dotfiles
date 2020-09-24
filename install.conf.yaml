@@ -10,6 +10,7 @@
 - link:
     ~/.gitconfig: .gitconfig
     ~/.gitignore_global: .gitignore_global
+    ~/.makepkg.conf: .makepkg.conf
     ~/.p10k.zsh: 
         path: .p10k.zsh
         if: "[ $SHELL = '/bin/zsh' ]"
