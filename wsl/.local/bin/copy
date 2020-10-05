@@ -1,16 +1,40 @@
 #!/usr/bin/env bash
 # encoding: UTF-8
 # author: RShirohara
-# copy & paste (textdata only)
+# copy & paste
 
-cat=$(which cat)
 clip=$(which clip.exe)
 ps=$(which powershell.exe)
 
-if [ -p /dev/stdin ]; then
-    $cat /dev/stdin | $clip
-else
-    $ps /c Get-Clipboard
-fi
+function usage() {
+    cat <<EOF
+$(basename ${0}) is a tool for copy & paste on WSL.
 
-exit 0
+Usage:
+    $(basename ${0}) [<options>]
+
+Options:
+    --help, -h      print this
+    -n              don't output the trailing newline
+EOF
+}
+
+function paste() {
+    $ps /c Get-Clipboard | tr -d "\r" | tr -s "\n"
+}
+
+case ${1} in 
+    -h|--help )
+        usage
+        ;;
+    -n )
+        paste | tr -d "\n"
+        ;;
+    "" )
+        if [ -p /dev/stdin ]; then
+            cat - | $clip
+        else
+            paste
+        fi
+        ;;
+esac
