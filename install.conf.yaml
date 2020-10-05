@@ -8,38 +8,37 @@
 - clean: ["~"]
 
 - link:
+    # git config
     ~/.gitconfig: .gitconfig
     ~/.gitignore_global: .gitignore_global
-    ~/.makepkg.conf: .makepkg.conf
-    ~/.p10k.zsh: 
-        path: .p10k.zsh
-        if: "[ $SHELL = '/bin/zsh' ]"
-    ~/.p10k.zsh: 
-        path: termux/.p10k.zsh
-        if: "[ $SHELL = '/data/data/com.termux/files/usr/bin/zsh' ]"
+    # nano settings
+    ~/.config/nano/nanorc:
+        path: .config/nano/nanorc
+    # powerlevel10k settings
+    ~/.p10k.zsh: .p10k.zsh
+    # zsh settings
     ~/.zlogin: .zprezto/runcoms/zlogin
     ~/.zlogout: .zprezto/runcoms/zlogout
     ~/.zpreztorc: .zpreztorc
     ~/.zprofile: .zprofile
     ~/.zshenv: .zprezto/runcoms/zshenv
     ~/.zshrc: .zshrc
-    ~/.dotfiles/.zprezto/init.zsh: 
-        path: .zprezto.init_termux.zsh
-        if: "[ $SHELL = '/data/data/com.termux/files/usr/bin/zsh' ]"
-    ~/.config/:
-        path: .config/*
-        if: "[ $OSTYPE = 'linux-gnu' ]"
-    ~/.config/:
-        path: termux/.config/*
-        if: "[ $OSTYPE = 'linux-android' ]"
+    # WSL only
     ~/.local/bin/:
         path: wsl/.local/bin/*
         if: "[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]"
+    # termux only
+    ~/.config/nano/nanorc:
+        path: termux/.config/nano/nanorc
+        if: "[ $(uname -o) = 'Android']"
+    ~/.dotfiles/.zprezto/init.zsh:
+        path: termux/.zprezto/init.zsh
+        if: "[ $(uname -o) = 'Android']"
+    ~/.p10k.zsh:
+        path: termux/.p10k.zsh
+        if: "[ $(uname -o) = 'Android']"
 
 - shell:
     -
-        command: if [[ -f ~/.local/bin/proxy.sh ]]; then rm ~/.local/bin/proxy.sh ; fi
-        description: Remove file extension in ~/.local/bin
-    -
-        command: if [[ -d ~/.dotfiles/.local/bin ]]; then chmod 755 ~/.dotfiles/.local/bin/* ;fi
-        desctiption: Add execute authority in WSL-command
+        command: if [[ -d ~/.local/bin ]]; then chmod 755 ~/.local/bin/* ;fi
+        desctiption: Add execute authority in commands
