@@ -14,7 +14,7 @@
     # makepkg settings
     ~/.makepkg.conf:
         path: .makepkg.conf
-        if: "[ -f \"$(which makepkg)\" ]"
+        if: "[ -f $(which makepkg) ]"
     # nano settings
     ~/.config/nano/nanorc:
         path: .config/nano/nanorc
@@ -28,6 +28,7 @@
     ~/.zshenv: submodules/.zprezto/runcoms/zshenv
     ~/.zshrc: .zshrc
     # home commands
+    ~/.local/bin/proxy: .local/bin/proxy
     ~/.local/bin/echo-sd: submodules/home-commands/echo-sd
     ~/.local/bin/httpstatus: submodules/home-commands/httpstatus
     ~/.local/bin/tate: submodules/home-commands/tate
