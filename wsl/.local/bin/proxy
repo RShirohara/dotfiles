@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# encoding: UTF-8
+# author: RShirohara
+# Proxy settings
+
+function usage() {
+    cat << EOS
+$(basename ${0}) is a tool for set proxy.
+
+Usage:
+    [. | source] $(basename ${0}) [mode | options] [proxy]
+
+Mode:
+    set             set proxy
+    unset           unset proxy
+
+Options:
+    -h, --help      print this
+EOS
+}
+
+function _set() {
+    export http_proxy="$1"
+    export HTTP_PROXY=$http_proxy
+    export https_proxy="$1"
+    export HTTPS_PROXY=$https_proxy
+    export ftp_proxy="$1"
+    export FTP_PROXY=$ftp_proxy
+    export rsync_proxy="$1"
+    export RSYNC_PROXY=$rsync_proxy
+}
+
+function _unset() {
+    unset -v http_proxy
+    unset -v HTTP_PROXY
+    unset -v https_proxy
+    unset -v HTTPS_PROXY
+    unset -v ftp_proxy
+    unset -v FTP_PROXY
+    unset -v rsync_proxy
+    unset -v RSYNC_PROXY
+}
+
+case "$1" in
+    set )
+        _unset
+        _set "$2"
+        ;;
+    unset )
+        _unset
+        ;;
+    -h|--help|"" )
+        usage
+        ;;
+esac
