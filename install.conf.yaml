@@ -1,7 +1,6 @@
 - defaults:
     link:
         create: true
-        force: true
         glob: true
         relink: true
 
@@ -27,6 +26,12 @@
     ~/.zprofile: .zprofile
     ~/.zshenv: submodules/.zprezto/runcoms/zshenv
     ~/.zshrc: .zshrc
+    # home commands
+    ~/.local/bin/echo-sd: submodules/home-commands/echo-sd
+    ~/.local/bin/httpstatus: submodules/home-commands/httpstatus
+    ~/.local/bin/tate: submodules/home-commands/tate
+    ~/.local/bin/unicode-charinfo: submodules/home-commands/unicode-charinfo
+    ~/.local/bin/tweet.sh: submodules/tweet.sh/tweet.sh
     # WSL only
     ~/.local/bin/:
         path: wsl/.local/bin/*

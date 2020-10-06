@@ -4,3 +4,9 @@
 [submodule "submodules/dotbot"]
 	path = submodules/dotbot
 	url = https://github.com/anishathalye/dotbot.git
+[submodule "submodules/home-commands"]
+	path = submodules/home-commands
+	url = https://github.com/fumiyas/home-commands
+[submodule "submodules/tweet.sh"]
+	path = submodules/tweet.sh
+	url = https://github.com/piroor/tweet.sh
