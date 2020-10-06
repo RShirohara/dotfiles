@@ -21,11 +21,11 @@
     # powerlevel10k settings
     ~/.p10k.zsh: .p10k.zsh
     # zsh settings
-    ~/.zlogin: .zprezto/runcoms/zlogin
-    ~/.zlogout: .zprezto/runcoms/zlogout
+    ~/.zlogin: submodules/.zprezto/runcoms/zlogin
+    ~/.zlogout: submodules/.zprezto/runcoms/zlogout
     ~/.zpreztorc: .zpreztorc
     ~/.zprofile: .zprofile
-    ~/.zshenv: .zprezto/runcoms/zshenv
+    ~/.zshenv: submodules/.zprezto/runcoms/zshenv
     ~/.zshrc: .zshrc
     # WSL only
     ~/.local/bin/:
@@ -35,7 +35,7 @@
     ~/.config/nano/nanorc:
         path: termux/.config/nano/nanorc
         if: "[ $(uname -o) = 'Android']"
-    ~/.dotfiles/.zprezto/init.zsh:
+    ~/.dotfiles/submodules/.zprezto/init.zsh:
         path: termux/.zprezto/init.zsh
         if: "[ $(uname -o) = 'Android']"
     ~/.p10k.zsh:

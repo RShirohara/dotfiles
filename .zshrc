@@ -13,8 +13,8 @@ fi
 # Modified by @RShirohara
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.dotfiles/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.dotfiles/.zprezto/init.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/.dotfiles/submodules/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.dotfiles/submodules/.zprezto/init.zsh"
 fi
 
 # Customize to your needs...

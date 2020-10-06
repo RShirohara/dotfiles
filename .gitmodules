@@ -1,7 +1,6 @@
-[submodule "dotbot"]
-	path = dotbot
-	url = https://github.com/anishathalye/dotbot
-	ignore = dirty
-[submodule ".zprezto"]
-	path = .zprezto
-	url = https://github.com/sorin-ionescu/prezto
+[submodule "submodules/.zprezto"]
+	path = submodules/.zprezto
+	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "submodules/dotbot"]
+	path = submodules/dotbot
+	url = https://github.com/anishathalye/dotbot.git
