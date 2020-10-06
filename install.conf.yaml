@@ -11,6 +11,10 @@
     # git config
     ~/.gitconfig: .gitconfig
     ~/.gitignore_global: .gitignore_global
+    # makepkg settings
+    ~/.makepkg.conf:
+        path: .makepkg.conf
+        if: "[ -f \"$(which makepkg)\" ]"
     # nano settings
     ~/.config/nano/nanorc:
         path: .config/nano/nanorc
