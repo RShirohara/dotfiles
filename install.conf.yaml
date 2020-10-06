@@ -1,6 +1,7 @@
 - defaults:
     link:
         create: true
+        force: true
         glob: true
         relink: true
 
@@ -39,13 +40,13 @@
     # termux only
     ~/.config/nano/nanorc:
         path: termux/.config/nano/nanorc
-        if: "[ $(uname -o) = 'Android']"
+        if: "[ $(uname -o) = Android ]"
     ~/.dotfiles/submodules/.zprezto/init.zsh:
-        path: termux/submodules/.zprezto/init.zsh
-        if: "[ $(uname -o) = 'Android']"
+        path: termux/.zprezto/init.zsh
+        if: "[ $(uname -o) = Android ]"
     ~/.p10k.zsh:
         path: termux/.p10k.zsh
-        if: "[ $(uname -o) = 'Android']"
+        if: "[ $(uname -o) = Android ]"
 
 - shell:
     -
