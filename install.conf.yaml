@@ -41,7 +41,7 @@
         path: termux/.config/nano/nanorc
         if: "[ $(uname -o) = 'Android']"
     ~/.dotfiles/submodules/.zprezto/init.zsh:
-        path: termux/.zprezto/init.zsh
+        path: termux/submodules/.zprezto/init.zsh
         if: "[ $(uname -o) = 'Android']"
     ~/.p10k.zsh:
         path: termux/.p10k.zsh
