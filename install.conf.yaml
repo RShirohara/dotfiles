@@ -5,9 +5,26 @@
         glob: true
         relink: true
 
-- clean: ["~"]
+- clean:
+    ~/:
+    ~/.config:
+    ~/.local:
 
 - link:
+    # WSL only
+    ~/.local/bin/:
+        path: wsl/.local/bin/*
+        if: "[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]"
+    # termux only
+    ~/.config/nano/nanorc:
+        path: termux/.config/nano/nanorc
+        if: "[ $(uname -o) = Android ]"
+    ~/.dotfiles/submodules/.zprezto/init.zsh:
+        path: termux/.zprezto/init.zsh
+        if: "[ $(uname -o) = Android ]"
+    ~/.p10k.zsh:
+        path: termux/.p10k.zsh
+        if: "[ $(uname -o) = Android ]"
     # git config
     ~/.gitconfig: .gitconfig
     ~/.gitignore_global: .gitignore_global
@@ -16,8 +33,7 @@
         path: .makepkg.conf
         if: "[ -f $(which makepkg) ]"
     # nano settings
-    ~/.config/nano/nanorc:
-        path: .config/nano/nanorc
+    ~/.config/nano/nanorc: .config/nano/nanorc
     # powerlevel10k settings
     ~/.p10k.zsh: .p10k.zsh
     # zsh settings
@@ -34,20 +50,6 @@
     ~/.local/bin/tate: submodules/home-commands/tate
     ~/.local/bin/unicode-charinfo: submodules/home-commands/unicode-charinfo
     ~/.local/bin/tweet.sh: submodules/tweet.sh/tweet.sh
-    # WSL only
-    ~/.local/bin/:
-        path: wsl/.local/bin/*
-        if: "[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]"
-    # termux only
-    ~/.config/nano/nanorc:
-        path: termux/.config/nano/nanorc
-        if: "[ $(uname -o) = Android ]"
-    ~/.dotfiles/submodules/.zprezto/init.zsh:
-        path: termux/.zprezto/init.zsh
-        if: "[ $(uname -o) = Android ]"
-    ~/.p10k.zsh:
-        path: termux/.p10k.zsh
-        if: "[ $(uname -o) = Android ]"
 
 - shell:
     -
