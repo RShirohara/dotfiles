@@ -49,7 +49,6 @@
     ~/.local/bin/httpstatus: submodules/home-commands/httpstatus
     ~/.local/bin/tate: submodules/home-commands/tate
     ~/.local/bin/unicode-charinfo: submodules/home-commands/unicode-charinfo
-    ~/.local/bin/tweet.sh: submodules/tweet.sh/tweet.sh
 
 - shell:
     -
