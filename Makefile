@@ -9,8 +9,7 @@ list: ## Show dot files in this repository.
 	@$(foreach val, $(DOTFILES), /bin/ls -dF $(val);)
 
 init: ## Initialize this repository.
-	@echo "Initialize submodules..."
-	@git submodule update --init --recursive
+	@echo "Initialize..."
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/init.sh
 
 install: ## Create symlink to home directory.
@@ -22,6 +21,7 @@ clean: ## Remove the dot files and this repository.
 	@echo 'Remove dot files in your home directory...'
 	@-$(foreach val, $(DOTFILES), rm -vrf $(HOME)/$(val);)
 	@-rm -vrf $(HOME)/.local/bin
+	@-git clean -df
 
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \

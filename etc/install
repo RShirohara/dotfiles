@@ -100,11 +100,9 @@ dotfiles_deploy() {
 }
 
 dotfiles_initilize() {
-    if [ "$1" = "init" ]; then
-        msg_header "Initilizing dotfiles..."
-        make init &&
-        msg_done "Initilize"
-    fi
+    msg_header "Initilizing dotfiles..."
+    make init &&
+    msg_done "Initilize"
 }
 
 dotfiles_install() {
