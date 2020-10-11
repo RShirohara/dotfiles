@@ -1,9 +1,6 @@
 [submodule "submodules/.zprezto"]
 	path = submodules/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
-[submodule "submodules/dotbot"]
-	path = submodules/dotbot
-	url = https://github.com/anishathalye/dotbot.git
 [submodule "submodules/home-commands"]
 	path = submodules/home-commands
 	url = https://github.com/fumiyas/home-commands
