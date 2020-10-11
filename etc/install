@@ -74,7 +74,7 @@ dotfiles_logo='
 '
 
 dotfiles_download() {
-    msg_header "Downloadding  dotfiles..."
+    msg_header "Downloading  dotfiles..."
     if [ -d "$DOTPATH" ]; then
         msg_error "$DOTPATH: already exists"
         exit 1
