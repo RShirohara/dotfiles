@@ -3,7 +3,7 @@
     editor = code --wait
     filemode = false
     ignorecase = false
-	excludesfile = /home/rshirohara/.gitignore_global
+	excludesfile = /home/rshirohara/.gitignore
 
 [user]
     name = Ray Shirohara
