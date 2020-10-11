@@ -95,7 +95,7 @@ dotfiles_deploy() {
         exit 1
     fi
     cd "$DOTPATH"
-    make deploy &&
+    make install &&
     msg_done "Deploy"
 }
 
@@ -139,7 +139,7 @@ else
             exit
         fi
 
-        trap "e_error 'terminated'; exit 1" INT ERR
+        trap "msg_error 'terminated'; exit 1" INT ERR
         echo "$dotfiles_logo"
         dotfiles_install "$@"
 
@@ -147,9 +147,9 @@ else
         # not restart:
         #   curl -L {URL} | bash
         if [ -p /dev/stdin ]; then
-            e_warning "Now continue with Rebooting your shell"
+            msg_warning "Now continue with Rebooting your shell"
         else
-            e_arrow "Restarting your shell..."
+            msg_arrow "Restarting your shell..."
             exec "${SHELL:-/bin/zsh}"
         fi
     fi
