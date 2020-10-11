@@ -1,0 +1,158 @@
+#!/bin/bash
+
+vitalize() {
+    return 0
+}
+
+is_exists() {
+    which "$1" >/dev/null 2>&1
+    return $?
+}
+
+msg_header() {
+    printf " \033[37;1m%s\033[m\n" "$*"
+}
+
+msg_error() {
+    printf " \033[31m%s\033[m\n" "✖ $*" 1>&2
+}
+
+msg_warning() {
+    printf " \033[31m%s\033[m\n" "$*"
+}
+
+msg_done() {
+    printf " \033[37;1m%s\033[m...\033[32mOK\033[m\n" "✔ $*"
+}
+
+msg_arrow() {
+    printf " \033[37;1m%s\033[m\n" "➜ $*"
+}
+
+platform() {
+    case $OSTYPE in
+        "linux-gnu")
+            if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+                PLATFORM="wsl"
+            else
+                PLATFORM="linux"
+            fi
+            ;;
+        "linux-android")
+            PLATFORM="android"
+            ;;
+        *)
+            PLATFORM="unknown"
+            ;;
+    esac
+    echo $PLATFORM
+}
+
+# Dotfiles {{{1
+
+# Set DOTPATH as default variable
+if [ -z "${DOTPATH:-}" ]; then
+    DOTPATH=~/.dotfiles; export DOTPATH
+fi
+
+DOTFILES_GITHUB="https://github.com/RShirohara/dotfiles"
+
+dotfiles_logo='
+      | |     | |  / _(_) |           
+    __| | ___ | |_| |_ _| | ___  ___  
+   / _` |/ _ \| __|  _| | |/ _ \/ __| 
+  | (_| | (_) | |_| | | | |  __/\__ \ 
+   \__,_|\___/ \__|_| |_|_|\___||___/ 
+  *** WHAT IS INSIDE? ***
+  1. Download https://github.com/RShirohara/dotfiles.git
+  2. Symlinking dot files to your home directory
+  3. Execute all sh files within `etc/init/` (optional)
+  See the README for documentation.
+  https://github.com/RShirohara/dotfiles
+  Copyright (c) 2020 Ray Shirohara
+  Licensed under the MIT license.
+'
+
+dotfiles_download() {
+    msg_header "Downloadding  dotfiles..."
+    if [ -d "$DOTPATH" ]; then
+        msg_error "$DOTPATH: already exists"
+        exit 1
+    fi
+    if is_exists "git"; then
+        git clone --recursive $DOTFILES_GITHUB $DOTPATH
+    else
+        msg_error "git requied"
+        exit 1
+    fi
+    msg_done "Download"
+}
+
+dotfiles_deploy() {
+    msg_header "Deploying dotfiles..."
+    if [ ! -d $DOTPATH ]; then
+        msg_error "$DOTPATH: not found"
+        exit 1
+    fi
+    cd "$DOTPATH"
+    make deploy &&
+    msg_done "Deploy"
+}
+
+dotfiles_initilize() {
+    if [ "$1" = "init" ]; then
+        msg_header "Initilizing dotfiles..."
+        make init &&
+        msg_done "Initilize"
+    fi
+}
+
+dotfiles_install() {
+    dotfiles_download &&
+    dotfiles_deploy &&
+    dotfiles_initilize
+}
+
+if echo "$-" | grep -q "i"; then
+    # -> source a.sh
+    VITALIZED=1
+    export VITALIZED
+    : return
+else
+    # three patterns
+    # -> cat a.sh | bash
+    # -> bash -c "$(cat a.sh)"
+    # -> bash a.sh
+
+    # -> bash a.sh
+    if [ "$0" = "${BASH_SOURCE:-}" ]; then
+        echo test
+        exit
+    fi
+
+    # -> cat a.sh | bash
+    # -> bash -c "$(cat a.sh)"
+    if [ -n "${BASH_EXECUTION_STRING:-}" ] || [ -p /dev/stdin ]; then
+        # if already vitalized, skip to run dotfiles_install
+        if [ "${VITALIZED:=0}" = 1 ]; then
+        msg_error "vitalized"
+            exit
+        fi
+
+        trap "e_error 'terminated'; exit 1" INT ERR
+        echo "$dotfiles_logo"
+        dotfiles_install "$@"
+
+        # Restart shell if specified "bash -c $(curl -L {URL})"
+        # not restart:
+        #   curl -L {URL} | bash
+        if [ -p /dev/stdin ]; then
+            e_warning "Now continue with Rebooting your shell"
+        else
+            e_arrow "Restarting your shell..."
+            exec "${SHELL:-/bin/zsh}"
+        fi
+    fi
+fi
+
+# __END__ {{{1
