@@ -21,7 +21,6 @@ clean: ## Remove the dot files and this repository.
 	@echo 'Remove dot files in your home directory...'
 	@-$(foreach val, $(DOTFILES), rm -vrf $(HOME)/$(val);)
 	@-rm -vrf $(HOME)/.local/bin
-	@-git clean -df
 
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
