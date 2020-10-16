@@ -1,1 +1,1 @@
-submodules/.zprezto/runcoms/zlogin
+submodules/prezto/runcoms/zlogin

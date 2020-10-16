@@ -1,1 +1,1 @@
-submodules/.zprezto/runcoms/zshenv
+submodules/prezto/runcoms/zshenv

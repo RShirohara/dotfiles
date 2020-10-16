@@ -1,1 +1,1 @@
-submodules/.zprezto/runcoms/zlogout
+submodules/prezto/runcoms/zlogout

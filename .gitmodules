@@ -1,5 +1,5 @@
-[submodule "submodules/.zprezto"]
-	path = submodules/.zprezto
+[submodule "submodules/prezto"]
+	path = submodules/prezto
 	url = https://github.com/sorin-ionescu/prezto.git
 [submodule "submodules/home-commands"]
 	path = submodules/home-commands
