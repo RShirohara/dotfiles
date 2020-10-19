@@ -9,6 +9,10 @@ list: ## Show dot files in this repository.
 	@$(foreach val, $(DOTFILES), /bin/ls -dF $(val);)
 
 init: ## Initialize this repository.
+	@echo "Git Submodule update..."
+	@git submodule update --init --recursive
+	@echo "Vim plugin install..."
+	@vim +PlugClean +PlugUpdate +qall
 	@echo "Initialize..."
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/init.sh
 
