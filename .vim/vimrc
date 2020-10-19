@@ -1,10 +1,3 @@
-" plugin
-
-call plug#begin('~/.vim/plug')
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-call plug#end()
-
 " config
 
 "" file
@@ -26,6 +19,7 @@ set list
 set listchars=eol:↲,extends:»,nbsp:%,precedes:«,space:·,tab:»-
 set mouse=a
 set number
+set shell=zsh
 set showcmd
 set showmatch
 set virtualedit=onemore
@@ -91,8 +85,20 @@ endif
 
 " keymap
 
-nnoremap <down> gj
-nnoremap <up> gk
+
+noremap <down> gj
+noremap <up> gk
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
-vnoremap <down> gj
-vnoremap <up> gk
+noremap <C-e> :NERDTreeToggle<CR>
+
+" plugin
+
+call plug#begin('~/.vim/plug')
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mattn/vim-maketable'
+Plug 'preservim/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-jp/vimdoc-ja'
+call plug#end()
