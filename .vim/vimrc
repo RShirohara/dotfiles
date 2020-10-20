@@ -89,7 +89,7 @@ endif
 noremap <down> gj
 noremap <up> gk
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
-noremap <C-e> :NERDTreeToggle<CR>
+noremap <S-e> :NERDTreeToggle<CR>
 
 " plugin
 
