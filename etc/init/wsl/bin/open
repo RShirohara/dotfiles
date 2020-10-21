@@ -6,7 +6,7 @@
 ps=$(which powershell.exe)
 
 function usage() {
-    cat <<EOF
+    cat << EOF
 $(basename ${0}) is a tool for open link on WSL.
 
 Usage:
@@ -14,15 +14,15 @@ Usage:
 EOF
 }
 
-case ${1} in
+case "$1" in
     -h|--help )
         usage
         ;;
     * )
-        if [ $? -ne 0 ] || [ "${1:0:4}" = "http" ]; then
+        if [ "$?" -ne 0 ] || [ "${1:0:4}" = "http" ]; then
             wpath="$1"
         else
-            wpath=$(wslpath -w $(readlink -f "$1") 2>/dev/null)
+            wpath=$(wslpath -w "$(readlink -f "$1")" 2>/dev/null)
         fi
         $ps /c start "'$wpath'"
         ;;
