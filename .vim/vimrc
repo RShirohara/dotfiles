@@ -81,8 +81,10 @@ else
     let g:airline_symbols.branch = '⎇'
 endif
 
-" keymap
+"" vim-gitgutter
+set updatetime=100
 
+" keymap
 
 noremap <down> gj
 noremap <up> gk
@@ -94,7 +96,7 @@ noremap <S-e> :NERDTreeToggle<CR>
 call plug#begin('~/.vim/plug')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'mattn/vim-maketable'
+Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
