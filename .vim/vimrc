@@ -25,7 +25,6 @@ set showmatch
 set virtualedit=onemore
 set wildmode=list:longest
 set wrap
-syntax enable
 
 "" search
 set hlsearch
@@ -43,9 +42,8 @@ set softtabstop=4
 set tabstop=4
 
 "" syntastic
-let g:polyglot_disabled = ['python']
-let g:syntastic_python_checkers=['python', 'flake8']
-let python_highlight_all = 1
+syntax on
+colorscheme slate
 
 "" vim-plug
 let g:plug_window = 'topleft'
