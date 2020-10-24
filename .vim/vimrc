@@ -56,7 +56,8 @@ set tabstop=4
 
 "" syntastic
 syntax on
-colorscheme monokai-phoenix
+colorscheme molokai_dark
+hi Normal guibg=NONE ctermbg=NONE
 
 "" clipboard
 set clipboard=unnamedplus
