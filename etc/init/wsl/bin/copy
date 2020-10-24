@@ -7,7 +7,7 @@ clip=$(which clip.exe)
 ps=$(which powershell.exe)
 
 function usage() {
-    cat <<EOF
+    cat << EOF
 $(basename ${0}) is a tool for copy & paste on WSL.
 
 Usage:
@@ -20,19 +20,22 @@ EOF
 }
 
 function paste() {
-    $ps /c Get-Clipboard | tr -d "\r" | tr -s "\n"
+    "$ps" /c Get-Clipboard | tr -d "\r" | tr -s "\n"
 }
 
-case ${1} in 
+case "$1" in 
     -h|--help )
         usage
         ;;
     -n )
         paste | tr -d "\n"
         ;;
+    -i )
+        echo "$2" | "$clip"
+        ;;
     "" )
         if [ -p /dev/stdin ]; then
-            cat - | $clip
+            cat - | "$clip"
         else
             paste
         fi
