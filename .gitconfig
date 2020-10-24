@@ -13,13 +13,16 @@
     ui = auto
 
 [merge]
-    tool = code --wait \"$MERGED\"
+    tool = vimdiff
+
+[mergetool]
+    prompt = false
 
 [push]
     default = simple
 
 [diff]
-    tool = default-difftool
+    tool = vimdiff
 
-[difftool "default-difftool"]
-    cmd = code --wait --diff $LOCAL $REMOTE
+[difftool]
+    prompt = false
