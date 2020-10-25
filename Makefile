@@ -12,7 +12,7 @@ init: ## Initialize this repository.
 	@echo "Git Submodule update..."
 	@git submodule update --init --recursive
 	@echo "Vim plugin install..."
-	@vim +PlugClean +PlugUpdate +qall
+	@vim +PlugClean! +PlugUpdate +qall
 	@echo "Initialize..."
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/init.sh
 

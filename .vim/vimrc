@@ -56,7 +56,7 @@ set tabstop=4
 
 "" syntastic
 syntax on
-colorscheme molokai
+silent! colorscheme molokai
 hi Normal guibg=NONE ctermbg=NONE
 
 "" clipboard
