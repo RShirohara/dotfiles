@@ -1,9 +1,9 @@
 # This is Git's per-user configuration file.
 [core]
-    editor = code --wait
+    editor = vim
     filemode = false
     ignorecase = false
-	excludesfile = /home/rshirohara/.gitignore
+    excludesfile = /home/rshirohara/.gitignore
 
 [user]
     name = Ray Shirohara
