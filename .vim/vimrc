@@ -1,13 +1,15 @@
 " plugin
 
 call plug#begin('~/.vim/plug')
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tomasr/molokai'
-Plug 'lambdalisue/fern.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/nerdfont.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-jp/vimdoc-ja'
 call plug#end()
 
@@ -120,13 +122,15 @@ else
     let g:airline_symbols.branch = '⎇'
 endif
 
+"" fern
+let g:fern#renderer = "nerdfont"
+noremap <S-e> :Fern . -drawer -toggle<CR>
+
 "" vim-gitgutter
 set updatetime=100
-
 
 " keymap
 
 noremap <down> gj
 noremap <up> gk
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
-noremap <S-e> :Fern -drawer -toggle .<CR>
