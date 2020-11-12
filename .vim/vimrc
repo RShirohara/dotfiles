@@ -4,8 +4,8 @@ call plug#begin('~/.vim/plug')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tomasr/molokai'
+Plug 'lambdalisue/fern.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-jp/vimdoc-ja'
@@ -129,4 +129,4 @@ set updatetime=100
 noremap <down> gj
 noremap <up> gk
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
-noremap <S-e> :NERDTreeToggle<CR>
+noremap <S-e> :Fern -drawer -toggle .<CR>
