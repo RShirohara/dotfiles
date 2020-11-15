@@ -8,21 +8,28 @@
 [user]
     name = Ray Shirohara
     email = 47940764+RShirohara@users.noreply.github.com
+    signingkey = 9D040086456072FA
 
 [color]
     ui = auto
 
-[merge]
+[commit]
+    gpgsign = true
+
+[diff]
+    prompt = false
+
+[difftool]
     tool = vimdiff
 
-[mergetool]
+[gpg]
+    program = gpg
+
+[merge]
     prompt = false
+
+[mergetool]
+    tool = vimdiff
 
 [push]
     default = simple
-
-[diff]
-    tool = vimdiff
-
-[difftool]
-    prompt = false
