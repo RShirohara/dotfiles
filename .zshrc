@@ -25,5 +25,5 @@ fi
 # History setting
 setopt hist_save_no_dups
 
-# X server setting
-# export DISPLAY=:0
+# GPG signing setting
+export GPG_TTY=$(tty)
