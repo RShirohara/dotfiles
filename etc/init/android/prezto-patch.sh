@@ -2,4 +2,4 @@
 
 root=$(dirname $0)
 
-patch "$DOTPATH/submodule/prezto/init.zsh" "$root/prezto.patch"
+patch "$DOTPATH/submodules/prezto/init.zsh" "$root/prezto.patch"
