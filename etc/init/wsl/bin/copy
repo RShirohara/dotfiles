@@ -20,7 +20,7 @@ EOF
 }
 
 function paste() {
-    "$ps" /c Get-Clipboard | tr -d "\r" | tr -s "\n"
+    "$ps" /c Get-Clipboard | sed -Ez -e "s/r//g" -e "s/\n{2}/\n/"
 }
 
 case "$1" in 
@@ -28,10 +28,10 @@ case "$1" in
         usage
         ;;
     -n )
-        paste | tr -d "\n"
+        paste | sed -z "s/\n$//"
         ;;
     -i )
-        echo "$2" | "$clip"
+        printf "$2" | "$clip"
         ;;
     "" )
         if [ -p /dev/stdin ]; then
