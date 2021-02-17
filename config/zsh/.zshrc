@@ -1,22 +1,36 @@
-#
 # Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-# Modified by @RShirohara
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block, everything else may go below.
+## Enable Powerlevel10k instant prompt.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f "~/.p10k.zsh" ]] || source "~/.p10k.zsh"
+## Load pludins.
+source "$ZDOTDIR/plugins.zsh"
 
-# History setting
-setopt hist_save_no_dups
+## Load settings.
+source "$ZDOTDIR/setopts.zsh"
+source "$ZDOTDIR/styles.zsh"
+#source "$ZDOTDIR/func.zsh"
+source "$ZDOTDIR/aliases.zsh"
 
-# GPG signing setting
-export GPG_TTY=$TTY
+## Load powerlevel10k settings
+source "$ZDOTDIR/p10k.zsh"
+
+## Load zsh-users/zsh-completion
+autoload -Uz compinit
+_comp_path="$XDG_CACHE_HOME/zsh/zcompdump"
+if [[ $_comp_path(#qNmh-20) ]]; then
+        compinit -C -d "$_comp_path"
+    else
+        mkdir -p "$_comp_path"
+        compinit -i -d "$_comp_path"
+fi
+unset _comp_path
+
+## History
+HISTSIZE=100000
+SAVEHIST=100000
+
+## GPG signing
+export GPG_TTY="$TTY"
