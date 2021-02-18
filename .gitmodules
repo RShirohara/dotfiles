@@ -4,3 +4,6 @@
 [submodule "submodules/zinit"]
 	path = submodules/zinit
 	url = https://github.com/zdharma/zinit
+[submodule "submodules/home-commands"]
+	path = submodules/home-commands
+	url = https://github.com/fumiyas/home-commands
