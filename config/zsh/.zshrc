@@ -19,7 +19,7 @@ source "$ZDOTDIR/p10k.zsh"
 
 ## Load zsh-users/zsh-completion
 autoload -Uz compinit
-_comp_path="$XDG_CACHE_HOME/zsh/zcompdump"
+_comp_path="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
 if [[ $_comp_path(#qNmh-20) ]]; then
         compinit -C -d "$_comp_path"
     else
