@@ -1,9 +1,5 @@
 #!/bin/bash
 
-vitalize() {
-    return 0
-}
-
 is_exists() {
     which "$1" >/dev/null 2>&1
     return $?
@@ -29,25 +25,6 @@ msg_arrow() {
     printf " \033[37;1m%s\033[m\n" "➜ $*"
 }
 
-platform() {
-    case $OSTYPE in
-        "linux-gnu")
-            if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
-                PLATFORM="wsl"
-            else
-                PLATFORM="linux"
-            fi
-            ;;
-        "linux-android")
-            PLATFORM="android"
-            ;;
-        *)
-            PLATFORM="unknown"
-            ;;
-    esac
-    echo $PLATFORM
-}
-
 # Dotfiles {{{1
 
 # Set DOTPATH as default variable
@@ -64,12 +41,9 @@ dotfiles_logo='
   | (_| | (_) | |_| | | | |  __/\__ \ 
    \__,_|\___/ \__|_| |_|_|\___||___/ 
   *** WHAT IS INSIDE? ***
-  1. Download https://github.com/RShirohara/dotfiles.git
-  2. Symlinking dot files to your home directory
-  3. Execute all sh files within `etc/init/` (optional)
   See the README for documentation.
   https://github.com/RShirohara/dotfiles
-  Copyright (c) 2020 Ray Shirohara
+  Copyright (c) 2020-2021 Ray Shirohara
   Licensed under the MIT license.
 '
 

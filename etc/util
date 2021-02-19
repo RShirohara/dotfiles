@@ -1,0 +1,75 @@
+#!/bin/bash
+# using in install process.
+
+m_header() {
+    printf " \033[37;1m%s\033[m\n" "$*"
+}
+
+m_indent() {
+    for ((i=0; i<${1:-2}; i++)); do
+        echo -n " "
+    done
+    if [ -n "$2" ]; then
+        echo "$2"
+    else
+        cat -
+    fi
+}
+
+m_arrow() {
+    printf " \033[37;1m%s\033[m\n" "➜ $*"
+}
+
+m_done() {
+    printf " \033[37;1m%s\033[m...\033[32mOK\033[m\n" "✔ $*"
+}
+
+m_error() {
+    printf " \033[31m%s\033[m\n" "✖ $*" 1>&2
+}
+
+m_warning() {
+    printf " \033[31m%s\033[m\n" "$*"
+}
+
+is_exists() {
+    which "$1" &>/dev/null
+    return "$?"
+}
+
+get_os() {
+    local os
+    case "$OSTYPE" in
+        'linux-gnu')
+            os='linux'
+            ;;
+        'linux-android')
+            os='android'
+            ;;
+        *)
+            os='unknown'
+            ;;
+    esac
+    echo "$os"
+}
+
+get_platform() {
+    local platform
+    local os=$(get_os)
+    case "$os" in
+        'linux')
+            if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+                platform='wsl'
+            fi
+            ;;
+        'android')
+            if [ -d /data/data/com.termux ]; then
+                platform='termux'
+            fi
+            ;;
+        *)
+            platform='unknown'
+            ;;
+    esac
+    echo "$platform"
+}

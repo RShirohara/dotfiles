@@ -1,7 +1,7 @@
 # Defines environment variables.
 
 ## Dotfiles path.
-export DOTFILES="$HOME/.dotfiles"
+export DOTPATH="$HOME/.dotfiles"
 
 ## XDG Base Directory.
 export XDG_CONFIG_HOME="$HOME/.config"
