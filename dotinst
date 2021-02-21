@@ -1,0 +1,201 @@
+#!/bin/bash
+# dotfiles install script.
+
+export DOTPATH=$(realpath $(dirname "$0"))
+source "$DOTPATH/etc/util"
+
+target=('dotfiles' 'config' 'bin')
+platform=('wsl' 'termux')
+
+_ls="ls -aA"
+_mkdir="mkdir -p"
+
+_init_git() {
+    m_arrow 'Git submodules fix...'
+    git submodule update --init --recursive
+    m_end 'Fix submodules' "$?"
+}
+
+
+_init_vim() {
+    m_arrow 'Vim plugin update...'
+    vim +PlugUpdate +PlugClean! +qall
+    m_end 'Update vim plugins' "$?"
+}
+
+_init_zsh() {
+    m_arrow 'Zinit update...'
+    m_end 'Update zsh plugins' "$?"
+}
+
+dotfiles_logo='
+    | |     | |  / _(_) |           
+  __| | ___ | |_| |_ _| | ___  ___  
+ / _` |/ _ \| __|  _| | |/ _ \/ __| 
+| (_| | (_) | |_| | | | |  __/\__ \ 
+ \__,_|\___/ \__|_| |_|_|\___||___/ 
+https://github.com/RShirohara/dotfiles
+Copyright (c) 2020-2021 Ray Shirohara
+Licensed under the MIT license.
+'
+
+usage() {
+    case "$1" in
+        'list')
+            cat << FIN
+Usage:
+    ./$(basename "$0") list [target]
+
+Optional arguments:
+    target      : [bin, config, dotfiles]
+FIN
+            ;;
+        'install')
+            cat << FIN
+Usage:
+    ./$(basename "$0") install
+FIN
+            ;;
+        'clean')
+            cat << FIN
+Usage:
+    ./$(basename "$0") clean
+FIN
+            ;;
+        'init')
+            cat <<FIN
+Usage:
+    ./$(basename "$0") init [target]
+
+Optional arguments:
+    target      : target command.
+                    - git       : submodules
+                    - vim       : vim-plug
+                    - zsh       : zinit
+FIN
+            ;;
+        '')
+            cat << FIN
+$dotfiles_logo
+$(basename "$0") is a tool for install, clean, and initialize dotfiles.
+
+Usage:
+    ./$(basename "$0") [command] [...arguments]
+
+Available commands:
+    list        : show symlinks.
+    install     : create symlinks to target directory.
+    clean       : remove symlinks.
+    init        : initialize.
+
+For more details, see also: "./$(basename "$0") help [command]".
+FIN
+            ;;
+    esac
+}
+
+target_path() {
+    local path
+    case "$1" in
+        'bin')
+            path="$2/bin/"
+            ;;
+        'config')
+            path="$2/config/"
+            ;;
+        'dotfiles')
+            path="$2/dotfiles/"
+            ;;
+    esac
+    echo "$path"
+}
+
+get_files(){
+    local files=()
+    local target
+    files+=($($_ls "$1" | grep -Ev "$(echo ${platform[@]} | sed 's/ /|/g')-"))
+    if [ -n "$2" ]; then
+        files+=($($_ls "$1" | grep -E "$(echo $2)-"))
+    fi
+    echo ${files[@]}
+}
+
+list() {
+    local path
+    case "$1" in
+        '')
+            path=$(for t in "${target[@]}"; do target_path "$t" "$DOTPATH"; done)
+            ;;
+        *)
+            path=$(target_path "$1" "$DOTPATH")
+            ;;
+    esac
+    find $path -type f
+}
+
+deploy() {
+    m_header 'Start to deploy dotfiles to home directory...'
+    if [ ! -d "$HOME/.config" ]; then $_mkdir "$HOME/.config"; fi
+    if [ ! -d "$HOME/.local/bin" ]; then $_mkdir "$HOME/.local/bin"; fi
+
+    for f in $(get_files dotfiles); do ln -fnsv "$DOTPATH/dotfiles/$f" "$HOME/"; done
+    for f in $(get_files config); do ln -fnsv "$DOTPATH/config/$f" "$HOME/.config/"; done
+    for f in $(get_files bin "$(get_platform)"); do
+        ln -fnsv "$DOTPATH/bin/$f" "$HOME/.local/bin/";
+    done
+    m_done 'Deploy...'
+}
+
+clean() {
+    m_header 'Cleanup dotfiles in home directory...'
+    for f in $(get_files dotfiles); do rm -vrf "$HOME/$f"; done
+    for f in $(get_files config); do rm -vrf "$HOME/.config/$f"; done
+    for f in $(get_files bin "$(get_platform)"); do rm -vrf "$HOME/.local/bin/$f"; done
+    m_done 'Cleanup...'
+}
+
+initialize() {
+    m_header 'Initialize dotfiles...'
+    case "$1" in
+        'git')
+            _init_git
+            ;;
+        'vim')
+            _init_vim
+            ;;
+        '_zsh')
+            _init_zsh
+            ;;
+        '')
+            _init_git
+            _init_vim
+            ;;
+    esac
+    m_done 'Initialize...'
+}
+
+# Exec.
+
+if [ $(basename "$0") = "dotinst" ]; then
+    command="$1"
+    shift
+
+    trap "m_error 'terminated'; exit 1" HUP INT QUIT TERM
+    case "$command" in
+        'list')
+            list "$@"
+            ;;
+        'install')
+            deploy "$@"
+            ;;
+        'clean')
+            clean "$@"
+            ;;
+        'init')
+            initialize "$@"
+            ;;
+        'help'|'-h'|'--help'|''|*)
+            usage "$@"
+            ;;
+    esac
+fi
