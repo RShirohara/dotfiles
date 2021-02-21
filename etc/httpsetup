@@ -68,13 +68,13 @@ dotfiles_deploy() {
         exit 1
     fi
     cd "$DOTPATH"
-    make install &&
+    ./dotinst install &&
     msg_done "Deploy"
 }
 
 dotfiles_initilize() {
     msg_header "Initilizing dotfiles..."
-    make init &&
+    ./dotinst init &&
     msg_done "Initilize"
 }
 
