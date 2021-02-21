@@ -20,7 +20,7 @@ EOF
 }
 
 function paste() {
-    "$ps" /c Get-Clipboard | sed -Ez -e "s/r//g" -e "s/\n{2}/\n/"
+    "$ps" /c Get-Clipboard | sed -Ez -e "s/\r//g" -e "s/\n{2}/\n/"
 }
 
 case "$1" in 

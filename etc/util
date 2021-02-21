@@ -32,9 +32,12 @@ m_warning() {
     printf " \033[31m%s\033[m\n" "$*"
 }
 
-is_exists() {
-    which "$1" &>/dev/null
-    return "$?"
+m_end() {
+    if [ "$2" = 0 ]; then
+        m_done "$1"
+    else
+        m_error "$1"
+    fi
 }
 
 get_os() {
@@ -72,4 +75,9 @@ get_platform() {
             ;;
     esac
     echo "$platform"
+}
+
+exist_command() {
+    which "$1" &>/dev/null
+    return "$?"
 }
