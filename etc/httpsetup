@@ -67,14 +67,13 @@ dotfiles_deploy() {
         msg_error "$DOTPATH: not found"
         exit 1
     fi
-    cd "$DOTPATH"
-    ./dotinst install &&
+    "$DOTPATH/dotinst" install &&
     msg_done "Deploy"
 }
 
 dotfiles_initilize() {
     msg_header "Initilizing dotfiles..."
-    ./dotinst init &&
+    "$DOTPATH/dotinst" init &&
     msg_done "Initilize"
 }
 

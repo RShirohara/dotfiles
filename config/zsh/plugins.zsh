@@ -16,7 +16,7 @@ zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
 #### prezto modules
-zinit snippet PZT::modules/enviroment/init.zsh
+zinit snippet PZT::modules/environment/init.zsh
 zinit snippet PZT::modules/terminal/init.zsh
 zinit snippet PZT::modules/editor/init.zsh
 zinit snippet PZT::modules/history/init.zsh

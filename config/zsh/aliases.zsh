@@ -25,6 +25,7 @@ alias mkdir="${aliases[mkdir]:-mkdir} -p"
 alias type='type -a'
 
 ### ls
+alias ls='ls --group-directories-first --color=auto'
 alias l='ls -1A'
 alias ll='ls -lh'
 alias lr='ll -R'
