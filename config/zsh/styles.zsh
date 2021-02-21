@@ -2,7 +2,7 @@
 
 ## prezto modules
 zstyle ':prezto:*:*' color 'yes'
-zstyle ':prezto:module:editor' key-binding 'vim'
+zstyle ':prezto:module:editor' key-binding 'emacs'
 zstyle ':prezto:module:terminal' auto-title 'yes'
 zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
 zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
