@@ -2,7 +2,7 @@
 
 ## prezto/utility
 ### Disable correction.
-alias cd='nocorrect ack'
+alias cd='nocorrect cd'
 alias cp='nocorrect cp'
 alias gcc='nocorrect gcc'
 alias grep='nocorrect grep'
