@@ -3,9 +3,6 @@
 # author: RShirohara
 # copy & paste
 
-clip=$(which clip.exe)
-ps=$(which powershell.exe)
-
 function usage() {
     cat << EOF
 $(basename ${0}) is a tool for copy & paste on WSL.
@@ -19,25 +16,30 @@ Options:
 EOF
 }
 
-function paste() {
-    "$ps" /c Get-Clipboard | sed -Ez -e "s/\r//g" -e "s/\n{2}/\n/"
+function _get() {
+    powershell.exe /c Get-Clipboard | sed -Ez -e "s/\r//g"
 }
 
-case "$1" in 
-    -h|--help )
+function _set() {
+    printf "$1" | clip.exe
+}
+
+case "$1" in
+    '-h'|'--help' )
         usage
         ;;
-    -n )
-        paste | sed -z "s/\n$//"
+    '-n' )
+        _get | sed -z "s/\n$//"
         ;;
-    -i )
-        printf "$2" | "$clip"
-        ;;
-    "" )
+    '')
         if [ -p /dev/stdin ]; then
-            cat - | "$clip"
+            _s=$(cat -)
+            _set "$_s"
         else
-            paste
+            _get
         fi
+        ;;
+    * )
+        _set "$1"
         ;;
 esac

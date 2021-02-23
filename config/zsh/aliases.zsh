@@ -40,3 +40,6 @@ alias lu='lt -u'
 ## python
 alias py='python'
 alias py3='python3'
+
+## clear
+alias clr='clear'

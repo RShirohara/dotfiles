@@ -65,8 +65,8 @@ hi Normal guibg=NONE ctermbg=NONE
 set clipboard=unnamedplus
 
 """ wsl
-if executable('copy')
-    let s:clip='copy'
+if executable('wsl-copy')
+    let s:clip='wsl-copy'
     au TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
     vnoremap <RightMouse> y
     nnoremap <RightMouse> p

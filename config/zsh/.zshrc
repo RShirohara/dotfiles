@@ -13,6 +13,7 @@ source "$ZDOTDIR/styles.zsh"
 source "$ZDOTDIR/plugins.zsh"
 
 ### Load functions.
+source "$DOTPATH/etc/util"
 source "$ZDOTDIR/func.zsh"
 source "$ZDOTDIR/aliases.zsh"
 
