@@ -9,16 +9,16 @@ m_indent() {
     local sp=''
     local st=''
     if [ -n "$2" ]; then
-        st="$2"
+        st="echo '$2'"
     else
-        st=`cat -`
+        st='cat'
     fi
 
     for ((i=0; i<${1:-2}; i++)); do
         sp="$sp "
     done
 
-    echo "$st" | sed -E "s/^/$sp/g"
+    $st | sed -E "s/^/$sp/g"
 }
 
 m_arrow() {
