@@ -7,8 +7,8 @@ source "$DOTPATH/etc/util"
 target=('dotfiles' 'config' 'bin')
 platform=('wsl' 'termux')
 
-_ls="ls -aA"
-_mkdir="mkdir -p"
+_ls="/bin/ls -A"
+_mkdir="/bin/mkdir -p"
 
 _init_git() {
     m_arrow 'Git submodules fix...'

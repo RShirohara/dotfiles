@@ -7,7 +7,7 @@ m_header() {
 
 m_indent() {
     for ((i=0; i<${1:-2}; i++)); do
-        echo -n " "
+        printf " "
     done
     if [ -n "$2" ]; then
         echo "$2"
