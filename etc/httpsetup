@@ -67,15 +67,16 @@ dotfiles_deploy() {
         exit 1
     fi
     cd "$DOTPATH"
-    ./dotinst install &&
+    ./dotinst install
 }
 
 dotfiles_initilize() {
     cd "$DOTPATH"
-    ./dotinst init &&
+    ./dotinst init
 }
 
 dotfiles_install() {
+    dotfiles_download &&
     dotfiles_deploy &&
     dotfiles_initilize
 }
