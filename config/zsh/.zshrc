@@ -34,5 +34,12 @@ unset _comp_path
 HISTSIZE=100000
 SAVEHIST=100000
 
+## $BROWSER
+if [ `get_platform` = 'wsl' ]; then
+    export BROWSER='wsl-open'
+elif [ `get_platform` = 'termux' ]; then
+    export BROWSER='termux-open'
+fi
+
 ## GPG signing
 export GPG_TTY="$TTY"
