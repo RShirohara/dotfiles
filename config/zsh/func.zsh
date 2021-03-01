@@ -102,7 +102,7 @@ copy() {
             se='termux-clipboard-se'
             ;;
         *)
-            m_error 'command not found'
+            m_error 'Command not found'
             return 1
             ;;
     esac
@@ -129,4 +129,23 @@ copy() {
         *)
             $se "$*"
     esac
+}
+
+## Open on terminal.
+open() {
+    local send
+    case `get_platform` in
+        'wsl')
+            send='wsl-open'
+            ;;
+        'termux')
+            send='termux-open'
+            ;;
+        *)
+            m_error 'Command not found'
+            return 1
+            ;;
+    esac
+
+    $send "$*"
 }
