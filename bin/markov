@@ -12,7 +12,7 @@ import MeCab
 
 def get_args():
     _parser = ArgumentParser(description="Markov word generator")
-    _parser.add_argument("-p", "--path", type=str)
+    _parser.add_argument("-i", "--input", type=str)
     _parser.add_argument("-r", "--repeat", type=int, default=10)
     _parser.add_argument("-s", "--state_size", type=int, default=2)
     return _parser.parse_args()
@@ -57,6 +57,6 @@ def markov(_str, _repeat, _size):
 
 if __name__ == "__main__":
     args = get_args()
-    data = get_data(args.path)
+    data = get_data(args.input)
     result = markov(data, args.repeat, args.state_size)
     print(result)
