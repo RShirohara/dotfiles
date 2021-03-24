@@ -21,7 +21,7 @@ function _get() {
 }
 
 function _set() {
-    printf "$1" | clip.exe
+    echo -n "$1" | clip.exe
 }
 
 case "$1" in

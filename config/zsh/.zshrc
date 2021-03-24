@@ -43,3 +43,17 @@ fi
 
 ## GPG signing
 export GPG_TTY="$TTY"
+
+## Use Yubikey on WSL
+if [ `get_platform` = 'wsl' ]; then
+    WIN_HOME_DIR='/mnt/d/Users/RShirohara'
+    WIN_GPG_DIR="`wslpath -m $WIN_HOME_DIR`/Appdata/Roaming/gnupg"
+
+    if ! pgrep -f 'socat.*gpg-agent.*npiperelay' >/dev/null; then
+        rm -f "$HOME/.gnupg/S.gpg-agent"
+        setsid nohup socat \
+            UNIX-LISTEN:"$HOME/.gnupg/S.gpg-agent,fork" \
+            EXEC:'npiperelay.exe -ei -ep -s -a "'"$WIN_GPG_DIR"'/S.gpg-agent",nofork' &>/dev/null &
+    fi
+    export SSH_AUTH_SOCK="$WIN_HOME_DIR/ssh-agent.sock"
+fi
