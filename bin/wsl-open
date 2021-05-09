@@ -17,7 +17,7 @@ parse() {
     if [[ "$1" =~ ^([a-zA-Z]+)://(.+)\.(.+) ]]; then
         target="$1"
     else
-        target=$(wslpath -w "$(readlink -f "$1")" 2>/dev/null)
+        target=$(wslpath -w "$(readlink -f "${1:-.}")" 2>/dev/null)
     fi
     echo "$target"
 }
