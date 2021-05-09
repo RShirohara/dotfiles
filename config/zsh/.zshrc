@@ -31,21 +31,17 @@ fi
 unset _comp_path
 
 ## History
-HISTSIZE=100000
-SAVEHIST=100000
+HISTSIZE=1000000
+SAVEHIST=1000000
 
 ## $BROWSER
-if [ `get_platform` = 'wsl' ]; then
-    export BROWSER='wsl-open'
-elif [ `get_platform` = 'termux' ]; then
-    export BROWSER='termux-open'
-fi
+export BROWSER='open'
 
 ## GPG signing
 export GPG_TTY="$TTY"
 
 ## Use Yubikey on WSL
-if [ `get_platform` = 'wsl' ]; then
+if which npiperelay.exe &>/dev/null; then
     WIN_HOME_DIR='/mnt/d/Users/RShirohara'
     WIN_GPG_DIR="`wslpath -m $WIN_HOME_DIR`/Appdata/Roaming/gnupg"
 
