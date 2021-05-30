@@ -21,10 +21,10 @@ function _get() {
 }
 
 function _set() {
-    echo -n "$1" | clip.exe
+    printf "${1}" | clip.exe
 }
 
-case "$1" in
+case "${1}" in
     '-h'|'--help' )
         usage
         ;;
@@ -34,12 +34,12 @@ case "$1" in
     '')
         if [ -p /dev/stdin ]; then
             _s=$(cat -)
-            _set "$_s"
+            _set "${_s}"
         else
             _get
         fi
         ;;
     * )
-        _set "$1"
+        _set "${1}"
         ;;
 esac

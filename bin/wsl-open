@@ -14,19 +14,19 @@ EOF
 
 parse() {
     local target
-    if [[ "$1" =~ ^([a-zA-Z]+)://(.+)\.(.+) ]]; then
-        target="$1"
+    if [[ "${1}" =~ ^([a-zA-Z]+)://(.+)\.(.+) ]]; then
+        target="${1}"
     else
         target=$(wslpath -w "$(readlink -f "${1:-.}")" 2>/dev/null)
     fi
-    echo "$target"
+    printf "${target}"
 }
 
-case "$1" in
+case "${1}" in
     '-h'|'--help')
         usage
         ;;
     *)
-        powershell.exe /c start "'$(parse "$1")'"
+        powershell.exe /c start "'$(parse "${1}")'"
         ;;
 esac
