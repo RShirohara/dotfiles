@@ -8,7 +8,7 @@ ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
 
 ## Load
 ### zinit
-source "$ZINIT[BIN_DIR]/zinit.zsh"
+source "${ZINIT[BIN_DIR]}/zinit.zsh"
 
 ### Plugins
 #### powerlevel10k
@@ -23,8 +23,14 @@ zinit snippet PZT::modules/history/init.zsh
 zinit snippet PZT::modules/directory/init.zsh
 zinit snippet PZT::modules/spectrum/init.zsh
 
-### zsh customize
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-history-substring-search
+### auto-suggestion
+zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
+
+### completion
+zinit ice blockf
+zinit light zsh-users/zsh-completions
+
+### zsh customize
+zinit light zsh-users/zsh-history-substring-search
 zinit light zsh-users/zsh-syntax-highlighting

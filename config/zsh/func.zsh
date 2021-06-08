@@ -15,7 +15,7 @@ m_indent() {
     fi
 
     for ((i=0; i<${1:-2}; i++)); do
-        sp="$sp "
+        sp="${sp} "
     done
 
     $st | sed -E "s/^/$sp/g"
@@ -48,7 +48,7 @@ m_end() {
 ## Get device info
 get_os (){
     local os
-    case "$OSTYPE" in
+    case "${OSTYPE}" in
         'linux-gnu')
             os='linux'
             ;;
@@ -59,7 +59,7 @@ get_os (){
             os='unknown'
             ;;
     esac
-    echo "$os"
+    echo "${os}"
 }
 
 get_platform() {
@@ -79,7 +79,7 @@ get_platform() {
             plat='unknown'
             ;;
     esac
-    echo "$plat"
+    echo "${plat}"
 }
 
 ## Check exist command

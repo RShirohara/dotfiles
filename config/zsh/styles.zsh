@@ -10,7 +10,7 @@ zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 ## zsh-users/zsh-completions
 ## based on prezto/completion
 zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
+zstyle ':completion::complete:*' cache-path "${XDG_CACHE_HOME}/zsh/zcompcache"
 
 ### Case-insensitive (all), partial-word, and then substring completion.
 if zstyle -t ':prezto:module:completion:*' case-sensitive; then
@@ -111,9 +111,9 @@ zstyle ':completion:*:*:ogg123:*' file-patterns '*.(ogg|OGG|flac):ogg\ files *(-
 zstyle ':completion:*:*:mocp:*' file-patterns '*.(wav|WAV|mp3|MP3|ogg|OGG|flac):ogg\ files *(-/):directories'
 
 ### Mutt
-if [[ -s "$HOME/.mutt/aliases" ]]; then
+if [[ -s "${HOME}/.mutt/aliases" ]]; then
     zstyle ':completion:*:*:mutt:*' menu yes select
-    zstyle ':completion:*:mutt:*' users ${${${(f)"$(<"$HOME/.mutt/aliases")"}#alias[[:space:]]}%%[[:space:]]*}
+    zstyle ':completion:*:mutt:*' users ${${${(f)"$(<"${HOME}/.mutt/aliases")"}#alias[[:space:]]}%%[[:space:]]*}
 fi
 
 ### SSH/SCP/RSYNC
