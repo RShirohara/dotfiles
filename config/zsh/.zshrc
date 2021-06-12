@@ -49,7 +49,7 @@ if which npiperelay.exe &>/dev/null; then
     WIN_GPG_DIR="`wslpath -m ${WIN_HOME_DIR}`/Appdata/Roaming/gnupg"
 
     if ! pgrep -f 'socat.*gpg-agent.*npiperelay' >/dev/null; then
-        rm -f "i${HOME}/.gnupg/S.gpg-agent"
+        rm -f "${HOME}/.gnupg/S.gpg-agent"
         setsid nohup socat \
             UNIX-LISTEN:"${HOME}/.gnupg/S.gpg-agent,fork" \
             EXEC:'npiperelay.exe -ei -ep -s -a "'"${WIN_GPG_DIR}"'/S.gpg-agent",nofork' &>/dev/null &
