@@ -59,7 +59,7 @@ get_os (){
             os='unknown'
             ;;
     esac
-    echo "${os}"
+    echo -E"${os}"
 }
 
 get_platform() {
@@ -79,7 +79,7 @@ get_platform() {
             plat='unknown'
             ;;
     esac
-    echo "${plat}"
+    echo -E "${plat}"
 }
 
 ## Check exist command

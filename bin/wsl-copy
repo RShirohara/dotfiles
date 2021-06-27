@@ -5,10 +5,10 @@
 
 function usage() {
     cat << EOF
-$(basename ${0}) is a tool for copy & paste on WSL.
+$(basename "${0}") is a tool for copy & paste on WSL.
 
 Usage:
-    $(basename ${0}) [<options>]
+    $(basename "${0}") [<options>]
 
 Options:
     --help, -h      print this
@@ -21,7 +21,7 @@ function _get() {
 }
 
 function _set() {
-    printf "${1}" | clip.exe
+    echo -nE "${1}" | clip.exe
 }
 
 case "${1}" in
