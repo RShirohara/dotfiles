@@ -59,7 +59,7 @@ get_os (){
             os='unknown'
             ;;
     esac
-    echo -E"${os}"
+    echo -E "${os}"
 }
 
 get_platform() {
