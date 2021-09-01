@@ -37,12 +37,6 @@ unset _comp_path
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-## $BROWSER
-export BROWSER='open'
-
-## GPG signing
-export GPG_TTY="${TTY}"
-
 ## Use Yubikey on WSL
 if which npiperelay.exe &>/dev/null; then
     WIN_HOME_DIR='/mnt/d/Users/RShirohara'
