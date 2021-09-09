@@ -23,14 +23,13 @@ zinit snippet PZT::modules/history/init.zsh
 zinit snippet PZT::modules/directory/init.zsh
 zinit snippet PZT::modules/spectrum/init.zsh
 
-### auto-suggestion
+#### auto-suggestion
 zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
-### completion
+#### completion
 zinit ice blockf
 zinit light zsh-users/zsh-completions
 
-### zsh customize
 zinit light zsh-users/zsh-history-substring-search
-zinit light zsh-users/zsh-syntax-highlighting
+zinit light zdharma/fast-syntax-highlighting
