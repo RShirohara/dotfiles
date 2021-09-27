@@ -21,6 +21,24 @@ Copyright (c) 2020-2021 Ray Shirohara
 Licensed under the MIT license.
 '
 
+function convertto_homepath() { 
+    local source="$1"
+    if [ -p /dev/stdin ]; then
+        source=$(cat -)
+    fi
+
+    echo -nE "${source}" | sed -e "s#^${SRC_DIR}#${HOME}#g"
+}
+
+function convertto_relativepath() {
+    local source="$1"
+    if [ -p /dev/stdin ]; then
+        source=$(cat -)
+    fi
+
+    echo -nE "${source}" | sed -e "s#^${SRC_DIR}/##g"
+}
+
 function get_dirlist() {
     local result=$(find "${SRC_DIR}" -type d)
 
@@ -29,10 +47,10 @@ function get_dirlist() {
             echo -E "${result}"
             ;;
         'home')
-            echo -E "${result}" | sed -e "s#^${SRC_DIR}#${HOME}#g"
+            echo -E "${result}" | convertto_homepath
             ;;
         *)
-            echo -E "${result}" | sed -e "s#^${SRC_DIR}/##g"
+            echo -E "${result}" | convertto_relativepath
             ;;
     esac
 }
@@ -45,10 +63,10 @@ function get_filelist() {
             echo -E "${result}"
             ;;
         'home')
-            echo -E "${result}" | sed -e "s#^${SRC_DIR}#${HOME}#g"
+            echo -E "${result}" | convertto_homepath
             ;;
         *)
-            echo -E "${result}" | sed -e "s#^${SRC_DIR}/##g"
+            echo -E "${result}" | convertto_relativepath
             ;;
     esac
 }
@@ -151,7 +169,7 @@ function deploy() {
 
     set_filecache
     for file in $(get_filelist dot); do
-        ln -fnsv "${file}" "${HOME}"
+        ln -fnsv "${file}" "$(dirname "${file}" | convertto_homepath)"
     done
 }
 
