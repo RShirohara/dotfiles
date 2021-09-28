@@ -27,48 +27,24 @@ function convertto_homepath() {
         source=$(cat -)
     fi
 
-    echo -nE "${source}" | sed -e "s#^${SRC_DIR}#${HOME}#g"
+    echo -E "${source}" | sed -e "s#^#${HOME}/#g"
 }
 
-function convertto_relativepath() {
+function convertto_dotpath() {
     local source="$1"
     if [ -p /dev/stdin ]; then
         source=$(cat -)
     fi
 
-    echo -nE "${source}" | sed -e "s#^${SRC_DIR}/##g"
+    echo -E "${source}" | sed -e "s#^#${SRC_DIR}/#g"
 }
 
 function get_dirlist() {
-    local result=$(find "${SRC_DIR}" -type d)
-
-    case "$1" in
-        'dot')
-            echo -E "${result}"
-            ;;
-        'home')
-            echo -E "${result}" | convertto_homepath
-            ;;
-        *)
-            echo -E "${result}" | convertto_relativepath
-            ;;
-    esac
+    find "${SRC_DIR}" -type d -printf "%P\n"
 }
 
 function get_filelist() {
-    local result=$(find "${SRC_DIR}" -type f,l)
-
-    case "$1" in
-        'dot')
-            echo -E "${result}"
-            ;;
-        'home')
-            echo -E "${result}" | convertto_homepath
-            ;;
-        *)
-            echo -E "${result}" | convertto_relativepath
-            ;;
-    esac
+    find "${SRC_DIR}" -type f,l -printf "%P\n"
 }
 
 function get_filecache() {
@@ -86,7 +62,7 @@ function set_filecache() {
         mkdir -p "${CACHE_DIR}"
     fi
 
-    get_filelist home | tee "${DEPFILE_PATH}" > /dev/null
+    get_filelist home > "${DEPFILE_PATH}"
 }
 
 function initialize_git() {
@@ -98,7 +74,7 @@ function initialize_vim() {
 }
 
 function initialize_zsh() {
-    bash -ic "zinit update --all; zinit delete --clean"
+    zsh -ic "zinit update --all; zinit delete --clean"
 }
 
 function usage() {
@@ -159,17 +135,31 @@ FIN
     esac
 }
 
+function list() {
+    case "$1" in
+        'dot')
+            get_filelist | convertto_dotpath
+            ;;
+        'home')
+            get_filelist | convertto_homepath
+            ;;
+        *)
+            get_filelist
+            ;;
+    esac
+}
+
 function deploy() {
     # Check target directory exists.
-    for dir in $(get_dirlist home); do
+    for dir in $(get_dirlist | convertto_homepath); do
         if [ ! -d "${dir}" ]; then
             mkdir -p "${dir}"
         fi
     done
 
     set_filecache
-    for file in $(get_filelist dot); do
-        ln -fnsv "${file}" "$(dirname "${file}" | convertto_homepath)"
+    for file in $(get_filelist); do
+        ln -fnsv "$(convertto_dotpath "${file}")" "$(dirname "${file}" | convertto_homepath)"
     done
 }
 
@@ -211,7 +201,7 @@ if [ $(basename "$0") = "dotinst" ]; then
 
     case "${command}" in
         'list')
-            get_filelist "$@"
+            list "$@"
             ;;
         'deploy'|'install')
             deploy
