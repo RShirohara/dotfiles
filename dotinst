@@ -49,7 +49,7 @@ function get_filelist() {
 
 function get_filecache() {
     # Check cache exists.
-    if [ ! -f "${DEPFILE_PATH}"]; then
+    if [ ! -f "${DEPFILE_PATH}" ]; then
         return 1
     fi
 
@@ -74,7 +74,7 @@ function initialize_vim() {
 }
 
 function initialize_zsh() {
-    zsh -ic "zinit update --all; zinit delete --clean"
+    zsh -ilc "zinit update --all; zinit delete --clean"
 }
 
 function usage() {
@@ -110,7 +110,7 @@ Usage:
 
 Optional arguments:
     target      : target command.
-        - git       : submodules
+        - git       : git submodules
         - vim       : vim-plug
         - zsh       : zinit
 FIN
