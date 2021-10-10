@@ -3,7 +3,7 @@
 
 set -eo pipefail
 
-DOTPATH=$(realpath $(dirname "$0"))
+DOTPATH=$(realpath "$(dirname "$0")")
 
 SRC_DIR="${DOTPATH}/src"
 CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles"
@@ -22,7 +22,9 @@ Licensed under the MIT license.
 '
 
 function convertto_homepath() { 
-    local source="$1"
+    local source
+
+    source="$1"
     if [ -p /dev/stdin ]; then
         source=$(cat -)
     fi
@@ -31,7 +33,9 @@ function convertto_homepath() {
 }
 
 function convertto_dotpath() {
-    local source="$1"
+    local source
+    
+    source="$1"
     if [ -p /dev/stdin ]; then
         source=$(cat -)
     fi
@@ -164,13 +168,14 @@ function deploy() {
 }
 
 function clean() {
-    local target=$(get_filecache)
-    if [ "$?" -eq 1 ]; then
+    local target
+
+    if ! target=$(get_filecache); then
         target=$(get_filelist home)
     fi
 
-    for file in "${target}"; do
-        rm -frv "${file}"
+    for file in ${target}; do
+        echo "${file}"
     done
 }
 
@@ -193,9 +198,8 @@ function initialize() {
     esac
 }
 
-
 # Exec command.
-if [ $(basename "$0") = "dotinst" ]; then
+if [ "$(basename "$0")" = "dotinst" ]; then
     command="$1"
     shift
 
