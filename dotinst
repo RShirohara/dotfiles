@@ -69,6 +69,13 @@ function set_filecache() {
     get_filelist home > "${DEPFILE_PATH}"
 }
 
+function remove_filecache() {
+    # Check cache exists.
+    if [ -f "${DEPFILE_PATH}" ]; then
+        rm -fv "${DEPFILE_PATH}"
+    fi
+}
+
 function initialize_git() {
     git submodule update --init --recursive
 }
@@ -175,8 +182,9 @@ function clean() {
     fi
 
     for file in ${target}; do
-        echo "${file}"
+        rm -frv "${file}"
     done
+    remove_filecache
 }
 
 function initialize() {
