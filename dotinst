@@ -85,7 +85,7 @@ function initialize_vim() {
 }
 
 function initialize_zsh() {
-    zsh -ilc "zinit update --all; zinit delete --clean"
+    zsh -ilc "zinit update --allas"
 }
 
 function usage() {
@@ -177,12 +177,13 @@ function deploy() {
 function clean() {
     local target
 
-    if ! target=$(get_filecache); then
-        target=$(get_filelist home)
+    target=$(get_filecache | convertto_homepath)
+    if [ -z "${target}" ]; then
+        target=$(get_filelist | convertto_homepath)
     fi
 
     for file in ${target}; do
-        rm -frv "${file}"
+        rm -fv "${file}"
     done
     remove_filecache
 }
