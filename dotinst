@@ -5,8 +5,12 @@ set -eo pipefail
 
 DOTPATH=$(realpath "$(dirname "$0")")
 
+XDG_CONFIG_HOME="${HOME}/.config"
+XDG_CACHE_HOME="${HOME}/.cache"
+XDG_DATA_HOME="${HOME}/.local/share"
+
 SRC_DIR="${DOTPATH}/src"
-CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles"
+CACHE_DIR="${XDG_CACHE_HOME}/dotfiles"
 DEPFILE_PATH="${CACHE_DIR}/deployed.cache"
 
 dotfiles_logo='
@@ -21,74 +25,186 @@ Copyright (c) 2020-2021 Ray Shirohara
 Licensed under the MIT license.
 '
 
-function convertto_homepath() { 
-    local source
-
-    source="$1"
-    if [ -p /dev/stdin ]; then
+function convertto_homepath { 
+    local source="$1"
+    if [ "${source}" = "-"  ]; then
         source=$(cat -)
     fi
 
     echo -E "${source}" | sed -e "s#^#${HOME}/#g"
 }
 
-function convertto_dotpath() {
-    local source
-    
-    source="$1"
-    if [ -p /dev/stdin ]; then
+function convertto_dotpath {
+    local source="$1"
+    if [ "${source}" = "-" ]; then
         source=$(cat -)
     fi
 
     echo -E "${source}" | sed -e "s#^#${SRC_DIR}/#g"
 }
 
-function get_dirlist() {
-    find "${SRC_DIR}" -type d -printf "%P\n"
+function get_ostype {
+    local os="Unknown"
+
+    if [[ "$(cat /proc/version)" =~ [Mm]icrosoft ]]; then
+        os="WSL"
+    else
+        case "${OSTYPE}" in
+            darwin*)
+                os="OSX"
+                ;;
+            "linux-android")
+                os="Android"
+                ;;
+            linux-*)
+                os="Linux"
+                ;;
+        esac
+    fi
+
+    echo "${os}"
 }
 
-function get_filelist() {
-    find "${SRC_DIR}" -type f,l -printf "%P\n"
+function find_command {
+    command -v "$@" >/dev/null
 }
 
-function get_filecache() {
+function convertfrom_alternatefile {
+    local path="$1"
+    local parameter
+    local score=0
+    
+    if [ "${path}" = "-" ]; then
+        path=$(cat -)
+    fi
+
+    for file in ${path}; do
+        # Get local
+        # Get altenative parameters.
+        parameter=$(basename "${file}" | sed -n "/##/p" | sed -r "s/^.+##//")
+
+        # Check parameters.
+        if [ -z "${parameter}" ]; then
+            score=$((score + 1))
+        else
+            IFS="," read -ra fields <<< "$parameter"
+            for field in "${fields[@]}"; do
+                local type="${field%.*}"
+                local value="${field#*.}"
+                # Get default conditions
+                if [[ "${type}" =~ ^(default)$ ]]; then 
+                    score=$((score + 1))
+                # Get variable conditions.
+                elif [[ "${type}" =~ ^(os)$ ]]; then
+                    if [ "${value}" = "$(get_ostype)" ]; then
+                        score=$((score + 2))
+                    else
+                        score=0
+                    fi
+                fi
+            done
+        fi
+
+        if [ ${score} -gt 0 ]; then
+            echo "${file%##*}"
+        fi
+    done
+}
+
+function find_alternatefile {
+    local path="$1"
+
+    if [ "${path}" = "-" ]; then
+        path=$(cat -)
+    fi
+
+    for file in $path; do
+        if [ -n "$(convertfrom_alternatefile "${file}")" ]; then
+            echo "${file}"
+        fi
+    done
+}
+
+function get_filelist {
+    find "${SRC_DIR}" -type f,l | find_alternatefile -
+}
+
+function get_dirlist {
+    find "${SRC_DIR}" -type d
+}
+
+function get_filecache {
     # Check cache exists.
-    if [ ! -f "${DEPFILE_PATH}" ]; then
+    if [ ! -s "${DEPFILE_PATH}" ]; then
         return 1
     fi
 
     cat "${DEPFILE_PATH}"
 }
 
-function set_filecache() {
+function set_filecache {
     # Check directory exiskts.
     if [ ! -d "${CACHE_DIR}" ]; then
         mkdir -p "${CACHE_DIR}"
     fi
 
-    get_filelist home > "${DEPFILE_PATH}"
+    get_filelist | 
+        convertfrom_alternatefile - | 
+        convertto_homepath - > "${DEPFILE_PATH}"
 }
 
-function remove_filecache() {
+function remove_filecache {
     # Check cache exists.
     if [ -f "${DEPFILE_PATH}" ]; then
         rm -fv "${DEPFILE_PATH}"
     fi
 }
 
-function initialize_git() {
+function set_symlink {
+    # Check target directory exists.
+    for dir in $(get_dirlist | convertto_homepath -); do
+        if [ ! -d "${dir}" ]; then
+            mkdir -p "${dir}"
+        fi
+    done
+
+    # Create symlinks
+    for file in $(get_filelist); do
+        local source=$(convertto_dotpath "${file}")
+        local target=$(convertfrom_alternatefile "${file}" | convertto_homepath -)
+        ln -fnsv "${source}" "${target}"
+    done
+function remove_symlink {
+    local target
+
+    target=$(get_filecache | convertto_homepath -)
+    if [ -z "${target}" ]; then
+        target=$(get_filelist | convertto_homepath -)
+    fi
+
+    for file in ${target}; do
+        rm -fv "${file}"
+    done
+}
+
+function initialize_git {
     git submodule update --init --recursive
 }
 
-function initialize_vim() {
+function initialize_vim {
     vim +PlugUpdate +PlugClean +qall
 }
 
-function initialize_zsh() {
+function initialize_zsh {
+    # Check data directory exists
+    if [ -d "${XDG_DATA_HOME}/zsh" ]; then
+        mkdir -p "${XDG_DATA_HOME}/zsh"
+    fi
+
     zsh -ilc "zinit update --allas"
 }
 
-function usage() {
+function usage {
     case "$1" in
         'list')
             cat << FIN
@@ -146,13 +262,13 @@ FIN
     esac
 }
 
-function list() {
+function list {
     case "$1" in
         'dot')
-            get_filelist | convertto_dotpath
+            get_filelist | convertto_dotpath -
             ;;
         'home')
-            get_filelist | convertto_homepath
+            get_filelist | convertfrom_alternatefile - | convertto_homepath -
             ;;
         *)
             get_filelist
@@ -160,35 +276,15 @@ function list() {
     esac
 }
 
-function deploy() {
-    # Check target directory exists.
-    for dir in $(get_dirlist | convertto_homepath); do
-        if [ ! -d "${dir}" ]; then
-            mkdir -p "${dir}"
-        fi
-    done
-
-    set_filecache
-    for file in $(get_filelist); do
-        ln -fnsv "$(convertto_dotpath "${file}")" "$(dirname "${file}" | convertto_homepath)"
-    done
+function deploy {
+    set_filecache && set_symlink
 }
 
-function clean() {
-    local target
-
-    target=$(get_filecache | convertto_homepath)
-    if [ -z "${target}" ]; then
-        target=$(get_filelist | convertto_homepath)
-    fi
-
-    for file in ${target}; do
-        rm -fv "${file}"
-    done
-    remove_filecache
+function clean {
+    remove_symlink && remove_filecache
 }
 
-function initialize() {
+function initialize {
     case "$1" in
         'git')
             initialize_git
