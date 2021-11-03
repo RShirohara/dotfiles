@@ -31,7 +31,7 @@ function convertto_homepath {
         source=$(cat -)
     fi
 
-    echo -E "${source}" | sed -e "s#^#${HOME}/#g"
+    echo -E "${source}" | sed -e "s#^${SRC_DIR}#${HOME}#g"
 }
 
 function convertto_dotpath {
@@ -40,7 +40,7 @@ function convertto_dotpath {
         source=$(cat -)
     fi
 
-    echo -E "${source}" | sed -e "s#^#${SRC_DIR}/#g"
+    echo -E "${source}" | sed -e "s#^${HOME}#${SRC_DIR}#g"
 }
 
 function get_ostype {
@@ -170,10 +170,12 @@ function set_symlink {
 
     # Create symlinks
     for file in $(get_filelist); do
-        local source=$(convertto_dotpath "${file}")
+        local source="${file}"
         local target=$(convertfrom_alternatefile "${file}" | convertto_homepath -)
         ln -fnsv "${source}" "${target}"
     done
+}
+
 function remove_symlink {
     local target
 
@@ -264,9 +266,6 @@ FIN
 
 function list {
     case "$1" in
-        'dot')
-            get_filelist | convertto_dotpath -
-            ;;
         'home')
             get_filelist | convertfrom_alternatefile - | convertto_homepath -
             ;;
