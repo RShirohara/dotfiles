@@ -203,7 +203,7 @@ function initialize_zsh {
         mkdir -p "${XDG_DATA_HOME}/zsh"
     fi
 
-    zsh -ilc "zinit update --allas"
+    zsh -ilc "zinit update --all"
 }
 
 function usage {

@@ -32,4 +32,4 @@ zinit ice blockf
 zinit light zsh-users/zsh-completions
 
 zinit light zsh-users/zsh-history-substring-search
-zinit light zdharma/fast-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
