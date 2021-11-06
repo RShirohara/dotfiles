@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # dotfiles install script.
 
 set -eo pipefail
@@ -8,6 +8,7 @@ DOTPATH=$(realpath "$(dirname "$0")")
 XDG_CONFIG_HOME="${HOME}/.config"
 XDG_CACHE_HOME="${HOME}/.cache"
 XDG_DATA_HOME="${HOME}/.local/share"
+XDG_STATE_HOME="${HOME}/.local/state"
 
 SRC_DIR="${DOTPATH}/src"
 CACHE_DIR="${XDG_CACHE_HOME}/dotfiles"
@@ -44,20 +45,20 @@ function convertto_dotpath {
 }
 
 function get_ostype {
-    local os="Unknown"
+    local os="unknown"
 
     if [[ "$(cat /proc/version)" =~ [Mm]icrosoft ]]; then
-        os="WSL"
+        os="wsl"
     else
         case "${OSTYPE}" in
             darwin*)
-                os="OSX"
+                os="osx"
                 ;;
             "linux-android")
-                os="Android"
+                os="android"
                 ;;
             linux-*)
-                os="Linux"
+                os="linux"
                 ;;
         esac
     fi
@@ -66,7 +67,7 @@ function get_ostype {
 }
 
 function find_command {
-    command -v "$@" >/dev/null
+    command -v "$@" &>/dev/null
 }
 
 function convertfrom_alternatefile {

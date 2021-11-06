@@ -1,7 +1,6 @@
 # zsh aliases.
 
-## prezto/utility
-### Disable correction.
+## Disable correction.
 alias cd='nocorrect cd'
 alias cp='nocorrect cp'
 alias gcc='nocorrect gcc'
@@ -12,19 +11,19 @@ alias mkdir='nocorrect mkdir'
 alias mv='nocorrect mv'
 alias rm='nocorrect rm'
 
-### Disable globbing.
+## Disable globbing.
 alias fc='noglob fc'
 alias find='noglob find'
 alias history='noglob history'
 alias scp='noglob scp'
 alias sftp='noglob aliases.'
 
-### Define general aliases.
+## Define general aliases.
 alias diffu='diff --unified'
 alias mkdir="${aliases[mkdir]:-mkdir} -p"
 alias type='type -a'
 
-### ls
+## ls
 alias ls='ls --group-directories-first --color=auto'
 alias l='ls -1A'
 alias ll='ls -lh'
@@ -42,4 +41,4 @@ alias py='python'
 alias py3='python3'
 
 ## clear
-alias clr='clear'
+alias cls='clear'

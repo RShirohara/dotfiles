@@ -1,19 +1,20 @@
 # zsh plugin settings.
 
-## Paths
+## Set paths.
 declare -A ZINIT
-ZINIT[BIN_DIR]="${DOTFILES:-$HOME/.dotfiles}/submodules/zinit"
-ZINIT[HOME_DIR]="${XDG_CACHE_HOME:-$HOMR/.cache}/zsh/zinit"
-ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+ZINIT[BIN_DIR]="${DOTPATH}/submodules/zinit"
+ZINIT[HOME_DIR]="${XDG_CACHE_HOME}/zsh/zinit"
+ZINIT[ZCOMPDUMP_PATH]="${XDG_STATE_HOME}/zsh/zcompdump"
+ZINIT[COMPINIT_OPTS]+="-C"
 
-## Load
-### zinit
+## Load zinit.
 source "${ZINIT[BIN_DIR]}/zinit.zsh"
 
-### Plugins
+## Load plugins.
 #### powerlevel10k
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
+source "${ZDOTDIR}/plugins/p10k.zsh"
 
 #### prezto modules
 zinit snippet PZT::modules/environment/init.zsh
@@ -22,14 +23,23 @@ zinit snippet PZT::modules/editor/init.zsh
 zinit snippet PZT::modules/history/init.zsh
 zinit snippet PZT::modules/directory/init.zsh
 zinit snippet PZT::modules/spectrum/init.zsh
+source "${ZDOTDIR}/plugins/prezto.zsh"
+source "${ZDOTDIR}/plugins/prezto.terminal.zsh"
+source "${ZDOTDIR}/plugins/prezto.editor.zsh"
+source "${ZDOTDIR}/plugins/prezto.history.zsh"
+source "${ZDOTDIR}/plugins/prezto.directory.zsh"
 
-#### auto-suggestion
+### auto-suggestion
 zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
-#### completion
+### completion
 zinit ice blockf
 zinit light zsh-users/zsh-completions
+source "${ZDOTDIR}/plugins/zsh-completions.zsh"
 
+### History substring search.
 zinit light zsh-users/zsh-history-substring-search
+
+### Syntax highlight.
 zinit light zdharma-continuum/fast-syntax-highlighting
