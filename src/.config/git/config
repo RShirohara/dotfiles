@@ -27,7 +27,8 @@
 
 [merge]
     prompt = false
-    [mergetool]
+
+[mergetool]
     tool = vimdiff
 
 [push]
