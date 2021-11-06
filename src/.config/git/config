@@ -3,7 +3,7 @@
     editor = vim
     filemode = false
     ignorecase = false
-    excludesfile = /home/rshirohara/.gitignore
+    excludesfile = /home/rshirohara/.config/git/ignore
 
 [user]
     name = Ray Shirohara
@@ -27,9 +27,11 @@
 
 [merge]
     prompt = false
-
-[mergetool]
+    [mergetool]
     tool = vimdiff
 
 [push]
     default = simple
+
+[pull]
+    rebase = false
