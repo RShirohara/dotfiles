@@ -5,27 +5,21 @@ vim.cmd("packadd packer.nvim")
 
 require("packer").startup(function()
     -- Plugin manager
-    --[[
     use{
         "wbthomason/packer.nvim",
         opt = true,
     }
-    --]]
 
     -- Workbench
     ---- Colorscheme
     use{
         "ful1e5/onedark.nvim",
-        config = require("onedark").setup
+        config = require("plugins.onedark").config
     }
     ---- Statusline
     use{
         "itchyny/lightline.vim",
-        config = function()
-            vim.g.lightline = {
-                colorscheme = "onedark"
-            }
-        end
+        config = require("plugins.lightline").config,
     }
 
     ---- Explorer
@@ -34,9 +28,7 @@ require("packer").startup(function()
         requires = {
             "kyazdani42/nvim-web-devicons"
         },
-        config = function()
-            require("nvim-tree").setup()
-        end
+        config = require("plugins.nvim-tree").config,
     }
 
     ---- Git
@@ -45,9 +37,7 @@ require("packer").startup(function()
         requires = {
             "nvim-lua/plenary.nvim"
         },
-        config = function()
-            require("gitsigns").setup()
-        end
+        config = require("plugins.gitsigns").config,
     }
     
     -- Syntax
@@ -55,15 +45,7 @@ require("packer").startup(function()
     use{
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
-        config = function()
-            require("nvim-treesitter.configs").setup({
-                ensure_installed = "maintained",
-                sync_install = false,
-                highlight = {
-                    enable = true,
-                },
-            })
-        end
+        config = require("plugins.nvim-treesitter").config,
     }
 
     ---- LSP
