@@ -13,9 +13,10 @@ require("packer").startup(function()
     -- Workbench
     ---- Colorscheme
     use{
-        "ful1e5/onedark.nvim",
-        config = require("plugins.onedark").config
+        "projekt0n/github-nvim-theme",
+        config = require("plugins.github-nvim-theme").config
     }
+
     ---- Statusline
     use{
         "itchyny/lightline.vim",
