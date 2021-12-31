@@ -194,8 +194,8 @@ function initialize_git {
     git submodule update --init --recursive
 }
 
-function initialize_vim {
-    vim +PlugUpdate +PlugClean +qall
+function initialize_nvim {
+    nvim +PackerSync +qall
 }
 
 function initialize_zsh {
@@ -241,7 +241,7 @@ Usage:
 Optional arguments:
     target      : target command.
         - git       : git submodules
-        - vim       : vim-plug
+        - nvim      : packer.nvim
         - zsh       : zinit
 FIN
             ;;
@@ -289,15 +289,15 @@ function initialize {
         'git')
             initialize_git
             ;;
-        'vim')
-            initialize_vim
+        'nvim')
+            initialize_nvim
             ;;
         'zsh')
             initialize_zsh
             ;;
         '')
             initialize_git
-            initialize_vim
+            initialize_nvim
             initialize_zsh
             ;;
     esac

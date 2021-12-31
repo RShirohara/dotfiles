@@ -3,7 +3,7 @@
 ## install
 
 ```bash
-$ bash -c "$(curl -L https://raw.githubusercontent.com/RShirohara/dotfiles/master/etc/httpsetup)"
+bash -c "$(curl -L https://raw.githubusercontent.com/RShirohara/dotfiles/master/etc/httpsetup)"
 ```
 
 Enjoy.
