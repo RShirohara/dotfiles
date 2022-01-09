@@ -47,23 +47,31 @@ function convertto_dotpath {
 function get_ostype {
     local os="unknown"
 
-    if [[ "$(cat /proc/version)" =~ [Mm]icrosoft ]]; then
-        os="wsl"
-    else
-        case "${OSTYPE}" in
-            darwin*)
-                os="osx"
-                ;;
-            "linux-android")
-                os="android"
-                ;;
-            linux-*)
-                os="linux"
-                ;;
-        esac
-    fi
+    case "$(uname -s)" in
+        "Darwin")
+            os="osx"
+            ;;
+        "Linux")
+            os="linux"
+            case "$(uname -o)" in
+                "Android")
+                    os="android"
+                    ;;
+            esac
+            ;;
+    esac
 
     echo "${os}"
+}
+
+function get_platform {
+    local platform="unknown"
+
+    if [[ "$(uname -r)" =~ [Mm]icrosoft ]]; then
+        platform="wsl"
+    fi
+
+    echo "${platform}"
 }
 
 function find_command {
@@ -81,7 +89,7 @@ function convertfrom_alternatefile {
 
     for file in ${path}; do
         # Get local
-        # Get altenative parameters.
+        # Get alternative parameters.
         parameter=$(basename "${file}" | sed -n "/##/p" | sed -r "s/^.+##//")
 
         # Check parameters.
@@ -99,6 +107,12 @@ function convertfrom_alternatefile {
                 elif [[ "${type}" =~ ^(os)$ ]]; then
                     if [ "${value}" = "$(get_ostype)" ]; then
                         score=$((score + 2))
+                    else
+                        score=0
+                    fi
+                elif [[ "${type}" =~ ^(platform)$ ]]; then
+                    if [ "${value}" = "$(get_platform)" ]; then
+                        score=$((score + 4))
                     else
                         score=0
                     fi
@@ -157,7 +171,7 @@ function set_filecache {
 function remove_filecache {
     # Check cache exists.
     if [ -f "${DEPFILE_PATH}" ]; then
-        rm -fv "${DEPFILE_PATH}"
+        rm -fdv "${DEPFILE_PATH}"
     fi
 }
 
@@ -186,7 +200,7 @@ function remove_symlink {
     fi
 
     for file in ${target}; do
-        rm -fv "${file}"
+        rm -fdv "${file}"
     done
 }
 
