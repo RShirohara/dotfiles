@@ -214,7 +214,7 @@ function remove_symlink {
 
 function initialize_plugin {
     local -r source="${1:?}"
-    local -r target="$(realpath "${2:?}")"
+    local -r target="${2:?}"
 
     if [ ! -d "${target}" ]; then
         mkdir -p "$(dirname "${target}")"
