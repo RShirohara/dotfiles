@@ -1,9 +1,0 @@
-[submodule "submodules/zinit"]
-	path = submodules/zinit
-	url = https://github.com/zdharma-continuum/zinit
-[submodule "submodules/home-commands"]
-	path = submodules/home-commands
-	url = https://github.com/fumiyas/home-commands
-[submodule "submodules/packer.nvim"]
-	path = submodules/packer.nvim
-	url = https://github.com/wbthomason/packer.nvim

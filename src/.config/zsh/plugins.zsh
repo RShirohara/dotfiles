@@ -2,9 +2,9 @@
 
 ## Set paths.
 declare -A ZINIT
-ZINIT[BIN_DIR]="${DOTPATH}/submodules/zinit"
-ZINIT[HOME_DIR]="${XDG_CACHE_HOME}/zsh/zinit"
-ZINIT[ZCOMPDUMP_PATH]="${XDG_STATE_HOME}/zsh/zcompdump"
+ZINIT[BIN_DIR]="${XDG_DATA_HOME}/zsh/zinit/zinit.git"
+ZINIT[HOME_DIR]="${XDG_DATA_HOME}/zsh/zinit"
+ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME}/zsh/zcompdump"
 ZINIT[COMPINIT_OPTS]+="-C"
 
 ## Load zinit.
