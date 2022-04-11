@@ -11,12 +11,12 @@ ZINIT[COMPINIT_OPTS]+="-C"
 source "${ZINIT[BIN_DIR]}/zinit.zsh"
 
 ## Load plugins.
-#### powerlevel10k
+### powerlevel10k
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
 source "${ZDOTDIR}/plugins/p10k.zsh"
 
-#### prezto modules
+### prezto modules
 zinit snippet PZT::modules/environment/init.zsh
 zinit snippet PZT::modules/terminal/init.zsh
 zinit snippet PZT::modules/editor/init.zsh
@@ -30,16 +30,16 @@ source "${ZDOTDIR}/plugins/prezto.history.zsh"
 source "${ZDOTDIR}/plugins/prezto.directory.zsh"
 
 ### auto-suggestion
-zinit ice wait lucid atload'_zsh_autosuggest_start'
-zinit light zsh-users/zsh-autosuggestions
+zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
+    zsh-users/zsh-autosuggestions
 
 ### completion
 zinit ice blockf
 zinit light zsh-users/zsh-completions
 source "${ZDOTDIR}/plugins/zsh-completions.zsh"
 
-### History substring search.
+### History substring search
 zinit light zsh-users/zsh-history-substring-search
 
-### Syntax highlight.
+### Syntax highlight
 zinit light zdharma-continuum/fast-syntax-highlighting
