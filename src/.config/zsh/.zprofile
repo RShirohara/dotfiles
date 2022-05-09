@@ -14,8 +14,3 @@ path=(
     ~/.local/bin
     ${path}
 )
-
-## Alternate profiles
-if [ -f "${ZDOTDIR}/alt-profile.zsh" ]; then
-    source "${ZDOTDIR}/alt-profile.zsh"
-fi
