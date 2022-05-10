@@ -2,6 +2,7 @@
 
 [core]
     editor = nvim
+    pager = delta
     filemode = false
     ignorecase = false
     excludesfile = ~/.config/git/ignore
@@ -18,25 +19,22 @@
     gpgsign = true
 
 [diff]
-    tool = nvimdiff
+    colorMoved = default
 
-[difftool]
-    prompt = false
-
-[gpg]
-    program = gpg
+[interactive]
+    diffFilter = delta --color-only --features=interactive
 
 [merge]
-    tool = nvimdiff
-
-[mergetool]
-    prompt = true
-
-[mergetool "nvimdiff"]
-    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+    conflictstyle = diff3
 
 [push]
     default = simple
 
 [pull]
     rebase = false
+
+[delta]
+    line-numbers = true
+
+[gpg]
+    program = gpg
