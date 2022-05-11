@@ -34,7 +34,10 @@
     rebase = false
 
 [delta]
+    hyperlinks = true
     line-numbers = true
+    navigate = true
+    width = -2
 
 [gpg]
     program = gpg
