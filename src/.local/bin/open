@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# System link-handler integration
+#
+# Support Platforms:
+# - XDG (xdg-open)
+# - WSL (explorer.exe)
+# - Termux (termux-open)
+#
+# Usage:
+#   open https://github.com     - open Github by default browser.
+
+if [[ -x $(command -v xdg-open) ]]; then
+    xdg-open "$@"
+elif [[ $OSTYPE == linux* && $(uname -r) == *[Mm]icrosoft* ]]; then
+    explorer.exe "$@"
+elif [[ $OSTYPE == linux-android* && -x $(command -v termux-open) ]]; then
+    termux-open "$@"
+fi
