@@ -24,7 +24,8 @@ zinit is-snippet for \
     "${ZDOTDIR}/modules/prezto.terminal.zsh" \
     "${ZDOTDIR}/modules/python.zsh" \
     "${ZDOTDIR}/modules/zsh-completions.zsh" \
-    "${ZDOTDIR}/modules/zsh-history-substring-search.zsh"
+    "${ZDOTDIR}/modules/zsh-history-substring-search.zsh" \
+    "${ZDOTDIR}/modules/coreutils.zsh"
 
 ## Load plugins.
 ### powerlevel10k
