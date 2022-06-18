@@ -51,6 +51,10 @@ zinit for \
     PZTM::editor \
     PZTM::terminal
 
+### OhMyZsh module
+zinit for \
+    OMZP::direnv
+
 ### Python virtualenv
 zinit wait="2" lucid light-mode for \
     MichaelAquilina/zsh-autoswitch-virtualenv
