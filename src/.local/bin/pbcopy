@@ -17,5 +17,5 @@ elif [[ "${WAYLAND_DISPLAY:-}" && -x $(command -v wl-copy) ]]; then
 elif [[ $OSTYPE == linux* && $(uname -r) == *[Mm]icrosoft* ]]; then
     clip.exe < "${1:-/dev/stdin}"
 elif [[ $OSTYPE == linux-android* && -x $(command -v termux-clipboard-set) ]]; then
-    cat - | termux-clipboard-set
+    termux-clipboard-set < "${1:-/proc/self/fd/0}"
 fi
