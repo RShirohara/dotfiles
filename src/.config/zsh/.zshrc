@@ -16,45 +16,52 @@ ZINIT[COMPINIT_OPTS]+="-C"
 source "${ZINIT[BIN_DIR]}/zinit.zsh"
 
 ## Load local modules.
-zinit is-snippet for \
+zinit is-snippet lucid for \
     "${ZDOTDIR}/modules/directory.zsh" \
     "${ZDOTDIR}/modules/history.zsh" \
     "${ZDOTDIR}/modules/p10k.zsh" \
-    "${ZDOTDIR}/modules/prezto.editor.zsh" \
-    "${ZDOTDIR}/modules/prezto.terminal.zsh" \
     "${ZDOTDIR}/modules/python.zsh" \
-    "${ZDOTDIR}/modules/zsh-completions.zsh" \
-    "${ZDOTDIR}/modules/zsh-history-substring-search.zsh" \
     "${ZDOTDIR}/modules/coreutils.zsh"
 
 ## Load plugins.
 ### powerlevel10k
-zinit light-mode depth=1 for \
+zinit light-mode lucid depth=1 for \
     romkatv/powerlevel10k
 
 ### shell extensions
-zinit wait="0a" lucid light-mode for \
+zinit light-mode lucid wait="0a" for \
     blockf atload="zicompinit; zicdreplay" \
         zsh-users/zsh-completions \
     atload="!_zsh_autosuggest_start" \
         zsh-users/zsh-autosuggestions \
-    zdharma-continuum/fast-syntax-highlighting
+    zdharma-continuum/fast-syntax-highlighting \
+    is-snippet "${ZDOTDIR}/modules/zsh-completions.zsh"
 
-zinit wait="0b" lucid light-mode for \
+zinit light-mode lucid wait="0b" for \
     zsh-users/zsh-history-substring-search \
-    zdharma-continuum/history-search-multi-word
+    zdharma-continuum/history-search-multi-word \
+    is-snippet "${ZDOTDIR}/modules/zsh-history-substring-search.zsh"
 
 ### Prezto module
 zstyle ":prezto:module" pmodule "environment" "editor" "terminal"
-zinit for \
+zinit lucid for \
     PZTM::environment \
     PZTM::editor \
     PZTM::terminal
+zinit is-snippet lucid for \
+    "${ZDOTDIR}/modules/prezto.editor.zsh" \
+    "${ZDOTDIR}/modules/prezto.terminal.zsh"
 
-### OhMyZsh module
-zinit for \
-    OMZP::direnv
+### VSCode integration
+zinit is-snippet lucid \
+    has="code" if='[[ "$TERM_PROGRAM" == "vscode" ]]' for \
+        "$(code --locate-shell-integration-path zsh)" \
+        is-snippet "${ZDOTDIR}/modules/vscode-shell-integration.zsh"
 
 ### Python virtualenv
-zinit wait="2" lucid light-mode for \
+zinit light-mode lucid wait='[[ -d "$PWD/.venv" ]]' for \
     MichaelAquilina/zsh-autoswitch-virtualenv
+
+### Shell direnv
+zinit lucid wait='[[ -e "$PWD/.envrc" ]]' for \
+    OMZP::direnv
