@@ -15,6 +15,9 @@ require("packer").startup(function()
         "nvim-lua/plenary.nvim"
     })
     use({
+        "stevearc/dressing.nvim"
+    })
+    use({
         "kyazdani42/nvim-web-devicons",
         config = require("plugins.nvim-web-devicons").config
     })
