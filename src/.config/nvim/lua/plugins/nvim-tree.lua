@@ -1,9 +1,9 @@
 --kyazdami42/nvim-tree settings.
 
-function config()
-    require("nvim-tree").setup()
-end
-
 return {
-    config = config,
+    config = function()
+        require("nvim-tree").setup({
+            disable_netrw = true
+        })
+    end
 }

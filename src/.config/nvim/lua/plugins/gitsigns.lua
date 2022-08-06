@@ -1,9 +1,9 @@
 -- lewis6991/gitsigns.nvim setting.
 
-function config()
-    require("gitsigns").setup()
-end
-
 return {
-    config = config,
+    config = function()
+        require("gitsigns").setup({
+            current_line_blame = true
+        })
+    end
 }

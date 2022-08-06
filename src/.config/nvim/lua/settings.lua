@@ -34,3 +34,4 @@ vim.opt.showmatch = true
 vim.opt.textwidth = 80
 vim.opt.virtualedit = "onemore"
 vim.opt.wrap = true
+vim.opt.termguicolors = true
