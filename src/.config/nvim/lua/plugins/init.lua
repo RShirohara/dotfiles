@@ -90,9 +90,11 @@ require("packer").startup(function()
             require("toggleterm").setup()
         end
     })
-    ---- Command pallet
+    ---- Fuzzy finder
     use({
-        "mrjones2014/legendary.nvim"
+        "nvim-telescope/telescope.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = require("plugins.telescope").config
     })
 
     -- Coding supports
