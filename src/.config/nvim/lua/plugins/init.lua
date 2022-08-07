@@ -18,6 +18,9 @@ require("packer").startup(function()
         "stevearc/dressing.nvim"
     })
     use({
+        "MunifTanjim/nui.nvim"
+    })
+    use({
         "kyazdani42/nvim-web-devicons",
         config = require("plugins.nvim-web-devicons").config
     })
@@ -95,6 +98,12 @@ require("packer").startup(function()
         "nvim-telescope/telescope.nvim",
         requires = "nvim-lua/plenary.nvim",
         config = require("plugins.telescope").config
+    })
+    ---- Command Palette
+    use({
+        "VonHeikemen/fine-cmdline.nvim",
+        requires = "MunifTanjim/nui.nvim",
+        config = require("plugins.fine-cmdline").config
     })
 
     -- Coding supports
