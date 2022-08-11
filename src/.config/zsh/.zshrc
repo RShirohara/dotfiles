@@ -47,7 +47,7 @@ zstyle ":prezto:module" pmodule "environment" "editor" "terminal"
 zinit lucid for \
     PZTM::environment \
     PZTM::editor \
-    PZTM::terminal
+    PZTM::terminal \
     is-snippet "${ZDOTDIR}/modules/prezto.editor.zsh" \
     is-snippet "${ZDOTDIR}/modules/prezto.terminal.zsh"
 
@@ -62,5 +62,5 @@ zinit light-mode lucid has="poetry" for \
     MichaelAquilina/zsh-autoswitch-virtualenv
 
 ### Shell direnv
-zinit lucid has="direnv" wait='[[ -e "$PWD/.envrc" ]]' for \
+zinit lucid has="direnv" for \
     OMZP::direnv
