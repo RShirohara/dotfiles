@@ -70,5 +70,5 @@ zinit light-mode lucid if='[[ "$(uname -r)" =~ [Mm]icrosoft ]]' for \
     is-snippet \
         "${ZDOTDIR}/modules/wsl-yubikey.zsh" \
     as="program" from="gh-r" bpick="*.exe" \
-        cp='wsl2-ssh-pagent.exe -> $(wslpath $(pwsh.exe -c "$Env:UserProfile"))/.bin/wsl2-ssh-pagent.exe'\
+        cp='wsl2-ssh-pageant.exe -> $(wslpath $(pwsh.exe -c "$Env:UserProfile"))/.bin/wsl2-ssh-pageant.exe'\
         BlackReloaded/wsl2-ssh-pageant
