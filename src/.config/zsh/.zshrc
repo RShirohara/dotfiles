@@ -67,8 +67,8 @@ zinit lucid has="direnv" for \
 
 ### Yubikey integration on wsl
 zinit light-mode lucid if='[[ "$(uname -r)" =~ [Mm]icrosoft ]]' for \
-    as="program" from="gh-r" bpick="*.exe" \
-        cp='wsl2-ssh-pagent.exe -> "$(wslpath $(pwsh.exe -c "$Env:UserProfile"))/.bin/wsl2-ssh-pagent.exe"'\
-        BlackReloaded/wsl2-ssh-pageant \
     is-snippet \
-        "${ZDOTDIR}/modules/wsl-yubikey.zsh"
+        "${ZDOTDIR}/modules/wsl-yubikey.zsh" \
+    as="program" from="gh-r" bpick="*.exe" \
+        cp='wsl2-ssh-pagent.exe -> $(wslpath $(pwsh.exe -c "$Env:UserProfile"))/.bin/wsl2-ssh-pagent.exe'\
+        BlackReloaded/wsl2-ssh-pageant
