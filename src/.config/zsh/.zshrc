@@ -48,20 +48,19 @@ zinit lucid for \
     PZTM::environment \
     PZTM::editor \
     PZTM::terminal
-zinit is-snippet lucid for \
-    "${ZDOTDIR}/modules/prezto.editor.zsh" \
-    "${ZDOTDIR}/modules/prezto.terminal.zsh"
+    is-snippet "${ZDOTDIR}/modules/prezto.editor.zsh" \
+    is-snippet "${ZDOTDIR}/modules/prezto.terminal.zsh"
 
 ### VSCode integration
 zinit is-snippet lucid \
     has="code" if='[[ "$TERM_PROGRAM" == "vscode" ]]' for \
         "$(code --locate-shell-integration-path zsh)" \
-        is-snippet "${ZDOTDIR}/modules/vscode-shell-integration.zsh"
+        "${ZDOTDIR}/modules/vscode-shell-integration.zsh"
 
 ### Python virtualenv
-zinit light-mode lucid wait='[[ -d "$PWD/.venv" ]]' for \
+zinit light-mode lucid has="poetry" for \
     MichaelAquilina/zsh-autoswitch-virtualenv
 
 ### Shell direnv
-zinit lucid wait='[[ -e "$PWD/.envrc" ]]' for \
+zinit lucid has="direnv" wait='[[ -e "$PWD/.envrc" ]]' for \
     OMZP::direnv
