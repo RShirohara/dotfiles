@@ -24,11 +24,11 @@ zinit is-snippet lucid for \
     "${ZDOTDIR}/modules/coreutils.zsh"
 
 ## Load plugins.
-### powerlevel10k
+### Theme
 zinit light-mode lucid depth=1 for \
     romkatv/powerlevel10k
 
-### shell extensions
+### Core extensions
 zinit light-mode lucid wait="0a" for \
     blockf atload="zicompinit; zicdreplay" \
         zsh-users/zsh-completions \
@@ -64,3 +64,11 @@ zinit light-mode lucid has="poetry" for \
 ### Shell direnv
 zinit lucid has="direnv" for \
     OMZP::direnv
+
+### Yubikey integration on wsl
+zinit light-mode lucid if='[[ "$(uname -r)" =~ [Mm]icrosoft ]]' for \
+    as="program" from="gh-r" bpick="*.exe" \
+        cp='wsl2-ssh-pagent.exe -> "$(wslpath $(pwsh.exe -c "$Env:UserProfile"))/.bin/wsl2-ssh-pagent.exe"'\
+        BlackReloaded/wsl2-ssh-pageant \
+    is-snippet \
+        "${ZDOTDIR}/modules/wsl-yubikey.zsh"
