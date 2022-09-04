@@ -71,3 +71,8 @@ zinit light-mode lucid if='[[ "$(uname -r)" =~ [Mm]icrosoft ]]' for \
         "${ZDOTDIR}/modules/wsl-yubikey.zsh" \
     as="program" from="gh-r" pick="wsl2-ssh-pageant.exe" \
         BlackReloaded/wsl2-ssh-pageant
+
+### Commands
+zinit light-mode lucid if='[[ "$(uname -o)" == GNU/Linux ]]' for \
+    as="program" from="gh-r" mv="markov* -> markov" pick="bin/markov" \
+        RShirohara/markov-chain-generator-jp-cli
