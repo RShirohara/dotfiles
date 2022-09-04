@@ -45,11 +45,11 @@ zinit light-mode lucid wait="0b" for \
 ### Prezto module
 zstyle ":prezto:module" pmodule "environment" "editor" "terminal"
 zinit lucid for \
+    is-snippet "${ZDOTDIR}/modules/prezto.editor.zsh" \
+    is-snippet "${ZDOTDIR}/modules/prezto.terminal.zsh" \
     PZTM::environment \
     PZTM::editor \
-    PZTM::terminal \
-    is-snippet "${ZDOTDIR}/modules/prezto.editor.zsh" \
-    is-snippet "${ZDOTDIR}/modules/prezto.terminal.zsh"
+    PZTM::terminal
 
 ### VSCode integration
 zinit is-snippet lucid \
