@@ -74,5 +74,5 @@ zinit light-mode lucid if='[[ "$(uname -r)" =~ [Mm]icrosoft ]]' for \
 
 ### Commands
 zinit light-mode lucid if='[[ "$(uname -o)" == GNU/Linux ]]' for \
-    as="program" from="gh-r" mv="markov* -> markov" pick="bin/markov" \
+    as="program" from="gh-r" pick="bin/markov" \
         RShirohara/markov-chain-generator-jp-cli
