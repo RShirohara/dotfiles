@@ -67,11 +67,10 @@ zinit lucid has="direnv" for \
 
 ### Yubikey integration on wsl
 zinit light-mode lucid if='[[ "$(uname -r)" =~ [Mm]icrosoft ]]' for \
-    is-snippet \
-        "${ZDOTDIR}/modules/wsl-yubikey.zsh" \
     as="program" from="gh-r" pick="wsl2-ssh-pageant.exe" \
-        BlackReloaded/wsl2-ssh-pageant
-
+        BlackReloaded/wsl2-ssh-pageant \
+    is-snippet \
+        "${ZDOTDIR}/modules/wsl-yubikey.zsh"
 ### Commands
 zinit light-mode lucid if='[[ "$(uname -o)" == GNU/Linux ]]' for \
     as="program" from="gh-r" pick="bin/markov" \

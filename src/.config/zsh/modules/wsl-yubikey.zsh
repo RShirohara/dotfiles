@@ -9,7 +9,8 @@ export GPG_AGENT_SOCK="${HOME}/.gnupg/S.gpg-agent"
 ## SSH socket
 if ! ss -a | grep -q "${SSH_AUTH_SOCK}"; then
     rm -rf "${SSH_AUTH_SOCK}"
-    (setsid nohup socat UNIX-LISTEN:"${SSH_AUTH_SOCK},fork" \
+    (setsid nohup socat \
+        UNIX-LISTEN:"${SSH_AUTH_SOCK},fork" \
         EXEC:"wsl2-ssh-pageant.exe" \
         >/dev/null 2>&1 &)
 fi
