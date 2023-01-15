@@ -14,7 +14,9 @@ RShirohara's dotfiles managed by [chezmoi](https://github.com/twpayne/chezmoi).
 ## Programs
 
 - Shell: [zsh](https://github.com/zsh-users/zsh)
-- Editor: [neovim](https://github.com/neovim/neovim)
+- Editor:
+  - TUI: [helix](https://github.com/helix-editor/helix)
+  - GUI: [vscode](https://github.com/microsoft/vscode)
 - Coreutils Replacement: [coreutils](./package/coreutils)
 
 Package lists: [package](./package)

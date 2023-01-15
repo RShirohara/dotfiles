@@ -1,0 +1,28 @@
+# helix config
+
+theme = "onedarker"
+
+[editor]
+bufferline = "always"
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "workspace-diagnostics", "spinner"]
+right = ["position", "file-encoding", "file-line-ending", "file-type"]
+
+[editor.cursor-shape]
+normal = "bar"
+insert = "bar"
+select = "underline"
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+tabpad = "·"
+
+[editor.indent-guides]
+render = true
+skip-levels = 1
