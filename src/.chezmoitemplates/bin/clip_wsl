@@ -4,10 +4,13 @@
 # Usage:
 #   <command> | clip    - copy stdin to clipboard.
 #   clip                - write clipboard's content to stdout.
-#   clip | <command>    - paste contents and pipes to process. 
+#   clip | <command>    - paste contents and pipes to process.
 
+# paste to stdout
 if [[ -t 0 ]]; then
-    pbpaste
+  powershell.exe -noprofile -command Get-Clipboard
+
+# copy from stdin
 else
-    pbcopy
+  clip.exe < "${1:-/dev/stdin}"
 fi
