@@ -1,7 +1,7 @@
-{{ if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-{{   template "bin/clip_wsl" . }}
-{{ else if eq .chezmoi.os "linux" }}
-{{   template "bin/clip_linux" . }}
-{{ else if eq .chezmoi.os "android" }}
-{{   template "bin/clip_android" . }}
-{{ end }}
+{{if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")}}
+{{  template "bin/clip_wsl" .}}
+{{else if eq .chezmoi.os "linux"}}
+{{  template "bin/clip_linux" .}}
+{{else if eq .chezmoi.os "android"}}
+{{  template "bin/clip_android" .}}
+{{end}}
