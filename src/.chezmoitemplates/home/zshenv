@@ -1,0 +1,5 @@
+## dotfiles path
+export DOTPATH="${HOME}/.dotfiles"
+
+## zsh config path
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
