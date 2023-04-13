@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # System clipboard integration
 #
+# Supported Platform:
+# - Termux (termux-clipboard-get, termux-clipboard-set)
+#
 # Usage:
 #   <command> | clip    - copy stdin to clipboard.
 #   clip                - write clipboard's content to stdout.

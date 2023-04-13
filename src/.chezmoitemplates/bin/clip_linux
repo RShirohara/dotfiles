@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # System clipboard integration
 #
+# Supported Platform:
+# - X11 (xclip)
+# - Wayland (wl-copy, wl-paste)
+#
 # Usage:
 #   <command> | clip    - copy stdin to clipboard.
 #   clip                - write clipboard's content to stdout.
