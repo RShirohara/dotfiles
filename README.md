@@ -33,6 +33,6 @@ Package lists: [package/requirements](./package/requirements)
 - `find` -> [fd](https://github.com/sharkdp/fd)
 - `grep` -> [ripgrep](https://github.com/BurntSushi/ripgrep)
 - `ls` -> [exa](https://github.com/ogham/exa)
-- `xxd` -> [hexyl](https://github.com/sharkdp/hexyl)
+- `od` -> [hexyl](https://github.com/sharkdp/hexyl)
 
 Package lists: [package/coreutils](./package/coreutils)
