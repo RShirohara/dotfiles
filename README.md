@@ -2,10 +2,17 @@
 
 RShirohara's dotfiles managed by [chezmoi](https://github.com/twpayne/chezmoi).
 
-## Supported OS
+## Supported System
+
+### OS/Distro
 
 - Arch Linux
-- Android (Termux)
+- Android
+
+### Platform
+
+- WSL
+- Termux
 
 ## Installation
 
