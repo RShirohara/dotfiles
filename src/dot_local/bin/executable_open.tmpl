@@ -1,0 +1,7 @@
+{{if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")}}
+{{  template "bin/open/open#wsl" .}}
+{{else if eq .chezmoi.os "linux"}}
+{{  template "bin/open/open#linux" .}}
+{{else if eq .chezmoi.os "android"}}
+{{  template "bin/open/open#android" .}}
+{{end}}

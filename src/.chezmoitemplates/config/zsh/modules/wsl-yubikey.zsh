@@ -8,18 +8,18 @@ export GPG_AGENT_SOCK="${HOME}/.gnupg/S.gpg-agent"
 
 ## SSH socket
 if ! ss -a | grep -q "${SSH_AUTH_SOCK}"; then
-    rm -rf "${SSH_AUTH_SOCK}"
-    (setsid nohup socat \
-        UNIX-LISTEN:"${SSH_AUTH_SOCK},fork" \
-        EXEC:"wsl2-ssh-pageant.exe" \
-        >/dev/null 2>&1 &)
+  rm -rf "${SSH_AUTH_SOCK}"
+  (setsid nohup socat \
+    UNIX-LISTEN:"${SSH_AUTH_SOCK},fork" \
+    EXEC:"wsl2-ssh-pageant.exe" \
+    >/dev/null 2>&1 &)
 fi
 
 ## GPG Socket
 if ! ss -a | grep -q "${GPG_AGENT_SOCK}"; then
-    rm -rf "${GPG_AGENT_SOCK}"
-    (setsid nohup socat \
-        UNIX-LISTEN:"${GPG_AGENT_SOCK},fork" \
-        EXEC:"wsl2-ssh-pageant.exe -gpgConfigBasepath '${win_socket_path}' -gpg S.gpg-agent" \
-        >/dev/null 2>&1 &)
+  rm -rf "${GPG_AGENT_SOCK}"
+  (setsid nohup socat \
+    UNIX-LISTEN:"${GPG_AGENT_SOCK},fork" \
+    EXEC:"wsl2-ssh-pageant.exe -gpgConfigBasepath '${win_socket_path}' -gpg S.gpg-agent" \
+    >/dev/null 2>&1 &)
 fi

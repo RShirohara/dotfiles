@@ -1,6 +1,6 @@
-# helix config
+# Helix settings
 
-theme = "onedarker"
+theme = "github_dark"
 
 [editor]
 bufferline = "always"

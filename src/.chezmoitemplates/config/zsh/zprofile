@@ -1,4 +1,4 @@
-# Executes commands at login pre-zshrc.
+# Run commands before zshrc at login.
 
 ## Load environment.d
 source "${XDG_CONFIG_HOME}/environment.d/xdg-base-dir.conf"
@@ -10,7 +10,7 @@ typeset -gU cdpath fpath mailpath path
 
 ### Set the list of directories that Zsh searches for programs.
 path=(
+    "${XDG_BINARY_HOME}"
     /usr/local/{bin,sbin}
-    ~/.local/bin
     ${path}
 )
