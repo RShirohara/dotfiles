@@ -1,0 +1,18 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "ctrl+alt+n",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
+  },
+  {
+    "key": "shift+enter",
+    "command": "jumpToNextSnippetPlaceholder",
+    "when": "editorTextFocus && hasNextTabstop && inSnippetMode"
+  },
+  {
+    "key": "tab",
+    "command": "-jumpToNextSnippetPlaceholder",
+    "when": "editorTextFocus && hasNextTabstop && inSnippetMode"
+  }
+]
