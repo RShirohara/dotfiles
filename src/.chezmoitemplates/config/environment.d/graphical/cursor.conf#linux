@@ -1,2 +1,2 @@
 ## Cursor settings
-XCURSOR_PATH="${XCURSOR_PATH:-$XDG_DATA_HOME/icons}"
+XCURSOR_PATH="${XCURSOR_PATH}:${XDG_DATA_HOME}/icons"
