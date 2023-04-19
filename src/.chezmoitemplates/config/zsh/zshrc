@@ -21,7 +21,8 @@ zinit is-snippet lucid for \
   "${ZDOTDIR}/modules/history.zsh" \
   "${ZDOTDIR}/modules/p10k.zsh" \
   "${ZDOTDIR}/modules/python.zsh" \
-  "${ZDOTDIR}/modules/coreutils.zsh"
+  "${ZDOTDIR}/modules/coreutils.zsh" \
+  "${ZDOTDIR}/modules/gnupg.zsh"
 
 ## Load plugins
 
