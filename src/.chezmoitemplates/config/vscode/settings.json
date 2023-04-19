@@ -55,6 +55,8 @@
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
   "git.enableCommitSigning": true,
   "git.mergeEditor": true,
   "git.openRepositoryInParentFolders": "never",
