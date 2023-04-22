@@ -1,8 +1,11 @@
 # Run commands before zshrc at login.
 
+{{if not (lookPath "systemctl")}}
 ## Load environment.d
-source "${XDG_CONFIG_HOME}/environment.d/xdg-base-dir.conf"
-source "${XDG_CONFIG_HOME}/environment.d/envvars.conf"
+export {{regexReplaceAll "((^|//n)#+.+?//n)" (regexReplaceAll "((^|//n)#+.+?//n)" (includeTemplate "config/environment.d/xdg-base-dir/init.conf" | replace "\n" "//n") "" ) "" | replace "//n" " "}} > /dev/null
+export {{regexReplaceAll "((^|//n)#+.+?//n)" (includeTemplate "config/environment.d/editor.conf" | replace "\n" "//n") "" | replace "//n" " "}} > /dev/null
+export {{regexReplaceAll "((^|//n)#+.+?//n)" (includeTemplate "config/environment.d/gpg-socket.conf" | replace "\n" "//n") "" | replace "//n" " "}} > /dev/null
+{{end}}
 
 ## Paths
 ### Ensure path arrays do not contain duplicates.

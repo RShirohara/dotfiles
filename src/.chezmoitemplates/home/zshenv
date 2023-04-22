@@ -3,7 +3,5 @@
 ## dotfiles path
 export DOTPATH="${HOME}/.dotfiles"
 
-{{template "home/zshenv#linux" .}}
-
 ## zsh config path
-export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
