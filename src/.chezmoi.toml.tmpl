@@ -5,7 +5,4 @@ sourceDir = "{{ .chezmoi.sourceDir }}"
 [diff]
 command = "delta"
 args = ["{{"{{"}}.Destination{{"}}"}}", "{{"{{"}}.Target{{"}}"}}"]
-
-[merge]
-command = "echo"
-args = ["{{"{{"}}.Destination{{"}}"}}", "{{"{{"}}.Source{{"}}"}}", "{{"{{"}}.Target{{"}}"}}"]
+pager = ""
