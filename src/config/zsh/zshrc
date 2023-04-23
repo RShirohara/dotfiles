@@ -62,18 +62,18 @@ zinit is-snippet lucid has="code" if='[[ "$TERM_PROGRAM" == "vscode" ]]' for \
   "$(code --locate-shell-integration-path zsh)" \
   "${ZDOTDIR}/modules/vscode-shell-integration.zsh"
 
-{{if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")}}
+{{if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 ### Yubikey integration on WSL
 zinit light-mode lucid for \
   as="program" from="gh-r" pick="wsl2-ssh-pageant.exe" \
     BlackReloaded/wsl2-ssh-pageant \
   is-snippet \
     "${ZDOTDIR}/modules/wsl-yubikey.zsh"
-{{end}}
+{{end -}}
 
 ### Commands
-{{if and (eq .chezmoi.os "linux") (eq .chezmoi.arch "amd64")}}
+{{if and (eq .chezmoi.os "linux") (eq .chezmoi.arch "amd64") -}}
 zinit light-mode lucid for \
   as="program" from="gh-r" bpick="*linux*" \
     RShirohara/markov-chain-generator-jp-cli
-{{end}}
+{{end -}}
