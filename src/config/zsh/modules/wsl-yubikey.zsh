@@ -3,8 +3,8 @@
 local win_user_profile="$(pwsh.exe -c '$Env:UserProfile' | sed -e 's/\r//; s/\\/\//g')"
 local win_socket_path="${win_user_profile}/AppData/Local/gnupg"
 
-export SSH_AUTH_SOCK="${HOME}/.gnupg/S.wsl-gpg-agent.ssh"
-export GPG_AGENT_SOCK="${HOME}/.gnupg/S.gpg-agent"
+export SSH_AUTH_SOCK="{{output "gpgconf" "--list-dirs" "socketdir" | trim}}/S.wsl-gpg-agent.ssh"
+export GPG_AGENT_SOCK="{{output "gpgconf" "--list-dirs" "socketdir" | trim}}/S.gpg-agent.wsl"
 
 ## SSH socket
 if ! ss -a | grep -q "${SSH_AUTH_SOCK}"; then
