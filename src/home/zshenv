@@ -1,7 +1,7 @@
 # Define environment variables.
 
 ## dotfiles path
-export DOTPATH="${HOME}/.dotfiles"
+export DOTFILES_DIR="${HOME}/.dotfiles"
 
 ## zsh config path
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
