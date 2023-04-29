@@ -12,6 +12,9 @@
 [commit]
   gpgsign = true
 
+[difftool]
+  prompt = false
+
 [interactive]
   diffFilter = delta --color-only --features=interactive
 
