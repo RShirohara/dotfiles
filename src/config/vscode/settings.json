@@ -87,6 +87,7 @@
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.inlayHints.variableTypes.enabled": true,
   "update.mode": "none",
+  "window.commandCenter": false,
   "window.menuBarVisibility": "compact",
   "workbench.colorTheme": "GitHub Dark",
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
