@@ -5,10 +5,18 @@ theme = "github_dark"
 [editor]
 bufferline = "always"
 color-modes = true
+scroll-lines = 5
 
 [editor.statusline]
-left = ["mode", "workspace-diagnostics", "spinner"]
-right = ["position", "file-encoding", "file-line-ending", "file-type"]
+left = ["mode", "spacer", "version-control", "diagnostics"]
+center = ["spinner"]
+right = [
+  "position",
+  "primary-selection-length",
+  "file-encoding",
+  "file-line-ending",
+  "file-type",
+]
 
 [editor.cursor-shape]
 normal = "bar"
@@ -26,3 +34,6 @@ tabpad = "·"
 [editor.indent-guides]
 render = true
 skip-levels = 1
+
+[editor.soft-wrap]
+enable = true
