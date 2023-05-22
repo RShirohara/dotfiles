@@ -28,7 +28,7 @@ else
     xclip -in -selection clipboard < "${1:-/dev/stdin}"
 
   ## Wayland
-  elif [[ "${XDG_SESSION_TYPE:-}" = "x11" && -x $(command -v wl-copy) ]]; then
+  elif [[ "${XDG_SESSION_TYPE:-}" = "wayland" && -x $(command -v wl-copy) ]]; then
     wl-copy < "${1:-/dev/stdin}"
   fi
 fi
