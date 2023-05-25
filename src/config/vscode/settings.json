@@ -16,7 +16,7 @@
   },
   "[markdown]": {
     "diffEditor.ignoreTrimWhitespace": false,
-    "editor.defaultFormatter": "davidanson.vscode-markdownlint",
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
     "editor.quickSuggestions": {
       "comments": "off",
       "other": "off",
@@ -27,7 +27,7 @@
     "editor.wordWrap": "bounded",
     "files.trimTrailingWhitespace": false
   },
-  "diffEditor.diffAlgorithm": "experimental",
+  "diffEditor.diffAlgorithm": "advanced",
   "diffEditor.renderSideBySide": false,
   "editor.dragAndDrop": false,
   "editor.fontFamily": "HackGen, 'Noto Sans CJK JP', monospace",
