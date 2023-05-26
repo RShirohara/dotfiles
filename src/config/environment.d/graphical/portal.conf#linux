@@ -1,0 +1,2 @@
+# Use XDG desktop portal in GTK.
+GTK_USE_PORTAL=1
