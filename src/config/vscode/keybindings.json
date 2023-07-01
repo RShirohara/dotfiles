@@ -14,5 +14,25 @@
     "command": "-jumpToNextSnippetPlaceholder",
     "key": "tab",
     "when": "editorTextFocus && hasNextTabstop && inSnippetMode"
+  },
+  {
+    "command": "editor.action.inlineSuggest.showNext",
+    "key": "alt+g",
+    "when": "inlineSuggestionVisible && !editorReadonly"
+  },
+  {
+    "command": "-editor.action.inlineSuggest.showNext",
+    "key": "alt+]",
+    "when": "inlineSuggestionVisible && !editorReadonly"
+  },
+  {
+    "command": "editor.action.inlineSuggest.showPrevious",
+    "key": "alt+u",
+    "when": "inlineSuggestionVisible && !editorReadonly"
+  },
+  {
+    "command": "-editor.action.inlineSuggest.showPrevious",
+    "key": "alt+[",
+    "when": "inlineSuggestionVisible && !editorReadonly"
   }
 ]
