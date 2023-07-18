@@ -2,11 +2,13 @@
 
 RShirohara's dotfiles managed by [chezmoi](https://github.com/twpayne/chezmoi).
 
-## Supported OS
+## Supported Environment
 
-- Arch Linux
-  - WSL supported
-- Android (Termux)
+- Linux
+  - Distro: Arch Linux
+  - (Optional) Platform: WSL
+- Android
+  - Platform: Termux
 
 ## Installation
 
@@ -21,9 +23,13 @@ RShirohara's dotfiles managed by [chezmoi](https://github.com/twpayne/chezmoi).
 
 ### Requirement
 
-- Dotfiles Management: [chezmoi](https://github.com/twpayne/chezmoi), `git`
+- Dotfiles Management:
+  - [chezmoi](https://github.com/twpayne/chezmoi),
+  - `git`
 - Shell: [Zsh](https://github.com/zsh-users/zsh)
-- Editor: [Helix](https://github.com/helix-editor/helix), [VSCode](https://github.com/microsoft/vscode) (Optional)
+- Editor:
+  - [Helix](https://github.com/helix-editor/helix)
+  - [VS Code](https://github.com/microsoft/vscode) (Optional)
 
 ### Coreutils Replacement
 

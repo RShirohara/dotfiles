@@ -5,75 +5,101 @@ if [[ -r "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-## Set zinit path
-declare -A ZINIT
-ZINIT[HOME_DIR]="${XDG_DATA_HOME}/zsh/zinit"
-ZINIT[BIN_DIR]="${ZINIT[HOME_DIR]}/zinit.git"
-ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME}/zsh/zcompdump"
-ZINIT[COMPINIT_OPTS]+="-C"
+## Set Zi path
+typeset -A ZI
+ZI[HOME_DIR]="${XDG_DATA_HOME}/zsh/zi"
+ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
+ZI[COMPINIT_OPTS]="-C"
 
-## Load zinit
-source "${ZINIT[BIN_DIR]}/zinit.zsh"
+## Load Zi
+source "${ZI[BIN_DIR]}/zi.zsh"
 
-## Load local modules
-zinit is-snippet lucid for \
-  "${ZDOTDIR}/modules/directory.zsh" \
-  "${ZDOTDIR}/modules/history.zsh" \
-  "${ZDOTDIR}/modules/p10k.zsh" \
-  "${ZDOTDIR}/modules/python.zsh" \
-  "${ZDOTDIR}/modules/coreutils.zsh" \
-  "${ZDOTDIR}/modules/gnupg.zsh"
+## Enable Zi completions
+autoload -Uz _zi
+(( ${+_comps} )) && _comps[zi]=_zi
 
-## Load plugins
+## Load Zi plugins
 
-### Theme
-zinit light-mode lucid depth=1 for \
-  romkatv/powerlevel10k
-
-### Core extensions
-zinit light-mode lucid wait="0a" for \
-  blockf atload="zicompinit; zicdreplay" \
-    zsh-users/zsh-completions \
-  atload="!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions \
-  zdharma-continuum/fast-syntax-highlighting \
-  is-snippet "${ZDOTDIR}/modules/zsh-completions.zsh"
-
-zinit light-mode lucid wait="0b" for \
-  zsh-users/zsh-history-substring-search \
-  zdharma-continuum/history-search-multi-word \
-  is-snippet "${ZDOTDIR}/modules/zsh-history-substring-search.zsh"
+### Zsh settings
+zi is-snippet lucid for \
+  "${ZDOTDIR}/modules/zsh-internal/completion.zsh" \
+  "${ZDOTDIR}/modules/zsh-internal/directory.zsh" \
+  "${ZDOTDIR}/modules/zsh-internal/expansion.zsh" \
+  "${ZDOTDIR}/modules/zsh-internal/history.zsh" \
+  "${ZDOTDIR}/modules/zsh-internal/script.zsh" \
+  "${ZDOTDIR}/modules/zsh-internal/external.zsh"
 
 ### Prezto modules
-zstyle ":prezto:module" pmodule "environment" "editor" "terminal"
-zinit lucid for \
-  is-snippet "${ZDOTDIR}/modules/prezto.editor.zsh" \
-  is-snippet "${ZDOTDIR}/modules/prezto.terminal.zsh" \
+zi is-snippet lucid for \
+  "${ZDOTDIR}/modules/prezto/init.zsh" \
+  "${ZDOTDIR}/modules/prezto/editor.zsh" \
+  "${ZDOTDIR}/modules/prezto/terminal.zsh" \
   PZTM::environment \
   PZTM::editor \
   PZTM::terminal
 
-### Python virtualenv
-zinit light-mode lucid has="poetry" for \
-  MichaelAquilina/zsh-autoswitch-virtualenv
+### Zi annexes
+zi light-mode lucid for \
+  @z-shell/z-a-bin-gem-node \
+  @z-shell/z-a-readurl
 
-### VSCode integration
-zinit is-snippet lucid has="code" if='[[ "$TERM_PROGRAM" == "vscode" ]]' for \
+### Theme
+zi light-mode lucid for \
+  depth=1 @romkatv/powerlevel10k \
+  is-snippet "${ZDOTDIR}/modules/romkatv/powerlevel10k/p10k.zsh"
+
+### Syntax Highlight
+zi-turbo "0b" for \
+  atinit="zicompinit; zicdreplay" @z-shell/F-Sy-H
+
+### Completion
+zi-turbo "0b" for \
+  blockf @zsh-users/zsh-completions \
+  @z-shell/zsh-fancy-completions \
+  is-snippet "${ZDOTDIR}/modules/zsh-users/completions/init.zsh"
+
+### Suggestion
+zi-turbo "0b" for \
+  atload="!_zsh_autosuggest_start" @zsh-users/zsh-autosuggestions
+
+### History search
+zi-turbo "0b" for \
+  @z-shell/H-S-MW \
+  @zsh-users/zsh-history-substring-search \
+  is-snippet "${ZDOTDIR}/modules/zsh-users/zsh-history-substring-search/init.zsh"
+
+### Python virtualenv integration
+zi light-mode lucid for \
+  @MichaelAquilina/zsh-autoswitch-virtualenv
+
+### VSCode Integration
+zi is-snippet lucid has="code" if='[[ "${TERM_PROGRAM}" == "vscode" ]]' for \
   "$(code --locate-shell-integration-path zsh)" \
-  "${ZDOTDIR}/modules/vscode-shell-integration.zsh"
+  "${ZDOTDIR}/modules/microsoft/vscode/shell-integration.zsh"
 
-{{if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
-### Yubikey integration on WSL
-zinit light-mode lucid for \
-  as="program" from="gh-r" pick="wsl2-ssh-pageant.exe" \
-    BlackReloaded/wsl2-ssh-pageant \
-  is-snippet \
-    "${ZDOTDIR}/modules/wsl-yubikey.zsh"
-{{end -}}
+## Load external commands
 
-### Commands
-{{if and (eq .chezmoi.os "linux") (eq .chezmoi.arch "amd64") -}}
-zinit light-mode lucid for \
-  as="program" from="gh-r" bpick="*linux*" \
-    RShirohara/markov-chain-generator-jp-cli
-{{end -}}
+### Console tools
+zi light-mode lucid pack for \
+  @z-shell/dircolors-material
+
+zi light-mode lucid as="program" from="gh-r" for \
+  sbin="**/rg(.exe|)" @BurntSushi/ripgrep \
+  sbin="**/delta(.exe|)" @dandavison/delta \
+  sbin="**/exa(.exe|)" @ogham/exa \
+  sbin="**/bat(.exe|)" @sharkdp/bat \
+  sbin="**/fd(.exe|)" @sharkdp/fd \
+  sbin="**/hexyl(.exe|)" @sharkdp/hexyl \
+  sbin="**/hyperfine(.exe|)" @sharkdp/hyperfine
+
+zi is-snippet lucid for \
+  "${ZDOTDIR}/modules/z-shell/console-tools/init.zsh" \
+
+### Markov Chain Generator
+zi light-mode lucid  as="program" from="gh-r" for \
+  sbin="**/markov" @RShirohara/markov-chain-generator-jp-cli
+
+### GitHub Label Setup
+zi-turbo "1a" lucid has="npm" has="gh" for \
+  node="github-label-setup <- !@azu/github-label-setup -> github-label-setup;" \
+  atclone="npm install" atpull="%atclone" nocompile @azu/github-label-setup
