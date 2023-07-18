@@ -38,25 +38,25 @@ zi is-snippet lucid for \
   PZTM::editor \
   PZTM::terminal
 
-### Zi annexes and meta-plugins
+### Zi annexes
 zi light-mode lucid for \
   @z-shell/z-a-bin-gem-node \
   @z-shell/z-a-readurl
 
 ### Theme
 zi light-mode lucid for \
-  is-snippet "${ZDOTDIR}/modules/romkatv/powerlevel10k/p10k.zsh" \
-  depth=1 @romkatv/powerlevel10k
+  depth=1 @romkatv/powerlevel10k \
+  is-snippet "${ZDOTDIR}/modules/romkatv/powerlevel10k/p10k.zsh"
 
 ### Syntax Highlight
 zi-turbo "0b" for \
-  atinit="zicompinit; zicdreplay" \
-    @z-shell/F-Sy-H
+  atinit="zicompinit; zicdreplay" @z-shell/F-Sy-H
 
 ### Completion
 zi-turbo "0b" for \
-  is-snippet "${ZDOTDIR}/modules/zsh-users/completions/init.zsh" \
-  blockf @zsh-users/zsh-completions
+  blockf @zsh-users/zsh-completions \
+  @z-shell/zsh-fancy-completions \
+  is-snippet "${ZDOTDIR}/modules/zsh-users/completions/init.zsh"
 
 ### Suggestion
 zi-turbo "0b" for \
@@ -81,10 +81,11 @@ zi is-snippet lucid has="code" if='[[ "${TERM_PROGRAM}" == "vscode" ]]' for \
 
 ### Console tools
 zi light-mode lucid pack for \
-  dircolors-material
+  @z-shell/dircolors-material
 
 zi light-mode lucid as="program" from="gh-r" for \
   sbin="**/rg(.exe|)" @BurntSushi/ripgrep \
+  sbin="**/delta(.exe|)" @dandavison/delta \
   sbin="**/exa(.exe|)" @ogham/exa \
   sbin="**/bat(.exe|)" @sharkdp/bat \
   sbin="**/fd(.exe|)" @sharkdp/fd \
