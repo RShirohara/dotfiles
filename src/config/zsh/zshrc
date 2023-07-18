@@ -101,5 +101,5 @@ zi light-mode lucid  as="program" from="gh-r" for \
 
 ### GitHub Label Setup
 zi-turbo "1a" lucid has="npm" has="gh" for \
-  node="../../bin/cmd.mjs <- !@azu/github-label-setup -> github-label-setup;" \
+  node="github-label-setup <- !@azu/github-label-setup -> github-label-setup;" \
   atclone="npm install" atpull="%atclone" nocompile @azu/github-label-setup
