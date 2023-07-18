@@ -86,6 +86,7 @@
   "terminal.integrated.enableBell": true,
   "terminal.integrated.fontFamily": "'HackGen Console NF', monospace",
   "terminal.integrated.scrollback": 1000000,
+  "terminal.integrated.shellIntegration.enabled": false,
   "terminal.integrated.smoothScrolling": true,
   "typescript.inlayHints.enumMemberValues.enabled": true,
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
