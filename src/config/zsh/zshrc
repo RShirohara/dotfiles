@@ -84,13 +84,13 @@ zi light-mode lucid pack for \
   @z-shell/dircolors-material
 
 zi light-mode lucid as="program" from="gh-r" for \
-  sbin="**/rg(.exe|)" @BurntSushi/ripgrep \
-  sbin="**/delta(.exe|)" @dandavison/delta \
-  sbin="**/exa(.exe|)" @ogham/exa \
-  sbin="**/bat(.exe|)" @sharkdp/bat \
-  sbin="**/fd(.exe|)" @sharkdp/fd \
-  sbin="**/hexyl(.exe|)" @sharkdp/hexyl \
-  sbin="**/hyperfine(.exe|)" @sharkdp/hyperfine
+  sbin="**/rg" @BurntSushi/ripgrep \
+  sbin="**/delta" @dandavison/delta \
+  sbin="**/exa" @ogham/exa \
+  sbin="**/bat" @sharkdp/bat \
+  sbin="**/fd" @sharkdp/fd \
+  sbin="**/hexyl" @sharkdp/hexyl \
+  sbin="**/hyperfine" @sharkdp/hyperfine
 
 zi is-snippet lucid for \
   "${ZDOTDIR}/modules/console-tools/init.zsh" \
