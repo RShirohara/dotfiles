@@ -46,7 +46,7 @@ zi light-mode lucid for \
 ### Theme
 zi light-mode lucid for \
   depth=1 @romkatv/powerlevel10k \
-  is-snippet "${ZDOTDIR}/modules/romkatv/powerlevel10k/p10k.zsh"
+  is-snippet "${ZDOTDIR}/modules/powerlevel10k/p10k.zsh"
 
 ### Syntax Highlight
 zi-turbo "0b" for \
@@ -56,7 +56,7 @@ zi-turbo "0b" for \
 zi-turbo "0b" for \
   blockf @zsh-users/zsh-completions \
   @z-shell/zsh-fancy-completions \
-  is-snippet "${ZDOTDIR}/modules/zsh-users/completions/init.zsh"
+  is-snippet "${ZDOTDIR}/modules/zsh-completions/init.zsh"
 
 ### Suggestion
 zi-turbo "0b" for \
@@ -66,7 +66,7 @@ zi-turbo "0b" for \
 zi-turbo "0b" for \
   @z-shell/H-S-MW \
   @zsh-users/zsh-history-substring-search \
-  is-snippet "${ZDOTDIR}/modules/zsh-users/zsh-history-substring-search/init.zsh"
+  is-snippet "${ZDOTDIR}/modules/zsh-history-substring-search/init.zsh"
 
 ### Python virtualenv integration
 zi light-mode lucid for \
@@ -75,7 +75,7 @@ zi light-mode lucid for \
 ### VSCode Integration
 zi is-snippet lucid has="code" if='[[ "${TERM_PROGRAM}" == "vscode" ]]' for \
   "$(code --locate-shell-integration-path zsh)" \
-  "${ZDOTDIR}/modules/microsoft/vscode/shell-integration.zsh"
+  "${ZDOTDIR}/modules/vscode/shell-integration.zsh"
 
 ## Load external commands
 
@@ -93,7 +93,7 @@ zi light-mode lucid as="program" from="gh-r" for \
   sbin="**/hyperfine(.exe|)" @sharkdp/hyperfine
 
 zi is-snippet lucid for \
-  "${ZDOTDIR}/modules/z-shell/console-tools/init.zsh" \
+  "${ZDOTDIR}/modules/console-tools/init.zsh" \
 
 ### Markov Chain Generator
 zi light-mode lucid  as="program" from="gh-r" for \
