@@ -40,8 +40,7 @@ zi is-snippet lucid for \
 
 ### Zi annexes
 zi light-mode lucid for \
-  @z-shell/z-a-bin-gem-node \
-  @z-shell/z-a-readurl
+  @z-shell/z-a-bin-gem-node
 
 ### Theme
 zi light-mode lucid for \
@@ -100,6 +99,6 @@ zi light-mode lucid  as="program" from="gh-r" for \
   sbin="**/markov" @RShirohara/markov-chain-generator-jp-cli
 
 ### GitHub Label Setup
-zi-turbo "1a" lucid has="npm" has="gh" for \
-  node="github-label-setup <- !@azu/github-label-setup -> github-label-setup;" \
-  atclone="npm install" atpull="%atclone" nocompile @azu/github-label-setup
+zi light-mode lucid has="npm" has="gh" for \
+  node="github-label-sync <- !github-label-sync -> github-label-sync" nocompile \
+    @Financial-Times/github-label-sync
