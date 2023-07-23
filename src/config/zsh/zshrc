@@ -85,6 +85,7 @@ zi light-mode lucid pack for \
 zi light-mode lucid as="program" from="gh-r" for \
   sbin="**/rg" @BurntSushi/ripgrep \
   sbin="**/delta" @dandavison/delta \
+  sbin="**/bin/teip" @greymd/teip \
   sbin="**/exa" @ogham/exa \
   sbin="**/bat" @sharkdp/bat \
   sbin="**/fd" @sharkdp/fd \
@@ -95,10 +96,10 @@ zi is-snippet lucid for \
   "${ZDOTDIR}/modules/console-tools/init.zsh" \
 
 ### Markov Chain Generator
-zi light-mode lucid  as="program" from="gh-r" for \
+zi light-mode lucid as="program" from="gh-r" has="gh" for \
   sbin="**/markov" @RShirohara/markov-chain-generator-jp-cli
 
 ### GitHub Label Setup
 zi light-mode lucid has="npm" has="gh" for \
-  node="github-label-sync <- !github-label-sync -> github-label-sync" nocompile \
+  node="github-label-sync <- !github-label-sync -> github-label-sync" nocompile nocompletions \
     @Financial-Times/github-label-sync
