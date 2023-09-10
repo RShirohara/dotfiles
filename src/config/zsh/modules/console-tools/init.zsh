@@ -3,8 +3,8 @@
 ## cat -> bat
 alias cat="bat --paging=never"
 
-## ls -> exa
-alias ls="exa --icons --group-directories-first --git"
+## ls -> eza
+alias ls="eza --icons --group-directories-first --git"
 alias l="ls -1a"
 alias ll="ls -l"
 alias lr="ll -R"
