@@ -85,7 +85,7 @@ zi light-mode lucid pack for \
 zi light-mode lucid as="program" from="gh-r" for \
   sbin="**/rg" @BurntSushi/ripgrep \
   sbin="**/delta" @dandavison/delta \
-  mv="*-eza -> eza" sbin="**/eza" @eza-community/eza \
+  sbin="**/eza" @eza-community/eza \
   sbin="**/bin/teip" @greymd/teip \
   sbin="**/bat" @sharkdp/bat \
   sbin="**/fd" @sharkdp/fd \
