@@ -37,5 +37,5 @@ RShirohara's dotfiles managed by [chezmoi](https://github.com/twpayne/chezmoi).
 - `diff` -> [delta](https://github.com/dandavison/delta)
 - `find` -> [fd](https://github.com/sharkdp/fd)
 - `grep` -> [ripgrep](https://github.com/BurntSushi/ripgrep)
-- `ls` -> [exa](https://github.com/ogham/exa)
+- `ls` -> [eza](https://github.com/eza-community/eza)
 - `od` -> [hexyl](https://github.com/sharkdp/hexyl)
