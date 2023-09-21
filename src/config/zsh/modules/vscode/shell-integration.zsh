@@ -6,4 +6,3 @@ export POWERLEVEL9K_TERM_SHELL_INTEGRATION=true
 ## Set default editor on vscode integrated shell.
 export EDITOR="code -w"
 export GIT_EDITOR="code -w"
-export GIT_EXTERNAL_DIFF="code -w -d"
