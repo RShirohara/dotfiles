@@ -33,8 +33,11 @@ width = -2
 [includeIf "hasconfig:remote.*.url:https://github.com/**"]
 path = ./profiles/rshirohara@github.com.gitconfig
 
-[includeIf "hasconfig:remote.*.url:git@github.com:RShirohara/**"]
+[includeIf "hasconfig:remote.*.url:git@github.com:/**"]
 path = ./profiles/rshirohara@github.com.gitconfig
 
-[includeIf "hasconfig:remote.*.url:*aur.archlinux.org:/**"]
+[includeIf "hasconfig:remote.*.url:https://aur.archlinux.org/**"]
+path = ./profiles/rshirohara@aur.archlinux.org.gitconfig
+
+[includeIf "hasconfig:remote.*.url:aur@aur.archlinux.org:/**"]
 path = ./profiles/rshirohara@aur.archlinux.org.gitconfig
