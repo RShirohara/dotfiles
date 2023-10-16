@@ -56,6 +56,9 @@
   "explorer.incrementalNaming": "smart",
   "explorer.sortOrder": "type",
   "extensions.ignoreRecommendations": true,
+  "files.associations": {
+    "*.env": "properties"
+  },
   "files.autoGuessEncoding": true,
   "files.eol": "\n",
   "files.insertFinalNewline": true,
@@ -74,7 +77,6 @@
   "javascript.inlayHints.parameterTypes.enabled": true,
   "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
   "javascript.inlayHints.variableTypes.enabled": true,
-  "jest.autoRun": "on-save",
   "js/ts.implicitProjectConfig.checkJs": true,
   "js/ts.implicitProjectConfig.target": "ESNext",
   "markdown.preview.fontFamily": "'Noto Sans CJK JP', 'Noto Sans CJK', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
