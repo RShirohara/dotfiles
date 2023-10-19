@@ -23,6 +23,9 @@ rebase = true
 [push]
 default = simple
 
+[alias]
+lg = log --color --abbrev-commit --date=short --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset'
+
 ## External tool
 [delta]
 line-numbers = true
