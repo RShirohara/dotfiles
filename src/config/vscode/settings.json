@@ -57,7 +57,9 @@
   "explorer.sortOrder": "type",
   "extensions.ignoreRecommendations": true,
   "files.associations": {
-    "*.env": "properties"
+    "*.env": "properties",
+    "config": "properties",
+    "ignore": "ignore"
   },
   "files.autoGuessEncoding": true,
   "files.eol": "\n",
