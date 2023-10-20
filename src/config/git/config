@@ -24,6 +24,7 @@ rebase = true
 default = simple
 
 [alias]
+fpush = push --force-if-includes --force-with-lease
 lg = log --color --abbrev-commit --date=short --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset'
 
 ## External tool
