@@ -1,5 +1,6 @@
 {
   "[css]": {
+    "cSpell.fixSpellingWithRenameProvider": false,
     "editor.defaultFormatter": "vscode.css-language-features",
     "editor.suggest.insertMode": "replace"
   },
@@ -10,13 +11,14 @@
   "[json][jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features",
     "editor.quickSuggestions": {
-      "strings": true
+      "strings": "inline"
     },
     "editor.suggest.insertMode": "replace"
   },
   "[markdown]": {
-    "diffEditor.ignoreTrimWhitespace": false,
-    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/",
+    "cSpell.advanced.feature.useReferenceProviderWithRename": true,
+    "cSpell.fixSpellingWithRenameProvider": true,
     "editor.quickSuggestions": {
       "comments": "off",
       "other": "off",
@@ -24,17 +26,28 @@
     },
     "editor.unicodeHighlight.ambiguousCharacters": false,
     "editor.unicodeHighlight.invisibleCharacters": false,
-    "editor.wordWrap": "bounded",
-    "files.trimTrailingWhitespace": false
+    "editor.wordWrap": "on"
   },
-  "diffEditor.diffAlgorithm": "advanced",
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "[yaml]": {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "diffEditor.experimental.showMoves": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.renderSideBySide": false,
-  "editor.dragAndDrop": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
   "editor.fontFamily": "HackGen, 'Noto Sans CJK JP', monospace",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.inlineSuggest.showToolbar": "always",
-  "editor.minimap.maxColumn": 100,
+  "editor.minimap.maxColumn": 80,
   "editor.quickSuggestions": {
     "other": "inline"
   },
@@ -58,8 +71,8 @@
   "extensions.ignoreRecommendations": true,
   "files.associations": {
     "*.env": "properties",
-    "config": "properties",
-    "ignore": "ignore"
+    "*config": "properties",
+    "*ignore": "ignore"
   },
   "files.autoGuessEncoding": true,
   "files.eol": "\n",
@@ -70,9 +83,9 @@
   "git.enableCommitSigning": true,
   "git.mergeEditor": true,
   "git.openRepositoryInParentFolders": "never",
-  "githubPullRequests.createOnPublishBranch": "never",
   "gitlens.graph.layout": "editor",
   "gitlens.graph.minimap.enabled": false,
+  "gitlens.views.commitDetails.files.layout": "tree",
   "javascript.inlayHints.enumMemberValues.enabled": true,
   "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
   "javascript.inlayHints.parameterNames.enabled": "literals",
@@ -83,6 +96,7 @@
   "js/ts.implicitProjectConfig.target": "ESNext",
   "markdown.preview.fontFamily": "'Noto Sans CJK JP', 'Noto Sans CJK', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
   "merge-conflict.autoNavigateNextConflict.enabled": true,
+  "redhat.telemetry.enabled": false,
   "search.useGlobalIgnoreFiles": true,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.cursorBlinking": true,
@@ -99,10 +113,8 @@
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.inlayHints.variableTypes.enabled": true,
   "update.mode": "none",
-  "window.commandCenter": true,
   "workbench.colorTheme": "GitHub Dark",
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
-  "workbench.editor.languageDetection": false,
   "workbench.editor.scrollToSwitchTabs": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
