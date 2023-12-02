@@ -1,12 +1,13 @@
 # Define environment variables.
 
-## load environment.d on non-desktop environment.
+## Load environment.d on non-desktop environment.
 if [[ "${DOTFILES_ENV_LOADED}" != "true" ]]; then
   {{- with $envs := ( cat
     (includeTemplate "config/environment.d/xdg-user-dir/init.conf")
     (includeTemplate "config/environment.d/xdg-base-dirs/init.conf")
     (includeTemplate "config/environment.d/editor.conf")
     (includeTemplate "config/environment.d/gpg-socket.conf")
+    (includeTemplate "config/environment.d/locale.conf")
     (includeTemplate "config/environment.d/dotfiles-env-loaded.conf")
   )}}
   {{- $envs
@@ -18,8 +19,11 @@ if [[ "${DOTFILES_ENV_LOADED}" != "true" ]]; then
   {{- end}}
 fi
 
-## dotfiles path
+## Dotfiles path
 export DOTFILES_DIR="${HOME}/.dotfiles"
 
-## zsh config path
+## Zsh config path
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+
+## Dislable global compinit.
+skip_global_compinit=1
