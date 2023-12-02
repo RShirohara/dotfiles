@@ -33,6 +33,9 @@ line-numbers = true
 navigate = true
 width = -2
 
+[ghq]
+root = ~/Projects
+
 ## Profiles
 [includeIf "hasconfig:remote.*.url:https://github.com/**"]
 path = ./profiles/rshirohara@github.com.gitconfig
