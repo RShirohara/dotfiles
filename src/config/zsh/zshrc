@@ -61,7 +61,8 @@ zi-turbo "0a" for \
 zi-turbo "0a" for \
   blockf atpull="zi creinstall -q ." @zsh-users/zsh-completions \
   @z-shell/zsh-fancy-completions \
-  @Aloxaf/fzf-tab
+  @Aloxaf/fzf-tab \
+  is-snippet "${ZDOTDIR}/modules/fzf/setting.zsh"
 
 #### Suggestion
 zi-turbo "0a" for \
