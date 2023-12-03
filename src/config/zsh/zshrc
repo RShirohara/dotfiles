@@ -1,33 +1,34 @@
 # Run commands at the start of an interactive sessions.
 
-## Enable powerlevel10k instant prompt
+## Initialize
+### Enable powerlevel10k instant prompt.
 if [[ -r "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-## Set Zi path
+### Set Zi path.
 typeset -A ZI
 ZI[HOME_DIR]="${XDG_DATA_HOME}/zsh/zi"
 ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
 ZI[COMPINIT_OPTS]="-C"
 
-## Load Zi
+### Load Zi.
 source "${ZI[BIN_DIR]}/zi.zsh"
 
-## Enable Zi completions
+### Enable Zi completions.
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 
-## Load Zi plugins
-
+## Plugins
 ### Zsh settings
 zi is-snippet lucid for \
-  "${ZDOTDIR}/modules/zsh-internal/completion.zsh" \
-  "${ZDOTDIR}/modules/zsh-internal/directory.zsh" \
-  "${ZDOTDIR}/modules/zsh-internal/expansion.zsh" \
-  "${ZDOTDIR}/modules/zsh-internal/history.zsh" \
-  "${ZDOTDIR}/modules/zsh-internal/script.zsh" \
-  "${ZDOTDIR}/modules/zsh-internal/external.zsh"
+  "${ZDOTDIR}/modules/settings/completion.zsh" \
+  "${ZDOTDIR}/modules/settings/directory.zsh" \
+  "${ZDOTDIR}/modules/settings/expansion.zsh" \
+  "${ZDOTDIR}/modules/settings/history.zsh" \
+  "${ZDOTDIR}/modules/settings/io.zsh" \
+  "${ZDOTDIR}/modules/settings/script.zsh" \
+  "${ZDOTDIR}/modules/settings/external-command.zsh"
 
 ### Prezto modules
 zi is-snippet lucid for \
@@ -40,66 +41,90 @@ zi is-snippet lucid for \
 
 ### Zi annexes
 zi light-mode lucid for \
-  @z-shell/z-a-bin-gem-node
+  @z-shell/z-a-bin-gem-node \
+  @z-shell/z-a-patch-dl
 
-### Theme
+### Plugins
+#### Theme
 zi light-mode lucid for \
   depth=1 @romkatv/powerlevel10k \
   is-snippet "${ZDOTDIR}/modules/powerlevel10k/p10k.zsh"
 
-### Syntax Highlight
-zi-turbo "0b" for \
+zi light-mode lucid pack for \
+  @z-shell/dircolors-material
+
+#### Syntax highlight
+zi-turbo "0a" for \
   atinit="zicompinit; zicdreplay" @z-shell/F-Sy-H
 
-### Completion
-zi-turbo "0b" for \
-  blockf @zsh-users/zsh-completions \
+#### Completion
+zi-turbo "0a" for \
+  blockf atpull="zi creinstall -q ." @zsh-users/zsh-completions \
   @z-shell/zsh-fancy-completions \
-  is-snippet "${ZDOTDIR}/modules/zsh-completions/init.zsh"
+  @Aloxaf/fzf-tab \
+  is-snippet "${ZDOTDIR}/modules/fzf/setting.zsh"
 
-### Suggestion
-zi-turbo "0b" for \
+#### Suggestion
+zi-turbo "0a" for \
   atload="!_zsh_autosuggest_start" @zsh-users/zsh-autosuggestions
 
-### History search
-zi-turbo "0b" for \
-  @z-shell/H-S-MW \
-  @zsh-users/zsh-history-substring-search \
-  is-snippet "${ZDOTDIR}/modules/zsh-history-substring-search/init.zsh"
-
-### Python virtualenv integration
+#### Auto-pair delimiters
 zi light-mode lucid for \
-  @MichaelAquilina/zsh-autoswitch-virtualenv
+  @hlissner/zsh-autopair
 
-### VSCode Integration
+#### History helpers
+zi light-mode lucid for \
+  @marlonrichert/zsh-hist
+
+#### Json interactive query
+zi light-mode lucid for \
+  @reegnz/jq-zsh-plugin
+
+#### VSCode integration
 zi is-snippet lucid has="code" if='[[ "${TERM_PROGRAM}" == "vscode" ]]' for \
   "$(code --locate-shell-integration-path zsh)" \
   "${ZDOTDIR}/modules/vscode/shell-integration.zsh"
 
-## Load external commands
-
-### Console tools
-zi light-mode lucid pack for \
-  @z-shell/dircolors-material
-
-zi light-mode lucid as="program" from="gh-r" for \
-  sbin="**/rg" @BurntSushi/ripgrep \
-  sbin="**/delta" @dandavison/delta \
-  sbin="**/eza" @eza-community/eza \
-  sbin="**/bin/teip" @greymd/teip \
-  sbin="**/bat" @sharkdp/bat \
-  sbin="**/fd" @sharkdp/fd \
-  sbin="**/hexyl" @sharkdp/hexyl \
-  sbin="**/hyperfine" @sharkdp/hyperfine
-
-zi is-snippet lucid for \
-  "${ZDOTDIR}/modules/console-tools/init.zsh" \
-
-### Markov Chain Generator
-zi light-mode lucid as="program" from="gh-r" has="gh" for \
-  sbin="**/markov" @RShirohara/markov-chain-generator-jp-cli
-
-### GitHub Label Setup
-zi light-mode lucid has="npm" has="gh" for \
-  node="github-label-sync <- !github-label-sync -> github-label-sync" nocompile nocompletions \
-    @Financial-Times/github-label-sync
+### External commands
+zi light-mode lucid as="program" from="gh-r" blockf for \
+  sbin="**/rg" \
+    cp="**/doc/rg.1 -> ${ZPFX}/man/man1/rg.1" \
+    @BurntSushi/ripgrep \
+  sbin="**/delta" \
+    dl="https://raw.githubusercontent.com/dandavison/delta/main/etc/completion/completion.zsh -> _delta" \
+    @dandavison/delta \
+  sbin="**/eza" \
+    dl="https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza -> _eza" \
+    @eza-community/eza \
+  sbin="**/bin/teip" \
+    cp="**/man/teip.1 -> ${ZPFX}/man/man1/teip.1" \
+    @greymd/teip \
+  sbin="**/jq-* -> jq" \
+    @jqlang/jq \
+  sbin="**/fzf" \
+    dl="https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh -> _fzf" \
+    dl="https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh -> key-binding.zsh" \
+    dl="https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf-tmux.1 -> ${ZPFX}/man/man1/fzf-tmux.1" \
+    dl="https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf.1 -> ${ZPFX}/man/man1/fzf.1" \
+    src="key-binding.zsh" \
+    @junegunn/fzf \
+  sbin="**/jc" \
+    dl="https://raw.githubusercontent.com/kellyjonbrazil/jc/master/completions/jc_zsh_completion.sh -> _jc" \
+    dl="https://raw.githubusercontent.com/kellyjonbrazil/jc/master/man/jc.1 -> ${ZPFX}/man/man1/jc.1" \
+    @kellyjonbrazil/jc \
+  sbin="**/bat" \
+    mv="**/autocomplete/bat.zsh -> _bat" \
+    cp="**/bat.1 -> ${ZPFX}/man/man1/bat.1" \
+    @sharkdp/bat \
+  sbin="**/fd" \
+    cp="**/fd.1  -> ${ZPFX}/man/man1/fd.1" \
+    @sharkdp/fd \
+  sbin="**/hexyl" \
+    cp="**/hexyl.1  -> ${ZPFX}/man/man1/hexyl.1" \
+    @sharkdp/hexyl \
+  sbin="**/chezmoi" \
+    atclone="rm ~/.local/share/chezmoi" \
+    dl="https://raw.githubusercontent.com/twpayne/chezmoi/v2.42.2/completions/chezmoi.zsh -> _chezmoi" \
+    @twpayne/chezmoi \
+  sbin="**/ghq" \
+    @x-motemen/ghq
