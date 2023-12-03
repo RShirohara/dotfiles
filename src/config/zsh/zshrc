@@ -76,6 +76,10 @@ zi light-mode lucid for \
 zi light-mode lucid for \
   @marlonrichert/zsh-hist
 
+#### Json interactive query
+zi light-mode lucid for \
+  @reegnz/jq-zsh-plugin
+
 #### VSCode integration
 zi is-snippet lucid has="code" if='[[ "${TERM_PROGRAM}" == "vscode" ]]' for \
   "$(code --locate-shell-integration-path zsh)" \
@@ -95,6 +99,8 @@ zi light-mode lucid as="program" from="gh-r" blockf for \
   sbin="**/bin/teip" \
     cp="**/man/teip.1 -> ${ZPFX}/man/man1/teip.1" \
     @greymd/teip \
+  sbin="**/jq-* -> jq" \
+    @jqlang/jq \
   sbin="**/fzf" \
     dl="https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh -> _fzf" \
     dl="https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh -> key-binding.zsh" \
