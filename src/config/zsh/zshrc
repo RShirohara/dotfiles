@@ -102,6 +102,10 @@ zi light-mode lucid as="program" from="gh-r" blockf for \
     dl="https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf.1 -> ${ZPFX}/man/man1/fzf.1" \
     src="key-binding.zsh" \
     @junegunn/fzf \
+  sbin="**/jc" \
+    dl="https://raw.githubusercontent.com/kellyjonbrazil/jc/master/completions/jc_zsh_completion.sh -> _jc" \
+    dl="https://raw.githubusercontent.com/kellyjonbrazil/jc/master/man/jc.1 -> ${ZPFX}/man/man1/jc.1" \
+    @kellyjonbrazil/jc \
   sbin="**/bat" \
     mv="**/autocomplete/bat.zsh -> _bat" \
     cp="**/bat.1 -> ${ZPFX}/man/man1/bat.1" \
