@@ -112,5 +112,9 @@ zi light-mode lucid as="program" from="gh-r" blockf for \
   sbin="**/hexyl" \
     cp="**/hexyl.1  -> ${ZPFX}/man/man1/hexyl.1" \
     @sharkdp/hexyl \
+  sbin="**/chezmoi" \
+    atclone="rm ~/.local/share/chezmoi" \
+    dl="https://raw.githubusercontent.com/twpayne/chezmoi/v2.42.2/completions/chezmoi.zsh -> _chezmoi" \
+    @twpayne/chezmoi \
   sbin="**/ghq" \
     @x-motemen/ghq
