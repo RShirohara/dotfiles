@@ -72,6 +72,10 @@ zi-turbo "0a" for \
 zi light-mode lucid for \
   @hlissner/zsh-autopair
 
+#### History helpers
+zi light-mode lucid for \
+  @marlonrichert/zsh-hist
+
 #### VSCode integration
 zi is-snippet lucid has="code" if='[[ "${TERM_PROGRAM}" == "vscode" ]]' for \
   "$(code --locate-shell-integration-path zsh)" \
