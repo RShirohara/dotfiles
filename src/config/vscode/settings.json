@@ -19,6 +19,7 @@
     "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/",
     "cSpell.advanced.feature.useReferenceProviderWithRename": true,
     "cSpell.fixSpellingWithRenameProvider": true,
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
     "editor.quickSuggestions": {
       "comments": "off",
       "other": "off",
@@ -85,6 +86,7 @@
   "git.openRepositoryInParentFolders": "never",
   "gitlens.graph.layout": "editor",
   "gitlens.graph.minimap.enabled": false,
+  "gitlens.rebaseEditor.ordering": "asc",
   "gitlens.views.commitDetails.files.layout": "tree",
   "javascript.inlayHints.enumMemberValues.enabled": true,
   "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
