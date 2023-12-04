@@ -31,7 +31,7 @@ function save_command() {
 
 function remove_failed_command_history() {
   local _status="${?}"
-  local _successed_status=(0)
+  local _successed_status=(0 130)
   if [[ ${#_last_command} -gt 0 && ${_successed_status[(Ie)${_status}]} == 0 ]]; then
     hist -s delete -1
   fi
