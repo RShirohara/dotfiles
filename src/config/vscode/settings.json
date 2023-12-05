@@ -105,6 +105,7 @@
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.enableBell": true,
   "terminal.integrated.fontFamily": "'HackGen Console NF', monospace",
+  "terminal.integrated.rightClickBehavior": "default",
   "terminal.integrated.scrollback": 1000000,
   "terminal.integrated.shellIntegration.enabled": false,
   "terminal.integrated.smoothScrolling": true,
