@@ -24,22 +24,41 @@ setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
 ## Functions
-typeset -g _last_command=""
-function save_command() {
-  typeset -g _last_command="${1}"
+typeset -g _hist_executed="false"
+typeset -g -a _hist_stack=()
+
+function save_command_executed() {
+  local _command="${1}"
+  if [[ ${#_command} -gt 0 ]]; then
+    typeset -g _hist_executed="true"
+  fi
 }
 
-function remove_failed_command_history() {
-  local _status="${?}"
-  local _successed_status=(0 130)
-  if [[ ${#_last_command} -gt 0 && ${_successed_status[(Ie)${_status}]} == 0 ]]; then
-    hist -s delete -1
+function save_failed_command() {
+  local _last_status="${?}"
+  local _succeeded_status=(0 130)
+
+  if [[ "${_hist_executed}" == "false" ]]; then
+    return 0
   fi
-  if [[ ${#_last_command} -gt 0 ]]; then
-    typeset -g _last_command=""
+
+  local _formatted_command="$(hist list -1 | cut -d" " -f"2-")"
+  if [[ ${_succeeded_status[(Ie)${_last_status}]} -eq 0 ]]; then
+    typeset -g -a _hist_stack=(${_hist_stack} ${_formatted_command})
+  else
+    typeset -g -a _hist_stack=(${_hist_stack:#${_formatted_command}})
   fi
+
+  typeset -g _hist_executed="false"
+}
+
+function clean_failed_command() {
+  for command in ${_hist_stack}; do
+    hist -f -q delete "${command}"
+  done
 }
 
 autoload -Uz add-zsh-hook
-add-zsh-hook preexec save_command
-add-zsh-hook precmd remove_failed_command_history
+add-zsh-hook preexec save_command_executed
+add-zsh-hook precmd save_failed_command
+add-zsh-hook zshexit clean_failed_command
