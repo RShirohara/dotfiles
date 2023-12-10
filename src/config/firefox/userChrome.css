@@ -1,0 +1,40 @@
+/* Remove extension icon from toolbar. */
+#unified-extensions-button,
+#unified-extensions-button>.toolbarbutton-icon {
+  width: 0px !important;
+  padding: 0px !important;
+}
+
+/* Window control button visible. */
+#TabsToolbar .titlebar-buttonbox-container {
+  visibility: visible !important;
+}
+
+#TabsToolbar .titlebar-buttonbox-container>.titlebar-buttonbox {
+  margin-left: 10px;
+  gap: 4px;
+}
+
+/* Minimize tab on not focused. */
+.tabbrowser-tab:not([pinned]) {
+  min-width: 58px !important;
+  max-width: 58px !important;
+}
+
+.tabbrowser-tab:not([pinned]):is([selected], [multiselected]) {
+  max-width: 225px !important;
+}
+
+/* Remove spacer after tab container. */
+.titlebar-spacer[type="post-tabs"] {
+  visibility: collapse;
+}
+
+/* Remove private mode label. */
+#private-browsing-indicator-with-label {
+  margin-inline-end: 16px !important;
+}
+
+#private-browsing-indicator-with-label>label[data-l10n-id="private-browsing-indicator-label"] {
+  visibility: collapse;
+}
