@@ -58,7 +58,7 @@ zi-turbo "0a" for \
   atinit="zicompinit; zicdreplay" @z-shell/F-Sy-H
 
 #### Completion
-zi-turbo "0a" for \
+zi-turbo "0c" for \
   blockf atpull="zi creinstall -q ." @zsh-users/zsh-completions \
   @z-shell/zsh-fancy-completions \
   @Aloxaf/fzf-tab \
@@ -85,46 +85,105 @@ zi is-snippet lucid has="code" if='[[ "${TERM_PROGRAM}" == "vscode" ]]' for \
   "$(code --locate-shell-integration-path zsh)" \
   "${ZDOTDIR}/modules/vscode/shell-integration.zsh"
 
-### External commands
-zi light-mode lucid as="program" from="gh-r" blockf for \
-  sbin="**/rg" \
-    cp="**/doc/rg.1 -> ${ZPFX}/man/man1/rg.1" \
+### External commands and completions
+#### @BurntSushi/ripgrep
+zi light-mode lucid blockf for \
+  as="program" from="gh-r" \
+    sbin="ripgrep-*/rg" \
+    cp="ripgrep-*/doc/rg.1 -> ${ZPFX}/man/man1/rg.1" \
     @BurntSushi/ripgrep \
-  sbin="**/delta" \
-    dl="https://raw.githubusercontent.com/dandavison/delta/main/etc/completion/completion.zsh -> _delta" \
+
+#### @dandavison/delta
+zi light-mode lucid blockf for \
+  as="program" from="gh-r" \
+    sbin="delta-*/delta" \
     @dandavison/delta \
-  sbin="**/eza" \
-    dl="https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza -> _eza" \
+  as="completion" \
+    mv="completion.zsh -> _delta" \
+    is-snippet https://github.com/dandavison/delta/blob/main/etc/completion/completion.zsh
+
+#### @docker/cli
+zi light-mode lucid blockf for \
+  as="completion" \
+    is-snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+
+#### @eza-community/eza
+zi light-mode lucid blockf for \
+  as="program" from="gh-r" \
+    sbin="eza" \
     @eza-community/eza \
-  sbin="**/bin/teip" \
-    cp="**/man/teip.1 -> ${ZPFX}/man/man1/teip.1" \
-    @greymd/teip \
-  sbin="**/jq-* -> jq" \
-    @jqlang/jq \
-  sbin="**/fzf" \
-    dl="https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh -> _fzf" \
-    dl="https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh -> key-binding.zsh" \
-    dl="https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf-tmux.1 -> ${ZPFX}/man/man1/fzf-tmux.1" \
+  as="completion" \
+    is-snippet https://github.com/eza-community/eza/blob/main/completions/zsh/_eza
+
+#### @greymd/teip
+zi light-mode lucid blockf for \
+  as="program" from="gh-r" \
+    sbin="bin/teip" \
+    cp="man/teip.1 -> ${ZPFX}/man/man1/teip.1" \
+    @greymd/teip
+
+#### @jqlang/jq
+zi light-mode lucid blockf for \
+  as="program" from="gh-r" \
+    sbin="jq-* -> jq" \
+    @jqlang/jq
+
+#### @junegunn/fzf
+zi light-mode lucid blockf for \
+  as="program" from="gh-r" \
+    sbin="fzf" \
     dl="https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf.1 -> ${ZPFX}/man/man1/fzf.1" \
+    dl="https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf-tmux.1 -> ${ZPFX}/man/man1/fzf-tmux.1" \
+    dl="https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh -> key-binding.zsh" \
     src="key-binding.zsh" \
     @junegunn/fzf \
-  sbin="**/jc" \
-    dl="https://raw.githubusercontent.com/kellyjonbrazil/jc/master/completions/jc_zsh_completion.sh -> _jc" \
+  as="completion" \
+    is-snippet https://github.com/junegunn/fzf/blob/master/shell/completion.zsh
+
+#### @kellyjonbrazil/jc
+zi light-mode lucid blockf for \
+  as="program" from="gh-r" \
+    sbin="jc" \
     dl="https://raw.githubusercontent.com/kellyjonbrazil/jc/master/man/jc.1 -> ${ZPFX}/man/man1/jc.1" \
     @kellyjonbrazil/jc \
-  sbin="**/bat" \
-    mv="**/autocomplete/bat.zsh -> _bat" \
-    cp="**/bat.1 -> ${ZPFX}/man/man1/bat.1" \
-    @sharkdp/bat \
-  sbin="**/fd" \
-    cp="**/fd.1  -> ${ZPFX}/man/man1/fd.1" \
-    @sharkdp/fd \
-  sbin="**/hexyl" \
-    cp="**/hexyl.1  -> ${ZPFX}/man/man1/hexyl.1" \
-    @sharkdp/hexyl \
-  sbin="**/chezmoi" \
-    atclone="rm ~/.local/share/chezmoi" \
-    dl="https://raw.githubusercontent.com/twpayne/chezmoi/v2.42.2/completions/chezmoi.zsh -> _chezmoi" \
-    @twpayne/chezmoi \
-  sbin="**/ghq" \
+  as="completion" \
+    mv="jc_zsh_completion.sh -> _jc" \
+    is-snippet https://github.com/kellyjonbrazil/jc/blob/master/completions/jc_zsh_completion.sh
+
+#### @sharkdp/bat
+zi light-mode lucid blockf for \
+  as="program" from="gh-r" \
+    sbin="bat-*/bat" \
+    cp="bat-*/bat.1 -> ${ZPFX}/man/man1/bat.1" \
+    mv="bat-*/autocomplete/bat.zsh -> _bat" \
+    @sharkdp/bat
+
+#### @sharkdp/fd
+zi light-mode lucid blockf for \
+  as="program" from="gh-r" \
+    sbin="fd-*/fd" \
+    cp="fd-*/fd.1 -> ${ZPFX}/man/man1/fd.1" \
+    @sharkdp/fd
+
+#### @sharkdp/hexyl
+zi light-mode lucid blockf for \
+  as="program" from="gh-r" \
+    sbin="hexyl-*/hexyl" \
+    cp="hexyl-*/hexyl.1 -> ${ZPFX}/man/man1/hexyl.1" \
+    @sharkdp/hexyl
+
+#### @twpayne/chezmoi
+zi light-mode lucid blockf for \
+  as="program" from="gh-r" \
+    sbin="chezmoi" \
+    mv="completions/chezmoi.zsh -> _chezmoi" \
+    atclone="[ -f ~/.local/bin/chezmoi ] && rm ~/.local/bin/chezmoi" \
+    @twpayne/chezmoi
+
+#### @x-motemen/ghq
+zi light-mode lucid blockf for \
+  as="program" from="gh-r" \
+    sbin="ghq_*/ghq" \
+    atclone="rm -r ghq_*/misc/bash" \
+    atpull="%atclone" \
     @x-motemen/ghq
