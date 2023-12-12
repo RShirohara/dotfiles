@@ -23,5 +23,6 @@ This setup using chezmoi [one-line binary install process](https://www.chezmoi.i
 Run this command:
 
 ```shell
-sh -c "$(curl -fsLS get.chezmoi.io/lb) -- init --apply RShirohara
+sh -c "$(curl -fsLS get.chezmoi.io)" -b ${HOME}/.local/bin
+~/.local/bin/chezmoi init --apply RShirohara
 ```
