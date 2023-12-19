@@ -1,9 +1,5 @@
 /* Window control button visible */
-#TabsToolbar .titlebar-buttonbox-container {
-  visibility: visible !important;
-}
-
-#TabsToolbar .titlebar-buttonbox-container>.titlebar-buttonbox {
+.titlebar-buttonbox-container>.titlebar-buttonbox {
   margin-left: 10px;
   gap: 4px;
 }
