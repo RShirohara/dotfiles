@@ -38,13 +38,7 @@ root = ~/Projects
 
 ## Profiles
 [includeIf "hasconfig:remote.*.url:https://github.com/**"]
-path = ./profiles/rshirohara@github.com.gitconfig
-
-[includeIf "hasconfig:remote.*.url:ssh://git@github.com/**"]
-path = ./profiles/rshirohara@github.com.gitconfig
+path = ./profiles/RShirohara@proton.me.gitconfig
 
 [includeIf "hasconfig:remote.*.url:https://aur.archlinux.org/**"]
-path = ./profiles/rshirohara@aur.archlinux.org.gitconfig
-
-[includeIf "hasconfig:remote.*.url:ssh://aur@aur.archlinux.org:/**"]
-path = ./profiles/rshirohara@aur.archlinux.org.gitconfig
+path = ./profiles/RShirohara@proton.me.gitconfig

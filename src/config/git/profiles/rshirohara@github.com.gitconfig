@@ -1,9 +1,0 @@
-# Git user-level settings for "rshirohara@github.com".
-
-[user]
-name = Ray Shirohara
-email = 47940764+RShirohara@users.noreply.github.com
-signingkey = B545B2DBE7C79376
-
-[commit]
-gpgsign = true

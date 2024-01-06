@@ -1,9 +1,0 @@
-# Git user-level settings for "rshirohara@aur.archlinux.org".
-
-[user]
-name = Ray Shirohara
-email = RShirohara@gmail.com
-signingkey = B545B2DBE7C79376
-
-[commit]
-gpgsign = true

@@ -1,0 +1,9 @@
+# Git user-level settings for "RShirohara@proton.me"
+
+[user]
+name = Ray Shirohara
+email = RShirohara@proton.me
+signingkey = A0ED68AB35B8627F!
+
+[commit]
+gpgsign = true
