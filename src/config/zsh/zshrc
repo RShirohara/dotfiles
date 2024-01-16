@@ -91,7 +91,6 @@ zi light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./ripgrep-*/rg" \
     cp="./ripgrep-*/doc/rg.1 -> ${ZI[MAN_DIR]}/man1/rg.1" \
-    atpull="[ -f ./._backup/ripgrep-*/complete/_rg ] && rm ./._backup/ripgrep-*/complete/_rg" \
     @BurntSushi/ripgrep
 
 #### @dandavison/delta
@@ -121,7 +120,6 @@ zi light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./bin/teip" \
     cp="./man/teip.1 -> ${ZI[MAN_DIR]}/man1/teip.1" \
-    atpull="[ -f ./._backup/completion/zsh/_teip ] && rm ./._backup/completion/zsh/_teip" \
     @greymd/teip
 
 #### @jqlang/jq
@@ -158,7 +156,6 @@ zi light-mode lucid blockf for \
     sbin="./bat-*/bat" \
     cp="./bat-*/bat.1 -> ${ZI[MAN_DIR]}/man1/bat.1" \
     mv="./bat-*/autocomplete/bat.zsh -> _bat" \
-    atpull="[ -f ./._backup/_bat ] && rm ./._backup/_bat" \
     @sharkdp/bat
 
 #### @sharkdp/fd
@@ -166,7 +163,6 @@ zi light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./fd-*/fd" \
     cp="./fd-*/fd.1 -> ${ZI[MAN_DIR]}/man1/fd.1" \
-    atpull="[ -f ./._backup/fd-*/autocomplete/_fd ] && rm ./._backup/fd-*/autocomplete/_fd" \
     @sharkdp/fd
 
 #### @sharkdp/hexyl
@@ -182,7 +178,6 @@ zi light-mode lucid blockf for \
     sbin="./chezmoi" \
     mv="./completions/chezmoi.zsh -> _chezmoi" \
     atclone="[ -f ~/.local/bin/chezmoi ] && rm ~/.local/bin/chezmoi" \
-    atpull="[ -f ./._backup/_chezmoi ] && rm ./._backup/_chezmoi" \
     @twpayne/chezmoi
 
 #### @x-motemen/ghq
@@ -191,5 +186,4 @@ zi light-mode lucid blockf for \
     sbin="./ghq_*/ghq" \
     atclone="rm -r ./ghq_*/misc/bash" \
     atpull="%atclone" \
-    atpull="[ -f ./._backup/ghq_*/misc/zsh/_ghq ] && rm ./._backup/ghq_*/misc/zsh/_ghq" \
     @x-motemen/ghq
