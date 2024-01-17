@@ -1,9 +1,3 @@
-/* Window control button visible */
-.titlebar-buttonbox-container>.titlebar-buttonbox {
-  margin-left: 10px;
-  gap: 4px;
-}
-
 /* Minimize tab on not focused. */
 .tabbrowser-tab:not([pinned]) {
   min-width: 58px !important;
