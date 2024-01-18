@@ -24,5 +24,5 @@ Run this command:
 
 ```shell
 sh -c "$(curl -fsLS get.chezmoi.io)" -- -b ${HOME}/.local/bin
-~/.local/bin/chezmoi init --apply RShirohara
+~/.local/bin/chezmoi init -a -S ~/Projects/github.com/RShirohara/dotfiles github.com/RShirohara
 ```
