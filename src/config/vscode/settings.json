@@ -116,7 +116,7 @@
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.inlayHints.variableTypes.enabled": true,
   "update.mode": "none",
-  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.colorTheme": "GitHub Dark",
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
   "workbench.editor.scrollToSwitchTabs": true,
   "workbench.iconTheme": "material-icon-theme",
