@@ -1,9 +1,20 @@
 # Git user-level settings.
 
-## Git
+## Git settings
 [core]
 editor = helix
 pager = delta
+
+[credential]
+{{if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+helper = git-credential-manager.exe
+credentialStore = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+
+{{else if eq .chezmoi.os "linux" -}}
+helper = manager
+credentialStore = secretservice
+
+{{end -}}
 
 [difftool]
 prompt = false
@@ -23,11 +34,7 @@ rebase = true
 [push]
 default = simple
 
-[alias]
-log-graph = log --color --abbrev-commit --date=short --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset'
-push-force = push --force-if-includes --force-with-lease
-
-## External tool
+## External tool settings
 [delta]
 line-numbers = true
 navigate = true
@@ -42,3 +49,8 @@ path = ./profiles/RShirohara@proton.me.gitconfig
 
 [includeIf "hasconfig:remote.*.url:https://aur.archlinux.org/**"]
 path = ./profiles/RShirohara@proton.me.gitconfig
+
+## Aliases
+[alias]
+log-graph = log --color --abbrev-commit --date=short --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset'
+push-force = push --force-if-includes --force-with-lease
