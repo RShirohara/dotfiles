@@ -33,6 +33,9 @@ rebase = true
 [push]
 default = simple
 
+[rebase]
+autostash = true
+
 ## External tool settings
 [delta]
 line-numbers = true
