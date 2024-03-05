@@ -20,17 +20,19 @@
   }
 }
 
-/** Fix tab height */
+/* Fix tab height */
 .tab-background {
   min-height: auto !important;
 }
 
 /* Fix right-click menu icon visible */
-.menu-iconic-icon {
-  width: auto !important;
-  height: auto !important;
-}
-
 #context-navigation>.menuitem-iconic>.menu-iconic-left>.menu-iconic-icon {
   padding: 0px !important;
+}
+
+/* Fix protections popup switch width */
+#protections-popup-tp-switch {
+  min-width: auto !important;
+  width: auto !important;
+  padding: 12px !important;
 }
