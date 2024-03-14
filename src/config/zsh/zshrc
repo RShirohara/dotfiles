@@ -97,23 +97,14 @@ zi light-mode lucid blockf for \
 zi light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./delta-*/delta" \
-    @dandavison/delta \
-  as="completion" \
-    mv="./completion.zsh -> _delta" \
-    is-snippet https://github.com/dandavison/delta/blob/main/etc/completion/completion.zsh
-
-#### @docker/cli
-zi light-mode lucid blockf for \
-  as="completion" \
-    is-snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+    @dandavison/delta
 
 #### @eza-community/eza
 zi light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./eza" \
-    @eza-community/eza \
-  as="completion" \
-    is-snippet https://github.com/eza-community/eza/blob/main/completions/zsh/_eza
+    dl="https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza -> _eza" \
+    @eza-community/eza
 
 #### @greymd/teip
 zi light-mode lucid blockf for \
@@ -134,21 +125,18 @@ zi light-mode lucid blockf for \
     sbin="./fzf" \
     dl="https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf.1 -> ${ZI[MAN_DIR]}/man1/fzf.1" \
     dl="https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf-tmux.1 -> ${ZI[MAN_DIR]}/man1/fzf-tmux.1" \
-    dl="https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh -> key-binding.zsh" \
+    atclone="csplit <(./fzf --zsh) '/### end:/+1' > /dev/null; mv xx00 key-binding.zsh; mv xx01 _fzf" \
+    atpull="%atclone" \
     src="./key-binding.zsh" \
-    @junegunn/fzf \
-  as="completion" \
-    is-snippet https://github.com/junegunn/fzf/blob/master/shell/completion.zsh
+    @junegunn/fzf
 
 #### @kellyjonbrazil/jc
 zi light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./jc" \
     dl="https://raw.githubusercontent.com/kellyjonbrazil/jc/master/man/jc.1 -> ${ZI[MAN_DIR]}/man1/jc.1" \
-    @kellyjonbrazil/jc \
-  as="completion" \
-    mv="./jc_zsh_completion.sh -> _jc" \
-    is-snippet https://github.com/kellyjonbrazil/jc/blob/master/completions/jc_zsh_completion.sh
+    dl="https://github.com/kellyjonbrazil/jc/blob/master/completions/jc_zsh_completion.sh -> _jc" \
+    @kellyjonbrazil/jc
 
 #### @sharkdp/bat
 zi light-mode lucid blockf for \
