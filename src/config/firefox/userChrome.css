@@ -7,32 +7,8 @@
   visibility: collapse;
 }
 
-/* Colloid theme fixes */
-/* Fix toolbar height */
-#PersonalToolbar {
-  height: 36px !important;
-}
-
-/* Fix url bar width */
-@media (max-width: 680px) {
-  #urlbar-container {
-    width: auto !important;
-  }
-}
-
-/* Fix tab height */
-.tab-background {
-  min-height: auto !important;
-}
-
+/* Whitesur theme fixes */
 /* Fix right-click menu icon visible */
 #context-navigation>.menuitem-iconic>.menu-iconic-left>.menu-iconic-icon {
   padding: 0px !important;
-}
-
-/* Fix protections popup switch width */
-#protections-popup-tp-switch {
-  min-width: auto !important;
-  width: auto !important;
-  padding: 12px !important;
 }
