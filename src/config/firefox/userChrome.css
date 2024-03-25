@@ -12,3 +12,20 @@
 #context-navigation>.menuitem-iconic>.menu-iconic-left>.menu-iconic-icon {
   padding: 0px !important;
 }
+
+/* Fix TabsToolbar position (firefox-pwa only) */
+#TabsToolbar>:not(.titlebar-buttonbox-container) {
+  position: relative !important;
+  top: -6px !important;
+}
+
+#TabsToolbar-customization-target {
+  margin-left: 80px !important;
+}
+
+/* Fix Toolbar opacity on inactive window */
+:root[tabsintitlebar] #titlebar {
+  &:-moz-window-inactive {
+    opacity: initial !important;
+  }
+}
