@@ -36,6 +36,7 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
+  "cSpell.spellCheckOnlyWorkspaceFiles": true,
   "diffEditor.experimental.showMoves": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.renderSideBySide": false,
