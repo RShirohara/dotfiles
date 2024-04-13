@@ -9,11 +9,6 @@ alias lr="ll -R"
 alias la="ll -a"
 alias lt="ll -T"
 
-## Python
-### Aliases
-alias python="python3"
-alias py="python"
-
 ## GnuPG
 ### Environments
 export GPG_TTY="${TTY}"
