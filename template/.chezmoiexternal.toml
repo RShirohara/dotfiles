@@ -1,3 +1,4 @@
-[".local/share/zsh/zi/bin"]
+
+[".local/share/zsh/zinit/bin"]
 type = "git-repo"
-url = "https://github.com/z-shell/zi"
+url = "https://github.com/zdharma-continuum/zinit"

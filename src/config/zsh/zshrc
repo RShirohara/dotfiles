@@ -6,22 +6,22 @@ if [[ -r "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-### Set Zi path.
-typeset -A ZI
-ZI[HOME_DIR]="${XDG_DATA_HOME}/zsh/zi"
-ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
-ZI[COMPINIT_OPTS]="-C"
+### Set Zinit path.
+typeset -A ZINIT
+ZINIT[HOME_DIR]="${XDG_DATA_HOME}/zsh/zinit"
+ZINIT[BIN_DIR]="${ZINIT[HOME_DIR]}/bin"
+ZINIT[COMPINIT_OPTS]="-C"
 
-### Load Zi.
-source "${ZI[BIN_DIR]}/zi.zsh"
+### Load Zinit.
+source "${ZINIT[BIN_DIR]}/zinit.zsh"
 
-### Enable Zi completions.
-autoload -Uz _zi
-(( ${+_comps} )) && _comps[zi]=_zi
+### Enable Zinit completions.
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 ## Plugins
 ### Zsh settings
-zi is-snippet lucid for \
+zinit is-snippet lucid for \
   "${ZDOTDIR}/modules/settings/completion.zsh" \
   "${ZDOTDIR}/modules/settings/directory.zsh" \
   "${ZDOTDIR}/modules/settings/expansion.zsh" \
@@ -31,7 +31,7 @@ zi is-snippet lucid for \
   "${ZDOTDIR}/modules/settings/external-command.zsh"
 
 ### Prezto modules
-zi is-snippet lucid for \
+zinit is-snippet lucid for \
   "${ZDOTDIR}/modules/prezto/init.zsh" \
   "${ZDOTDIR}/modules/prezto/editor.zsh" \
   "${ZDOTDIR}/modules/prezto/terminal.zsh" \
@@ -39,138 +39,139 @@ zi is-snippet lucid for \
   PZTM::editor \
   PZTM::terminal
 
-### Zi annexes
-zi light-mode lucid for \
-  @z-shell/z-a-bin-gem-node \
-  @z-shell/z-a-patch-dl
+### Zinit annexes
+zinit light-mode lucid for \
+  @zdharma-continuum/zinit-annex-bin-gem-node \
+  @zdharma-continuum/zinit-annex-patch-dl
 
 ### Plugins
 #### Theme
-zi light-mode lucid for \
+zinit light-mode lucid for \
   depth=1 @romkatv/powerlevel10k \
   is-snippet "${ZDOTDIR}/modules/powerlevel10k/p10k.zsh"
 
-zi light-mode lucid pack for \
-  @z-shell/dircolors-material
+zinit light-mode lucid pack for \
+  @zdharma-continuum/dircolors-material
 
 #### Syntax highlight
-zi-turbo "0a" for \
-  atinit="zicompinit; zicdreplay" @z-shell/F-Sy-H
+zinit light-mode lucid wait="0a" for \
+  atinit="zicompinit; zicdreplay" \
+  @zdharma-continuum/fast-syntax-highlighting
 
 #### Completion
-zi-turbo "0c" for \
+zinit light-mode lucid wait="0c" for \
   blockf atpull="zi creinstall -q ." @zsh-users/zsh-completions \
-  @z-shell/zsh-fancy-completions \
   @Aloxaf/fzf-tab \
   is-snippet "${ZDOTDIR}/modules/fzf/setting.zsh"
 
 #### Suggestion
-zi-turbo "0a" for \
+zinit light-mode lucid wait="0a" for \
   atload="!_zsh_autosuggest_start" @zsh-users/zsh-autosuggestions
 
 #### Auto-pair delimiters
-zi light-mode lucid for \
+zinit light-mode lucid for \
   @hlissner/zsh-autopair
 
 #### History helpers
-zi light-mode lucid for \
+zinit light-mode lucid for \
   @marlonrichert/zsh-hist
 
 #### Json interactive query
-zi light-mode lucid for \
+zinit light-mode lucid for \
   @reegnz/jq-zsh-plugin
 
 #### VSCode integration
-zi is-snippet lucid has="code" if='[[ "${TERM_PROGRAM}" == "vscode" ]]' for \
+zinit is-snippet lucid has="code" if='[[ "${TERM_PROGRAM}" == "vscode" ]]' for \
   "$(code --locate-shell-integration-path zsh)" \
   "${ZDOTDIR}/modules/vscode/shell-integration.zsh"
 
 ### External commands and completions
 #### @BurntSushi/ripgrep
-zi light-mode lucid blockf for \
+zinit light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./ripgrep-*/rg" \
-    cp="./ripgrep-*/doc/rg.1 -> ${ZI[MAN_DIR]}/man1/rg.1" \
+    cp="./ripgrep-*/doc/rg.1 -> ${ZINIT[MAN_DIR]}/man1/rg.1" \
     @BurntSushi/ripgrep
 
 #### @dandavison/delta
-zi light-mode lucid blockf for \
+zinit light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./delta-*/delta" \
     @dandavison/delta
 
 #### @eza-community/eza
-zi light-mode lucid blockf for \
+zinit light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./eza" \
     dl="https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza -> _eza" \
     @eza-community/eza
 
 #### @greymd/teip
-zi light-mode lucid blockf for \
+zinit light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./bin/teip" \
-    cp="./man/teip.1 -> ${ZI[MAN_DIR]}/man1/teip.1" \
+    cp="./man/teip.1 -> ${ZINIT[MAN_DIR]}/man1/teip.1" \
     @greymd/teip
 
 #### @jqlang/jq
-zi light-mode lucid blockf for \
+zinit light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./jq-* -> jq" \
     @jqlang/jq
 
 #### @junegunn/fzf
-zi light-mode lucid blockf for \
+zinit light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./fzf" \
-    dl="https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf.1 -> ${ZI[MAN_DIR]}/man1/fzf.1" \
-    dl="https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf-tmux.1 -> ${ZI[MAN_DIR]}/man1/fzf-tmux.1" \
+    dl="https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf.1 -> ${ZINIT[MAN_DIR]}/man1/fzf.1" \
+    dl="https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf-tmux.1 -> ${ZINIT[MAN_DIR]}/man1/fzf-tmux.1" \
     atclone="csplit <(./fzf --zsh) '/### end:/+1' > /dev/null; mv xx00 key-binding.zsh; mv xx01 _fzf" \
     atpull="%atclone" \
     src="./key-binding.zsh" \
     @junegunn/fzf
 
 #### @kellyjonbrazil/jc
-zi light-mode lucid blockf for \
+zinit light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./jc" \
-    dl="https://raw.githubusercontent.com/kellyjonbrazil/jc/master/man/jc.1 -> ${ZI[MAN_DIR]}/man1/jc.1" \
+    dl="https://raw.githubusercontent.com/kellyjonbrazil/jc/master/man/jc.1 -> ${ZINIT[MAN_DIR]}/man1/jc.1" \
     atclone="./jc -Z > _jc" \
     atpull="%atclone" \
     @kellyjonbrazil/jc
 
 #### @sharkdp/bat
-zi light-mode lucid blockf for \
+zinit light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./bat-*/bat" \
-    cp="./bat-*/bat.1 -> ${ZI[MAN_DIR]}/man1/bat.1" \
+    cp="./bat-*/bat.1 -> ${ZINIT[MAN_DIR]}/man1/bat.1" \
     mv="./bat-*/autocomplete/bat.zsh -> _bat" \
     @sharkdp/bat
 
 #### @sharkdp/fd
-zi light-mode lucid blockf for \
+zinit light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./fd-*/fd" \
-    cp="./fd-*/fd.1 -> ${ZI[MAN_DIR]}/man1/fd.1" \
+    cp="./fd-*/fd.1 -> ${ZINIT[MAN_DIR]}/man1/fd.1" \
     @sharkdp/fd
 
 #### @sharkdp/hexyl
-zi light-mode lucid blockf for \
+zinit light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./hexyl-*/hexyl" \
-    cp="./hexyl-*/hexyl.1 -> ${ZI[MAN_DIR]}/man1/hexyl.1" \
+    cp="./hexyl-*/hexyl.1 -> ${ZINIT[MAN_DIR]}/man1/hexyl.1" \
     @sharkdp/hexyl
 
 #### @twpayne/chezmoi
-zi light-mode lucid blockf for \
+zinit light-mode lucid blockf for \
   as="program" from="gh-r" \
+    bpick="*.tar.gz" \
     sbin="./chezmoi" \
     mv="./completions/chezmoi.zsh -> _chezmoi" \
     atclone="[ -f ~/.local/bin/chezmoi ] && rm ~/.local/bin/chezmoi" \
     @twpayne/chezmoi
 
 #### @x-motemen/ghq
-zi light-mode lucid blockf for \
+zinit light-mode lucid blockf for \
   as="program" from="gh-r" \
     sbin="./ghq_*/ghq" \
     atclone="rm -r ./ghq_*/misc/bash" \
