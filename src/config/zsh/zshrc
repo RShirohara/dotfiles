@@ -27,6 +27,7 @@ zinit is-snippet lucid for \
   "${ZDOTDIR}/modules/settings/expansion.zsh" \
   "${ZDOTDIR}/modules/settings/history.zsh" \
   "${ZDOTDIR}/modules/settings/io.zsh" \
+  "${ZDOTDIR}/modules/settings/prompt.zsh" \
   "${ZDOTDIR}/modules/settings/script.zsh" \
   "${ZDOTDIR}/modules/settings/external-command.zsh"
 
