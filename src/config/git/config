@@ -2,7 +2,7 @@
 
 ## Git settings
 [core]
-editor = helix
+editor = hx
 pager = delta
 
 [credential]

@@ -12,4 +12,3 @@ alias lt="ll -T"
 ## GnuPG
 ### Environments
 export GPG_TTY="${TTY}"
-

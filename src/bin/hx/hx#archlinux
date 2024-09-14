@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# Helix editor wrapper
+
+helix ${@}
