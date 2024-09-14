@@ -16,7 +16,7 @@ if [[ "${DOTFILES_ENV_LOADED}" != "true" ]]; then
     | replaceAllRegex "\n+" "\n"
     | replaceAllRegex "\n(.+=)" "\n  export $1"
   }}
-  {{- end}}
+  {{- end }}
 fi
 
 ## Dotfiles path
