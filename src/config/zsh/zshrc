@@ -131,15 +131,6 @@ zinit light-mode lucid blockf for \
     src="./key-binding.zsh" \
     @junegunn/fzf
 
-#### @kellyjonbrazil/jc
-zinit light-mode lucid blockf for \
-  as="program" from="gh-r" \
-    sbin="./jc" \
-    dl="https://raw.githubusercontent.com/kellyjonbrazil/jc/master/man/jc.1 -> ${ZINIT[MAN_DIR]}/man1/jc.1" \
-    atclone="./jc -Z > _jc" \
-    atpull="%atclone" \
-    @kellyjonbrazil/jc
-
 #### @sharkdp/bat
 zinit light-mode lucid blockf for \
   as="program" from="gh-r" \
