@@ -3,12 +3,12 @@
 ## Load environment.d on non-desktop environment.
 if [[ "${DOTFILES_ENV_LOADED}" != "true" ]]; then
   {{- with $envs := ( cat
-    (includeTemplate "config/environment.d/xdg-user-dir/init.conf")
-    (includeTemplate "config/environment.d/xdg-base-dirs/init.conf")
-    (includeTemplate "config/environment.d/editor.conf")
-    (includeTemplate "config/environment.d/gpg-socket.conf")
-    (includeTemplate "config/environment.d/locale.conf")
-    (includeTemplate "config/environment.d/dotfiles-env-loaded.conf")
+    (includeTemplate "config/environment.d/xdg-user-dir/init.conf" .)
+    (includeTemplate "config/environment.d/xdg-base-dirs/init.conf" .)
+    (includeTemplate "config/environment.d/editor.conf" .)
+    (includeTemplate "config/environment.d/gpg-socket.conf" .)
+    (includeTemplate "config/environment.d/locale.conf" .)
+    (includeTemplate "config/environment.d/dotfiles-env-loaded.conf" .)
   )}}
   {{- $envs
     | replaceAllRegex "\n" "\n\n"

@@ -1,5 +1,0 @@
-{{- if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch")) }}
-{{-   template "bin/hx/hx#archlinux"}}
-{{- else }}
-{{-   template "bin/hx/hx#default"}}
-{{- end }}

@@ -2,7 +2,7 @@
 
 ## Git settings
 [core]
-editor = hx
+editor = {{ .chezmoi.config.edit.command }}
 pager = delta
 
 [credential]
