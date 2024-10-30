@@ -5,11 +5,9 @@ RShirohara's dotfiles managed by [chezmoi](https://github.com/twpayne/chezmoi).
 ## Supported environment
 
 - Linux
-  - Distribution:
-    - Arch Linux
-    - Ubuntu
-  - Platform:
-    - WSL
+  - Arch
+  - Debian
+  - Red Hat
 
 ## Requirement
 
