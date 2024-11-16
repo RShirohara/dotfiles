@@ -1,3 +1,1 @@
-{{ if (and (eq .chezmoi.os "linux") (env "XDG_CURRENT_DESKTOP")) -}}
-{{  template "config/gnupg/gpg-agent.conf" . -}}
-{{ end -}}
+{{ template "config/gnupg/gpg-agent.conf" . -}}

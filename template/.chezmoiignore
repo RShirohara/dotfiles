@@ -8,6 +8,7 @@
 
 {{ if (or (ne .chezmoi.os "linux") (env "XDG_CURRENT_DESKTOP" | not)) -}}
 .config/environment.d/30.graphical.conf
+.config/gnupg/gpg-agent.conf
 {{- end }}
 
 {{ if (or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "arch")) -}}
