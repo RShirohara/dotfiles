@@ -14,7 +14,11 @@ RShirohara's dotfiles managed by [chezmoi](https://github.com/twpayne/chezmoi).
 - Shell: [Zsh](https://github.com/zsh-users/zsh)
 - Editor: [Helix](https://github.com/helix-editor/helix)
 - Version Control: [Git](https://github.com/git/git)
-  - Credential Helper: [Git Credential Manager](https://github.com/git-ecosystem/git-credential-manager)
+  - Credential Helper:
+    - Windows: [Git Credential Manager](https://github.com/git-ecosystem/git-credential-manager)
+    - Linux:
+      - [`git-credential-libsecret`](https://pkgs.org/search/?q=git-credential-libsecret)
+      - [`git-credential-oauth`](https://github.com/hickford/git-credential-oauth)
 
 ## Installation
 

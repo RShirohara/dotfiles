@@ -6,11 +6,11 @@ editor = {{ .chezmoi.config.edit.command }}
 pager = delta
 
 [credential]
-{{- if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{- if (and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
 helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
-{{- else if eq .chezmoi.os "linux" }}
-helper = manager
-credentialStore = secretservice
+{{- else if (eq .chezmoi.os "linux") }}
+helper = libsecret --timeout 21600
+helper = oauth
 {{- end }}
 
 [difftool]
