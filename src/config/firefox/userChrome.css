@@ -1,16 +1,10 @@
 /* Remove private mode label */
-#private-browsing-indicator-with-label {
-  margin-inline-end: 16px !important;
+hbox.private-browsing-indicator-with-label {
+  padding-bottom: 6px !important;
 }
 
-#private-browsing-indicator-with-label>label[data-l10n-id="private-browsing-indicator-label"] {
+label.private-browsing-indicator-label {
   visibility: collapse;
-}
-
-/* Whitesur theme fixes */
-/* Fix right-click menu icon visible */
-#context-navigation>.menuitem-iconic>.menu-iconic-left>.menu-iconic-icon {
-  padding: 0px !important;
 }
 
 /* Fix TabsToolbar position (firefox-pwa only) */
@@ -23,9 +17,3 @@
   margin-left: 80px !important;
 }
 
-/* Fix Toolbar opacity on inactive window */
-:root[tabsintitlebar] #titlebar {
-  &:-moz-window-inactive {
-    opacity: initial !important;
-  }
-}
