@@ -82,7 +82,7 @@ zinit light-mode lucid for \
   @reegnz/jq-zsh-plugin
 
 #### VSCode integration
-zinit is-snippet lucid has="code" if='[[ "${TERM_PROGRAM}" == "vscode" ]]' for \
+zinit is-snippet lucid if='[[ "${TERM_PROGRAM}" == "vscode" ]]' for \
   "$(code --locate-shell-integration-path zsh)" \
   "${ZDOTDIR}/modules/vscode/shell-integration.zsh"
 
