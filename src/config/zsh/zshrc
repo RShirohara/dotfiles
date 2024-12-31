@@ -131,6 +131,16 @@ zinit light-mode lucid blockf for \
     src="./key-binding.zsh" \
     @junegunn/fzf
 
+#### @Schniz/fnm
+if [ $(command -v fnm) ]; then
+  mkdir -p ${ZINIT[PLUGINS_DIR]}/Schniz---fnm
+  fnm env > ${ZINIT[PLUGINS_DIR]}/Schniz---fnm/env.sh
+  fnm completions --shell zsh > ${ZINIT[PLUGINS_DIR]}/Schniz---fnm/_fnm
+fi
+zinit is-snippet light-mode lucid blockf has="fnm" for \
+  ${ZINIT[PLUGINS_DIR]}/Schniz---fnm/env.sh \
+  ${ZINIT[PLUGINS_DIR]}/Schniz---fnm/_fnm \
+
 #### @sharkdp/bat
 zinit light-mode lucid blockf for \
   as="program" from="gh-r" \
