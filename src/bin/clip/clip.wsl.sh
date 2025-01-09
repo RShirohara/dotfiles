@@ -2,7 +2,7 @@
 # System clipboard integration
 #
 # Supported Platform:
-# - Termux (termux-clipboard-get, termux-clipboard-set)
+# - WSL (`clip.exe`, `Get-Clipboard` (powershell.exe))
 #
 # Usage:
 #   <command> | clip    - copy stdin to clipboard.
@@ -10,10 +10,10 @@
 #   clip | <command>    - paste contents and pipes to process.
 
 # paste to stdout
-if [[ -t 0 && -x $(command -v termux-clipboard-get) ]]; then
-  termux-clipboard-get
+if [[ -t 0 ]]; then
+  powershell.exe -noprofile -command Get-Clipboard
 
 # copy from stdin
-elif [[ -x $(command -v termux-clipboard-set) ]] ; then
-  termux-clipboard-set < "${1:-/proc/self/fd/0}"
+else
+  clip.exe < "${1:-/dev/stdin}"
 fi

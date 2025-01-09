@@ -2,8 +2,8 @@
 # System clipboard integration
 #
 # Supported Platform:
-# - X11 (xclip)
-# - Wayland (wl-copy, wl-paste)
+# - X11 (`xclip`)
+# - Wayland (`wl-copy`, `wl-paste`)
 #
 # Usage:
 #   <command> | clip    - copy stdin to clipboard.

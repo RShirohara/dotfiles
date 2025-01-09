@@ -2,7 +2,7 @@
 # System link-handler integration
 #
 # Supported Platform:
-# - XDG (xdg-open)
+# - XDG (`xdg-open`)
 #
 # Usage:
 #   open https://github.com     - open GitHub by default browser.
