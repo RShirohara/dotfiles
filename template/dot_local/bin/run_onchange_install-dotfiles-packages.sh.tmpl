@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+{{ if (eq .chezmoi.os "linux") -}}
+{{  if (and (eq .chezmoi.osRelease.id "arch") (lookPath "yay")) -}}
+cat <<PACKAGES | yay -S -
+{{    range .packages.linux.arch -}}
+{{      . }}
+{{    end -}}
+PACKAGES
+{{  else if (and (eq .chezmoi.osRelease.id "arch") (lookPath "pacman")) -}}
+cat <<PACKAGES | sudo pacman -S -
+{{    range .packages.linux.arch -}}
+{{      . }}
+{{    end -}}
+PACKAGES
+{{  else if (lookPath "brew") -}}
+cat <<PACKAGES | brew bundle --no-lock --file=/dev/stdin
+{{    range .packages.linux.homebrew.brew -}}
+brew {{ . | quote }}
+{{    end -}}
+PACKAGES
+{{  else -}}
+echo "Can not detect supported package manager."
+{{  end -}}
+{{ else -}}
+echo "Can not supported {{ .chezmoi.os }} os."
+{{ end -}}

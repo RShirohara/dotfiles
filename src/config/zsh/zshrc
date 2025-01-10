@@ -40,12 +40,6 @@ zinit is-snippet lucid for \
   PZTM::editor \
   PZTM::terminal
 
-### Zinit annexes
-zinit light-mode lucid for \
-  @zdharma-continuum/zinit-annex-bin-gem-node \
-  @zdharma-continuum/zinit-annex-patch-dl
-
-### Plugins
 #### Theme
 zinit light-mode lucid for \
   depth=1 @romkatv/powerlevel10k \
@@ -88,54 +82,20 @@ if [[ $(command -v code) ]]; then
     "${ZDOTDIR}/modules/vscode/shell-integration.zsh"
 fi
 
-### External commands and completions
-#### @BurntSushi/ripgrep
-zinit light-mode lucid blockf for \
-  as="program" from="gh-r" \
-    sbin="./ripgrep-*/rg" \
-    cp="./ripgrep-*/doc/rg.1 -> ${ZINIT[MAN_DIR]}/man1/rg.1" \
-    @BurntSushi/ripgrep
-
-#### @dandavison/delta
-zinit light-mode lucid blockf for \
-  as="program" from="gh-r" \
-    sbin="./delta-*/delta" \
-    @dandavison/delta
-
-#### @eza-community/eza
-zinit light-mode lucid blockf for \
-  as="program" from="gh-r" \
-    sbin="./eza" \
-    dl="https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza -> _eza" \
-    @eza-community/eza
-
-#### @greymd/teip
-zinit light-mode lucid blockf for \
-  as="program" from="gh-r" \
-    sbin="./bin/teip" \
-    cp="./man/teip.1 -> ${ZINIT[MAN_DIR]}/man1/teip.1" \
-    @greymd/teip
-
-#### @jqlang/jq
-zinit light-mode lucid blockf for \
-  as="program" from="gh-r" \
-    sbin="./jq-* -> jq" \
-    @jqlang/jq
-
+### External completions
 #### @junegunn/fzf
-zinit light-mode lucid blockf for \
-  as="program" from="gh-r" \
-    sbin="./fzf" \
-    dl="https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf.1 -> ${ZINIT[MAN_DIR]}/man1/fzf.1" \
-    dl="https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf-tmux.1 -> ${ZINIT[MAN_DIR]}/man1/fzf-tmux.1" \
-    atclone="csplit <(./fzf --zsh) '/### end:/+1' > /dev/null; mv xx00 key-binding.zsh; mv xx01 _fzf" \
-    atpull="%atclone" \
-    src="./key-binding.zsh" \
-    @junegunn/fzf
+if [[ $(command -v fzf) ]] && [[ ! -d "${ZINIT[PLUGINS_DIR]}/junegunn---fzf" ]]; then
+  mkdir -p "${ZINIT[PLUGINS_DIR]}/junegunn---fzf"
+  csplit -f "${ZINIT[PLUGINS_DIR]}/junegunn---fzf/xx" <(fzf --zsh) "/### end:/+1" > /dev/null
+  mv "${ZINIT[PLUGINS_DIR]}/junegunn---fzf/xx00" "${ZINIT[PLUGINS_DIR]}/junegunn---fzf/key-bindings.zsh"
+  mv "${ZINIT[PLUGINS_DIR]}/junegunn---fzf/xx01" "${ZINIT[PLUGINS_DIR]}/junegunn---fzf/_fzf"
+fi
+zinit is-snippet light-mode lucid blockf has="fzf" for \
+  "${ZINIT[PLUGINS_DIR]}/junegunn---fzf/key-bindings.zsh" \
+  "${ZINIT[PLUGINS_DIR]}/junegunn---fzf/_fzf"
 
 #### @Schniz/fnm
-if [[ $(command -v fnm) ]] && [[ ! -d "${ZINIT[PLUGINS_DIR]}/Schniz---fnm" ]];
-then
+if [[ $(command -v fnm) ]] && [[ ! -d "${ZINIT[PLUGINS_DIR]}/Schniz---fnm" ]]; then
   mkdir -p "${ZINIT[PLUGINS_DIR]}/Schniz---fnm"
   fnm env > "${ZINIT[PLUGINS_DIR]}/Schniz---fnm/env.sh"
   fnm completions --shell zsh > "${ZINIT[PLUGINS_DIR]}/Schniz---fnm/_fnm"
@@ -143,42 +103,3 @@ fi
 zinit is-snippet light-mode lucid blockf has="fnm" for \
   "${ZINIT[PLUGINS_DIR]}/Schniz---fnm/env.sh" \
   "${ZINIT[PLUGINS_DIR]}/Schniz---fnm/_fnm"
-
-#### @sharkdp/bat
-zinit light-mode lucid blockf for \
-  as="program" from="gh-r" \
-    sbin="./bat-*/bat" \
-    cp="./bat-*/bat.1 -> ${ZINIT[MAN_DIR]}/man1/bat.1" \
-    mv="./bat-*/autocomplete/bat.zsh -> _bat" \
-    @sharkdp/bat
-
-#### @sharkdp/fd
-zinit light-mode lucid blockf for \
-  as="program" from="gh-r" \
-    sbin="./fd-*/fd" \
-    cp="./fd-*/fd.1 -> ${ZINIT[MAN_DIR]}/man1/fd.1" \
-    @sharkdp/fd
-
-#### @sharkdp/hexyl
-zinit light-mode lucid blockf for \
-  as="program" from="gh-r" \
-    sbin="./hexyl-*/hexyl" \
-    cp="./hexyl-*/hexyl.1 -> ${ZINIT[MAN_DIR]}/man1/hexyl.1" \
-    @sharkdp/hexyl
-
-#### @twpayne/chezmoi
-zinit light-mode lucid blockf for \
-  as="program" from="gh-r" \
-    bpick="*.tar.gz" \
-    sbin="./chezmoi" \
-    mv="./completions/chezmoi.zsh -> _chezmoi" \
-    atclone="[ -f ~/.local/bin/chezmoi ] && rm ~/.local/bin/chezmoi" \
-    @twpayne/chezmoi
-
-#### @x-motemen/ghq
-zinit light-mode lucid blockf for \
-  as="program" from="gh-r" \
-    sbin="./ghq_*/ghq" \
-    atclone="rm -r ./ghq_*/misc/bash" \
-    atpull="%atclone" \
-    @x-motemen/ghq
