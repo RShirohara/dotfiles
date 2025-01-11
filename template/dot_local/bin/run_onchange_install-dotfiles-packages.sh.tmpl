@@ -3,22 +3,22 @@
 {{ if (eq .chezmoi.os "linux") -}}
 {{  if (and (eq .chezmoi.osRelease.id "arch") (lookPath "yay")) -}}
 cat <<PACKAGES | yay -S -
-{{    range .packages.linux.pacman.packages -}}
+{{    range .dependency.linux.pacman.packages -}}
 {{      . }}
 {{    end -}}
 PACKAGES
 {{  else if (and (eq .chezmoi.osRelease.id "arch") (lookPath "pacman")) -}}
 cat <<PACKAGES | sudo pacman -S -
-{{    range .packages.linux.pacman.packages -}}
+{{    range .dependency.linux.pacman.packages -}}
 {{      . }}
 {{    end -}}
 PACKAGES
 {{  else if (lookPath "brew") -}}
 cat <<PACKAGES | brew bundle --no-lock --file=/dev/stdin
-{{    range .packages.linux.homebrew.taps -}}
+{{    range .dependency.linux.homebrew.taps -}}
 tap {{ . | quote }}
 {{    end -}}
-{{    range .packages.linux.homebrew.brews -}}
+{{    range .dependency.linux.homebrew.brews -}}
 brew {{ . | quote }}
 {{    end -}}
 PACKAGES

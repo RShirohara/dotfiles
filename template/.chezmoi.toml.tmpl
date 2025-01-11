@@ -6,4 +6,4 @@ sourceDir = "{{ .chezmoi.sourceDir }}"
 pager = "delta"
 
 [edit]
-command = "{{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch")) }}helix{{ else }}hx{{ end }}"
+command = {{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch")) }}"helix"{{ else }}"hx"{{ end }}

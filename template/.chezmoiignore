@@ -1,4 +1,4 @@
-# Chezmoi ignore files.
+# Files ignored by chezmoi.
 
 ## Linux
 {{ if (ne .chezmoi.os "linux") -}}

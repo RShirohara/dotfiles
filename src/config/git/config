@@ -3,7 +3,7 @@
 ## Git settings
 [core]
 editor = {{ .chezmoi.config.edit.command }}
-pager = delta
+pager = {{ .chezmoi.config.diff.pager }}
 
 [credential]
 {{ if (and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
@@ -20,7 +20,7 @@ prompt = false
 defaultBranch = main
 
 [interactive]
-diffFilter = delta --color-only
+diffFilter = {{ .chezmoi.config.diff.pager }} --color-only
 
 [merge]
 conflictstyle = diff3

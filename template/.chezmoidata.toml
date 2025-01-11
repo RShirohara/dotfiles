@@ -1,4 +1,13 @@
-[packages.linux.pacman]
+# Config values used by dotfiles.
+
+## Users
+[users."RShirohara@proton.me"]
+name = "Ray Shirohara"
+email = "RShirohara@proton.me"
+signingKey = "A0ED68AB35B8627F!"
+
+## Dependencies
+[dependency.linux.pacman]
 packages = [
   "git",
   "helix",
@@ -16,7 +25,7 @@ packages = [
   "ghq",
 ]
 
-[packages.linux.homebrew]
+[dependency.linux.homebrew]
 taps = []
 brews = [
   "git",

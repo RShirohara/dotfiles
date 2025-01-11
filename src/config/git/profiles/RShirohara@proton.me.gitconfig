@@ -1,9 +1,9 @@
 # Git user-level settings for "RShirohara@proton.me"
 
 [user]
-name = Ray Shirohara
-email = RShirohara@proton.me
-signingkey = A0ED68AB35B8627F!
+name = {{ index .users "RShirohara@proton.me" "name" }}
+email = {{ index .users "RShirohara@proton.me" "email" }}
+signingkey = {{ index .users "RShirohara@proton.me" "signingKey" }}
 
 [commit]
 gpgsign = true
