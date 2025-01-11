@@ -11,6 +11,7 @@ signingKey = "A0ED68AB35B8627F!"
 packages = [
   "git",
   "helix",
+  "nushell",
   "zsh",
   "git-credential-oauth",
   "ripgrep",
@@ -31,6 +32,7 @@ brews = [
   "git",
   "helix",
   "zsh",
+  "nushell",
   "git-credential-libsecret",
   "git-credential-oauth",
   "ripgrep",
