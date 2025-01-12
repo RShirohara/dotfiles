@@ -30,3 +30,11 @@ if (
     | path join "modules/github.com/microsoft/vscode/mod.nu"
   )
 }
+
+### github.com/jdx/mise
+if ((which mise | length) > 0) {
+  source (
+    $nu.default-config-dir
+    | path join "modules/github.com/jdx/mise/init.nu"
+  )
+}
