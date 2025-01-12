@@ -1,8 +1,8 @@
-# Prompt integrations for github:starship/starship.
+# Prompt integrations for github.com/starship/starship.
 
 ## Initialize
 let $script_path = $nu.data-dir
-| path join "vendor/autoload/starship---starship.nu"
+| path join "vendor/autoload/github.com---starship---starship.nu"
 
 if (
   (which starship | length) > 0

@@ -14,13 +14,19 @@ if ($nu.data-dir | path join "vendor/autoload" | path exists) == false {
   mkdir ($nu.data-dir | path join "vendor/autoload")
 }
 
-### github:starship/starship
-source ($nu.default-config-dir | path join "modules/starship/init.nu")
+### github.com/starship/starship
+source (
+  $nu.default-config-dir
+  | path join "modules/github.com/starship/starship/init.nu"
+)
 
-### github:microsoft/vscode
+### github.com/microsoft/vscode
 if (
   (which code | length) > 0
   and ($env | default null "TERM_PROGRAM" | get "TERM_PROGRAM") == "vscode"
 ) {
-  use ($nu.default-config-dir | path join "modules/vscode")
+  use (
+    $nu.default-config-dir
+    | path join "modules/github.com/microsoft/vscode/mod.nu"
+  )
 }

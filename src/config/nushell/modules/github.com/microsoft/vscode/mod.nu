@@ -1,4 +1,4 @@
-# Shell integrations for github:microsoft/vscode.
+# Shell integrations for github.com/microsoft/vscode.
 
 ## Environments
 export-env {
