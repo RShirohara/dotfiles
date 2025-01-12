@@ -1,11 +1,11 @@
 # Define configs.
 
-## Configs
-source ($nu.default-config-dir | path join "modules/config/completions.nu")
-source ($nu.default-config-dir | path join "modules/config/display.nu")
-source ($nu.default-config-dir | path join "modules/config/editor.nu")
-source ($nu.default-config-dir | path join "modules/config/history.nu")
-source ($nu.default-config-dir | path join "modules/config/miscellaneous.nu")
-source ($nu.default-config-dir | path join "modules/config/terminal.nu")
+## Configs for nushell.
+use ($nu.default-config-dir | path join "modules/core/completions.nu")
+use ($nu.default-config-dir | path join "modules/core/display.nu")
+use ($nu.default-config-dir | path join "modules/core/editor.nu")
+use ($nu.default-config-dir | path join "modules/core/history.nu")
+use ($nu.default-config-dir | path join "modules/core/miscellaneous.nu")
+use ($nu.default-config-dir | path join "modules/core/terminal.nu")
 
 ## External Modules
