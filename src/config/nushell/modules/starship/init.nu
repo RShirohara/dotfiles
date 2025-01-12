@@ -9,5 +9,5 @@ if (
   and ($script_path | path exists) == false
 ) {
   starship init nu
-  | save -f $script_path
+  | save --force $script_path
 }
