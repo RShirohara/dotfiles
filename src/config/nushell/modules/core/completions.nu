@@ -38,4 +38,21 @@ export-env {
   $env.config.completions.algorithm = "fuzzy"
   $env.config.completions.external.enable = true
   $env.config.completions.external.completer = (create_external_completer)
+
+  ## Menu
+  $env.config.menus ++= [
+    {
+      name: "completion_menu"
+      only_buffer_difference: false
+      marker: "| "
+      type: {
+        layout: "columnar"
+        columns: 1
+      }
+      style: {
+        text: "white"
+        selected_text: "white_bold"
+      }
+    },
+  ]
 }
