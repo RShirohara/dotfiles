@@ -20,6 +20,12 @@ source (
   | path join "modules/github.com/starship/starship/init.nu"
 )
 
+### github.com/x-motemen/ghq
+use (
+  $nu.default-config-dir
+  | path join "modules/github.com/x-motemen/ghq/mod.nu"
+)
+
 ### github.com/microsoft/vscode
 if (
   (which code | length) > 0
