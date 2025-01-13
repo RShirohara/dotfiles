@@ -50,8 +50,8 @@ export-env {
         columns: 1
       }
       style: {
-        text: "white"
-        selected_text: "white_bold"
+        text: "green"
+        selected_text: "green_bold"
       }
     },
   ]

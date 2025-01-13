@@ -16,8 +16,8 @@ export-env {
         page_size: 10
       }
       style: {
-        text: "white"
-        selected_text: "white_bold"
+        text: "green"
+        selected_text: "green_bold"
       }
     }
   ]
