@@ -24,7 +24,7 @@ source (
 ### github.com/x-motemen/ghq
 use (
   $nu.default-config-dir
-  | path join "modules/github.com/x-motemen/ghq/mod.nu"
+  | path join "modules/github.com/x-motemen/ghq"
 )
 
 ### github.com/microsoft/vscode
@@ -34,7 +34,7 @@ if (
 ) {
   use (
     $nu.default-config-dir
-    | path join "modules/github.com/microsoft/vscode/mod.nu"
+    | path join "modules/github.com/microsoft/vscode"
   )
 }
 

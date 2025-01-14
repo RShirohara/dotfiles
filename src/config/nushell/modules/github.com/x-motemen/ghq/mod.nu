@@ -1,7 +1,10 @@
 # Menu integrations for github.com/x-motemen/ghq.
 
+## Aliases (Internal)
+alias core-cd = cd
+
 ## Functions
-export def --env ghq-cd []: nothing -> nothing {
+export def --env cd []: nothing -> nothing {
   let root: path = (ghq root)
   let repo: string = (
     ghq list
@@ -10,7 +13,7 @@ export def --env ghq-cd []: nothing -> nothing {
   )
   | default ""
   let target: path = ($root | path join $repo)
-  cd $target
+  core-cd $target
 }
 
 ## Config
@@ -23,7 +26,7 @@ export-env {
       mode: "emacs"
       event: [
         { edit: "Clear" }
-        { send: "ExecuteHostCommand" cmd: "mod ghq-cd" }
+        { send: "ExecuteHostCommand" cmd: "ghq cd" }
         { send: "Enter" }
       ]
     }
