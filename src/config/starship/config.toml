@@ -14,12 +14,7 @@ $fossil_metrics\
 $vcsh\
 $hg_branch\
 $pijul_channel\
-$line_break\
-$shlvl\
-$character\
-"""
-
-right_format = """
+$fill\
 $status\
 $cmd_duration\
 $jobs\
@@ -86,15 +81,20 @@ $nats\
 $direnv\
 $env_var\
 $crystal\
-$custom\
 $sudo\
 $container\
 $shell\
+$time\
+$line_break\
+$shlvl\
+$character\
+"""
+
+right_format = """
 $username\
 $hostname\
 $localip\
 $battery\
-$time
 """
 
 add_newline = false
@@ -173,6 +173,10 @@ symbol = " "
 
 [fennel]
 symbol = " "
+
+[fill]
+symbol = " "
+style = ""
 
 [fossil_branch]
 symbol = " "

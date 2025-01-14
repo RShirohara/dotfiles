@@ -12,6 +12,9 @@ export-env {
     shape_nothing: "dark_gray"
   }
 
+  ## Prompt
+  $env.config.render_right_prompt_on_last_line = true
+
   ## Table
   $env.config.table.mode = "light"
   $env.config.table.index_mode = "auto"
