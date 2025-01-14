@@ -1,6 +1,7 @@
 # Define configs.
 
 ## Load nushell configs.
+use ($nu.default-config-dir | path join "modules/core/commands.nu") *
 use ($nu.default-config-dir | path join "modules/core/completions.nu")
 use ($nu.default-config-dir | path join "modules/core/display.nu")
 use ($nu.default-config-dir | path join "modules/core/editor.nu")
