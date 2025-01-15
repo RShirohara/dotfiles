@@ -9,42 +9,24 @@ signingKey = "A0ED68AB35B8627F!"
 ## Dependencies
 [dependency.linux.pacman]
 packages = [
+  "ghq",
+  "git-credential-oauth",
+  "git-delta",
   "git",
   "helix",
   "nushell",
   "starship",
-  "zsh",
-  "git-credential-oauth",
-  "ripgrep",
-  "git-delta",
-  "eza",
-  # "teip",
-  "jq",
-  "fzf",
-  "bat",
-  "fd",
-  "hexyl",
-  "ghq",
 ]
 
 [dependency.linux.homebrew]
 taps = []
 brews = [
-  "git",
-  "helix",
-  "zsh",
-  "nushell",
-  "starship",
+  "ghq",
   "git-credential-libsecret",
   "git-credential-oauth",
-  "ripgrep",
   "git-delta",
-  "eza",
-  "teip",
-  "jq",
-  "fzf",
-  "bat",
-  "fd",
-  "hexyl",
-  "ghq",
+  "git",
+  "helix",
+  "nushell",
+  "starship",
 ]
