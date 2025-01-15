@@ -17,3 +17,10 @@ RShirohara's dotfiles managed by [chezmoi](https://github.com/twpayne/chezmoi).
    ```shell
    chezmoi init -a -S ~/Projects/github.com/RShirohara/dotfiles github.com/RShirohara/dotfiles
    ```
+
+## Environment information
+
+- Shell: [Nushell](https://github.com/nushell/nushell)
+- Editor:
+  - CLI: [Helix](https://github.com/helix-editor/helix)
+  - GUI: [VS Code](https://github.com/microsoft/vscode) (Optional)
