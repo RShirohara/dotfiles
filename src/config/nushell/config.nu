@@ -45,3 +45,11 @@ if ((which mise | length) > 0) {
     | path join "modules/github.com/jdx/mise/init.nu"
   )
 }
+
+### gnupg.org
+if ((which gpg | length) > 0) {
+  use (
+    $nu.default-config-dir
+    | path join "modules/gnupg.org/gnupg"
+  )
+}
