@@ -34,12 +34,12 @@ def create_external_completer []: nothing -> closure {
 }
 
 export-env {
-  ## Config
+  ## Configs
   $env.config.completions.algorithm = "fuzzy"
   $env.config.completions.external.enable = true
   $env.config.completions.external.completer = (create_external_completer)
 
-  ## Menu
+  ## Menus
   $env.config.menus ++= [
     {
       name: "completion_menu"

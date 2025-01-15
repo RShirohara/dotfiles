@@ -1,10 +1,10 @@
 # Editor configs for nushell.
 
 export-env {
-  ## Config
+  ## Configs
   $env.config.cursor_shape.emacs = "blink_line"
 
-  ### KeyBinding
+  ### KeyBindings
   $env.config.keybindings ++= [
     {
       name: "bracket_pair_quot"

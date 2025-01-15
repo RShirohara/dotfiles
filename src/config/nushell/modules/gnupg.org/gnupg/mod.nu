@@ -1,7 +1,6 @@
 # Integration for GnuPG (gnupg.org).
 
-## Config
 export-env {
-  ## Environment
+  ## Environments
   $env.GPG_TTY = (tty)
 }
