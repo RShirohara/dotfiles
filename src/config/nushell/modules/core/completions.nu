@@ -33,8 +33,8 @@ def create_external_completer []: nothing -> closure {
   }
 }
 
-## Config
 export-env {
+  ## Config
   $env.config.completions.algorithm = "fuzzy"
   $env.config.completions.external.enable = true
   $env.config.completions.external.completer = (create_external_completer)

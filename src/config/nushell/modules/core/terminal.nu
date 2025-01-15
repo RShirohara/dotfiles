@@ -19,8 +19,8 @@ def create_set_title_pre_prompt []: nothing -> closure {
   }
 }
 
-## Config
 export-env {
+  ## Config
   $env.config.use_kitty_protocol = true
   $env.config.shell_integration.osc2 = false
   $env.config.shell_integration.osc7 = true
@@ -30,7 +30,7 @@ export-env {
   $env.config.shell_integration.reset_application_mode = true
   $env.config.bracketed_paste = true
 
-  ## Hooks
+  ### Hook
   $env.config.hooks.pre_execution ++= [
     (create_set_title_pre_execution)
   ]

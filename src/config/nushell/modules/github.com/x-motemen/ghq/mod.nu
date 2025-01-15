@@ -16,8 +16,9 @@ export def --env cd []: nothing -> nothing {
   core-cd $target
 }
 
-## Config
 export-env {
+  ## Config
+  ### Keybinding
   $env.config.keybindings ++= [
     {
       name: "ghq_menu"

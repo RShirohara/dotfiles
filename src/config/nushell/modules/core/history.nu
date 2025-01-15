@@ -1,11 +1,11 @@
 # History configs for nushell.
 
-## Config
 export-env {
+  ## Config
   $env.config.history.file_format = "sqlite"
   $env.config.history.max_size = 100_000_000
 
-  ## Menu
+  ### Menu
   $env.config.menus ++= [
     {
       name: "history_menu"
