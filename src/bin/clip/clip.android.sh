@@ -10,7 +10,7 @@
 #   clip | <command>    - paste contents and pipes to process.
 
 # paste to stdout
-if [[ -t 0 && -x $(command -v termux-clipboard-get) ]]; then
+if [[ -t 0 && $# -eq 0 && -x $(command -v termux-clipboard-get) ]]; then
   termux-clipboard-get
 
 # copy from stdin
