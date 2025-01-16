@@ -9,6 +9,7 @@ signingKey = "A0ED68AB35B8627F!"
 ## Dependencies
 [dependency.linux.pacman]
 packages = [
+  "carapace-bin",
   "ghq",
   "git-credential-oauth",
   "git-delta",
@@ -21,6 +22,7 @@ packages = [
 [dependency.linux.homebrew]
 taps = []
 brews = [
+  "carapace",
   "ghq",
   "git-credential-libsecret",
   "git-credential-oauth",
