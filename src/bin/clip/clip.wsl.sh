@@ -15,6 +15,6 @@ if [[ -t 0 && $# -eq 0 ]]; then
 
 # copy from stdin
 else
-  iconv --from-code="utf8" --to-code="utf16le" "${1:-/dev/stdin}" \
+  iconv --from-code="UTF-8" --to-code="UTF-16" "${1:-/dev/stdin}" \
   | clip.exe
 fi
