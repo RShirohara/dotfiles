@@ -1,4 +1,5 @@
 {
+  "$schema": "vscode://schemas/settings/user",
   "[css]": {
     "cSpell.fixSpellingWithRenameProvider": false,
     "editor.defaultFormatter": "vscode.css-language-features",
@@ -63,6 +64,7 @@
   "editor.tabSize": 2,
   "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
   "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 100,
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.triggerExpansionOnTab": true,
   "emmet.useInlineCompletions": true,
@@ -92,6 +94,7 @@
   "javascript.inlayHints.variableTypes.enabled": true,
   "js/ts.implicitProjectConfig.checkJs": true,
   "markdown.preview.fontFamily": "'Noto Sans CJK JP', 'Noto Sans CJK', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
+  "material-icon-theme.activeIconPack": "react",
   "merge-conflict.autoNavigateNextConflict.enabled": true,
   "search.useGlobalIgnoreFiles": true,
   "telemetry.telemetryLevel": "off",
@@ -101,6 +104,7 @@
   "terminal.integrated.enableImages": true,
   "terminal.integrated.enableVisualBell": true,
   "terminal.integrated.fontFamily": "'HackGen Console NF', monospace",
+  "terminal.integrated.rightClickBehavior": "default",
   "terminal.integrated.scrollback": 1000000,
   "terminal.integrated.shellIntegration.enabled": false,
   "terminal.integrated.smoothScrolling": true,
