@@ -100,6 +100,7 @@ $battery\
 add_newline = false
 
 [aws]
+disabled = true
 symbol = " "
 
 [[battery.display]]
