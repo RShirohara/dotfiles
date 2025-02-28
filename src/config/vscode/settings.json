@@ -66,12 +66,13 @@
   "terminal.integrated.fontFamily": "'HackGen Console NF', 'Noto Sans Mono CJK JP', monospace",
   "terminal.integrated.profiles.linux": {
     "nushell": {
-      "path": "host-spawn",
       "args": [
         "bash",
         "-lic",
         "nu"
-      ]
+      ],
+      "overrideName": true,
+      "path": "host-spawn"
     }
   },
   "terminal.integrated.rightClickBehavior": "default",
