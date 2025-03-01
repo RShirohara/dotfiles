@@ -1,5 +1,4 @@
 {
-  "$schema": "vscode://schemas/settings/user",
   "[json][jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
@@ -13,6 +12,7 @@
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
+  "$schema": "vscode://schemas/settings/user",
   "chat.commandCenter.enabled": false,
   "chat.detectParticipant.enabled": false,
   "cSpell.spellCheckOnlyWorkspaceFiles": true,
@@ -55,6 +55,7 @@
   "git.mergeEditor": true,
   "git.openRepositoryInParentFolders": "never",
   "git.pruneOnFetch": true,
+  "githubPullRequests.createOnPublishBranch": "never",
   "markdown.preview.fontFamily": "'Noto Sans CJK JP', 'Noto Sans CJK', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
   "merge-conflict.autoNavigateNextConflict.enabled": true,
   "search.useGlobalIgnoreFiles": true,
