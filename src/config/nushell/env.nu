@@ -23,7 +23,6 @@ if (
     (includeTemplate "config/environment.d/xdg-user-dir/init.conf" .)
     (includeTemplate "config/environment.d/xdg-base-dirs/init.conf" .)
     (includeTemplate "config/environment.d/virtual-environments/init.conf" .)
-    (includeTemplate "config/environment.d/gpg-socket.conf" .)
     (includeTemplate "config/environment.d/dotfiles-env-loaded.conf" .)
   )}}
   {{- $envs
