@@ -69,12 +69,12 @@
   "terminal.integrated.profiles.linux": {
     "nushell": {
       "args": [
-        "bash",
-        "-lic",
-        "nu"
+        "-i",
+        "-c",
+        "vscode-nushell-spawn"
       ],
       "overrideName": true,
-      "path": "host-spawn"
+      "path": "bash"
     }
   },
   "terminal.integrated.rightClickBehavior": "default",

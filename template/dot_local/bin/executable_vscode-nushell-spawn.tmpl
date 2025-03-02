@@ -1,0 +1,3 @@
+{{ if (eq .chezmoi.os "linux") -}}
+{{  template "bin/vscode-nushell-spawn/linux.sh" . -}}
+{{ end -}}

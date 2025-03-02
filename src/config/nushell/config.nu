@@ -28,10 +28,7 @@ use (
 )
 
 ### github.com/microsoft/vscode
-if (
-  (which code | length) > 0
-  and ($env | default null "TERM_PROGRAM" | get "TERM_PROGRAM") == "vscode"
-) {
+if (($env | default null "TERM_PROGRAM" | get "TERM_PROGRAM") == "vscode") {
   use (
     $nu.default-config-dir
     | path join "modules/github.com/microsoft/vscode"
