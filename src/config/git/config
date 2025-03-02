@@ -1,9 +1,17 @@
 # Git user-level settings.
 
 ## Git settings
+[branch]
+sort = -committerdate
+
+[commit]
+verbose = true
+
 [core]
 editor = {{ .chezmoi.config.edit.command }}
+fsmonitor = true
 pager = {{ .chezmoi.config.diff.pager }}
+untrackedCache = true
 
 [credential]
 {{ if (and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
@@ -13,8 +21,19 @@ helper = libsecret
 helper = oauth
 {{- end }}
 
+[diff]
+algorithm = histogram
+colorMoved = plain
+mnemonicPrefix = true
+renames = true
+
 [difftool]
 prompt = false
+
+[fetch]
+all = true
+prune = true
+pruneTags = true
 
 [init]
 defaultBranch = main
@@ -23,16 +42,27 @@ defaultBranch = main
 diffFilter = {{ .chezmoi.config.diff.pager }} --color-only
 
 [merge]
-conflictstyle = diff3
+conflictstyle = zdiff3
 
 [pull]
 rebase = true
 
 [push]
+autoSetupRemote = true
 default = simple
+followTags = true
 
 [rebase]
-autostash = true
+autoSquash = true
+autoStash = true
+updateRefs = true
+
+[rerere]
+autoUpdate = true
+enabled = true
+
+[tag]
+sort = version:refname
 
 ## External tool settings
 [delta]
