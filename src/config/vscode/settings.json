@@ -24,6 +24,7 @@
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.inlineSuggest.showToolbar": "always",
   "editor.minimap.maxColumn": 80,
+  "editor.multiCursorModifier": "ctrlCmd",
   "editor.quickSuggestions": {
     "other": "inline"
   },
@@ -89,10 +90,6 @@
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.settings.applyToAllProfiles": [
-    "[json][jsonc]",
-    "[markdown]",
-    "[toml]",
-    "[yaml]",
     "chat.commandCenter.enabled",
     "chat.detectParticipant.enabled",
     "cSpell.spellCheckOnlyWorkspaceFiles",
@@ -158,6 +155,7 @@
     "zenMode.hideStatusBar",
     "zenMode.restore",
     "zenMode.silentNotifications",
+    "editor.multiCursorModifier",
   ],
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "none",
