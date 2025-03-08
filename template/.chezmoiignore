@@ -19,3 +19,7 @@
 .local/share/flatpak
 .local/share/themes
 {{- end }}
+
+{{ if (or (ne .chezmoi.os "linux") (not (lookPath "kwin"))) -}}
+.config/plasma-localerc
+{{- end }}
