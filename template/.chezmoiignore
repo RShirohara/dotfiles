@@ -15,11 +15,21 @@
 .config/pacman/
 {{- end }}
 
+{{ if (or (ne .chezmoi.os "linux") (not (lookPath "kwin"))) -}}
+.config/plasma-localerc
+{{- end }}
+
 {{ if (or (ne .chezmoi.os "linux") (not (lookPath "flatpak"))) -}}
 .local/share/flatpak
 .local/share/themes
 {{- end }}
 
-{{ if (or (ne .chezmoi.os "linux") (not (lookPath "kwin"))) -}}
-.config/plasma-localerc
+{{ if (or
+    (ne .chezmoi.os "linux")
+    (not (lookPath "flatpak"))
+    (ne (output "bash" "-c" "[[ -d /var/lib/flatpak/app/com.visualstudio.code ]]; echo -n ${?}") "0")
+) -}}
+.local/bin/code-flatpak
+.local/share/applications/com.visualstudio.code-url-handler.desktop
+.local/share/applications/com.visualstudio.code.desktop
 {{- end }}

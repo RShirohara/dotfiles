@@ -6,7 +6,7 @@ set -o "errexit" -o "nounset"
 
 if [[ -x $(command -v "host-spawn") ]]; then
   host-spawn --env="TERM,COLORTERM,TERM_PROGRAM" \
-    bash -i -c nu
+    bash -i -c nu "${@}"
 else
-  nu
+  nu "${@}"
 fi

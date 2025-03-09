@@ -1,0 +1,3 @@
+{{ if (eq .chezmoi.os "linux") -}}
+{{  template "bin/code-flatpak/linux.sh" . -}}
+{{ end -}}
