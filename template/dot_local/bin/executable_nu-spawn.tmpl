@@ -1,0 +1,3 @@
+{{ if (eq .chezmoi.os "linux") -}}
+{{  template "bin/nu-spawn/linux.sh" . -}}
+{{ end -}}
