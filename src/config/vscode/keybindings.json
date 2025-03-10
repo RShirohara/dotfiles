@@ -26,7 +26,7 @@
   },
   {
     "command": "editor.action.inlineSuggest.showPrevious",
-    "key": "alt+g",
+    "key": "alt+t",
     "when": "inlineSuggestionVisible && !editorReadonly"
   },
   {

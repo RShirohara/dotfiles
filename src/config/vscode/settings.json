@@ -72,7 +72,7 @@
       "args": [
         "-i",
         "-c",
-        "nu-spawn"
+        "~/.local/bin/nu-spawn"
       ],
       "overrideName": true,
       "path": "bash"
