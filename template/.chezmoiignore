@@ -20,8 +20,8 @@
 {{- end }}
 
 {{ if (or (ne .chezmoi.os "linux") (not (lookPath "flatpak"))) -}}
+.local/share/applications
 .local/share/flatpak
-.local/share/themes
 {{- end }}
 
 {{ if (or
