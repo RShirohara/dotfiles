@@ -69,13 +69,13 @@
   "terminal.integrated.fontFamily": "'HackGen Console NF', 'Noto Sans Mono CJK JP', monospace",
   "terminal.integrated.profiles.linux": {
     "nushell": {
+{{- if (and (eq .chezmoi.os "linux") (lookPath "flatpak")) }}
       "args": [
-        "-i",
-        "-c",
-        "~/.local/bin/nu-spawn"
+        "--commands='host-spawn --env=TERM,COLORTERM,TERM_PROGRAM bash -i -c nu'"
       ],
+{{- end }}
       "overrideName": true,
-      "path": "bash"
+      "path": "nu"
     }
   },
   "terminal.integrated.rightClickBehavior": "default",
@@ -84,6 +84,7 @@
   "terminal.integrated.wordSeparators": " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
   "update.mode": "none",
   "window.customTitleBarVisibility": "auto",
+  "window.newWindowProfile": "Default",
   "workbench.activityBar.location": "bottom",
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.commandPalette.experimental.enableNaturalLanguageSearch": false,
@@ -143,6 +144,7 @@
     "terminal.integrated.wordSeparators",
     "update.mode",
     "window.customTitleBarVisibility",
+    "window.newWindowProfile",
     "workbench.activityBar.location",
     "workbench.colorTheme",
     "workbench.commandPalette.experimental.enableNaturalLanguageSearch",
