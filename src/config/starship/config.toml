@@ -154,7 +154,7 @@ read_only_style = "31 bold"
 before_repo_root_style = "31"
 repo_root_style = "39 bold"
 repo_root_format = '[$read_only]($read_only_style)[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style) '
-fish_style_pwd_dir_length = 10
+fish_style_pwd_dir_length = 1
 
 [docker_context]
 symbol = " "
