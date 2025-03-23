@@ -7,13 +7,17 @@ label.private-browsing-indicator-label {
   visibility: collapse;
 }
 
-/* Fix TabsToolbar position (firefox-pwa only) */
-#TabsToolbar>:not(.titlebar-buttonbox-container) {
-  position: relative !important;
-  top: -6px !important;
-}
+/* Fix TabsToolbar visible (firefox-pwa only) */
+#navigator-toolbox {
+  #toolbar-menubar,
+  #TabsToolbar {
+    &>.titlebar-buttonbox-container {
+      display: inherit !important;
+      margin-left: 16px;
 
-#TabsToolbar-customization-target {
-  margin-left: 80px !important;
+      .titlebar-buttonbox {
+        list-style-image: none;
+      }
+    }
+  }
 }
-
