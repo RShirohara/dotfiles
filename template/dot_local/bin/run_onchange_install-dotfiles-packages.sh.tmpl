@@ -14,7 +14,7 @@ cat <<PACKAGES | sudo pacman -S -
 {{    end -}}
 PACKAGES
 {{  else if (lookPath "brew") -}}
-cat <<PACKAGES | brew bundle --no-lock --file=/dev/stdin
+cat <<PACKAGES | brew bundle --file=/dev/stdin
 {{    range .dependency.linux.homebrew.taps -}}
 tap {{ . | quote }}
 {{    end -}}
