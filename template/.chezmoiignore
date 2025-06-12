@@ -1,35 +1,14 @@
 # Files ignored by chezmoi.
 
+## Common
+.chezmoi.encrypt.age
+
 ## Linux
 {{ if (ne .chezmoi.os "linux") -}}
 .config/
 .local/
 {{- end }}
 
-{{ if (or (ne .chezmoi.os "linux") (env "XDG_CURRENT_DESKTOP" | not)) -}}
-.config/environment.d/30.graphical.conf
-.local/share/gnupg/gpg-agent.conf
-{{- end }}
-
 {{ if (or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "arch")) -}}
 .config/pacman/
-{{- end }}
-
-{{ if (or (ne .chezmoi.os "linux") (not (lookPath "kwin"))) -}}
-.config/plasma-localerc
-{{- end }}
-
-{{ if (or (ne .chezmoi.os "linux") (not (lookPath "flatpak"))) -}}
-.local/share/applications
-.local/share/flatpak
-{{- end }}
-
-{{ if (or
-    (ne .chezmoi.os "linux")
-    (not (lookPath "flatpak"))
-    (ne (output "bash" "-c" "[[ -d /var/lib/flatpak/app/com.visualstudio.code ]]; echo -n ${?}") "0")
-) -}}
-.local/bin/code-flatpak
-.local/share/applications/com.visualstudio.code-url-handler.desktop
-.local/share/applications/com.visualstudio.code.desktop
 {{- end }}

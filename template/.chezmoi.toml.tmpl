@@ -1,6 +1,11 @@
 # Chezmoi settings.
 
+encryption = "age"
 sourceDir = "{{ .chezmoi.sourceDir }}"
+
+[age]
+identity = "${XDG_CONFIG_HOME}/chezmoi/chezmoi.encrypt.txt"
+recipient = "age1jta6ueq3ht9gpzu2n4pdh0z9rwlw4h63330dajate8802kjad42qvzdyq5"
 
 [diff]
 pager = "delta"
