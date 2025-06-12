@@ -72,11 +72,23 @@
     "nushell": {
 {{- if (and (eq .chezmoi.os "linux") (lookPath "flatpak")) }}
       "args": [
-        "--commands='host-spawn --env=TERM,COLORTERM,TERM_PROGRAM bash -i -c nu'"
+        "--env=TERM,COLORTERM,TERM_PROGRAM",
+        "bash",
+        "-i",
+        "-c",
+        "nu"
       ],
-{{- end }}
       "overrideName": true,
-      "path": "nu"
+      "path": "host-spawn"
+{{- else }}
+      "args": [
+        "-i",
+        "-c",
+        "nu"
+      ],
+      "overrideName": true,
+      "path": "bash"
+{{- end }}
     }
   },
   "terminal.integrated.rightClickBehavior": "default",
