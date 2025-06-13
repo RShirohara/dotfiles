@@ -74,10 +74,7 @@ width = -2
 root = ~/Projects
 
 ## Profiles
-[includeIf "hasconfig:remote.*.url:https://github.com/**"]
-path = ./profiles/RShirohara@proton.me.gitconfig
-
-[includeIf "hasconfig:remote.*.url:https://aur.archlinux.org/**"]
+[includeIf "gitdir:~/Projects/github.com/**"]
 path = ./profiles/RShirohara@proton.me.gitconfig
 
 ## Aliases
