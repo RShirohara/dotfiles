@@ -4,11 +4,17 @@ encryption = "age"
 sourceDir = "{{ .chezmoi.sourceDir }}"
 
 [age]
-identity = "${XDG_CONFIG_HOME}/chezmoi/chezmoi.encrypt.txt"
+{{- if (eq .chezmoi.os "linux") }}
+identity = "~/.config/chezmoi/chezmoi.encrypt.txt"
+{{- end }}
 recipient = "age1jta6ueq3ht9gpzu2n4pdh0z9rwlw4h63330dajate8802kjad42qvzdyq5"
 
 [diff]
 pager = "delta"
 
 [edit]
-command = {{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch")) }}"helix"{{ else }}"hx"{{ end }}
+{{- if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch")) }}
+command = "helix"
+{{- else }}
+command = "hx"
+{{- end }}
