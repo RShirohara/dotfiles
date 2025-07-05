@@ -10,6 +10,7 @@ signingKey = "A0ED68AB35B8627F!"
 [dependency.linux.pacman]
 packages = [
   "age",
+  "aws-vault",
   "carapace-bin",
   "ghq",
   "git-credential-oauth",
@@ -25,6 +26,7 @@ packages = [
 taps = []
 brews = [
   "age",
+  "aws-vault",
   "carapace",
   "ghq",
   "git-credential-libsecret",
