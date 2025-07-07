@@ -4,7 +4,7 @@
 [users."RShirohara@proton.me"]
 name = "Ray Shirohara"
 email = "RShirohara@proton.me"
-signingKey = "A0ED68AB35B8627F!"
+signingKey = "E7321F26D8EACF39!"
 
 ## Dependencies
 [dependency.linux.pacman]
