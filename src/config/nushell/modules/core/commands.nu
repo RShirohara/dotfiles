@@ -1,13 +1,9 @@
 # Command aliases for nushell.
 
 ## Filesystem
-export def ll [path?: path = .] {
-  ls $path
-  | sort-by --ignore-case "type" "name"
-}
-
 export def la [path?: path = .] {
-  ls --all $path
+  ls --all --long $path
+  | select "name" "type" "mode" "size" "modified"
   | sort-by --ignore-case "type" "name"
 }
 
