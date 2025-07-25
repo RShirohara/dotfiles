@@ -17,7 +17,7 @@ def create_external_completer []: nothing -> closure {
   return {|spans: list<string>|
     let expanded_alias = scope aliases
     | where name == $spans.0
-    | get -i 0.expansion
+    | get --optional 0.expansion
     let spans = if $expanded_alias != null {
       $spans
       | skip 1
