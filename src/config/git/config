@@ -77,6 +77,9 @@ root = ~/Projects
 [includeIf "gitdir:~/Projects/github.com/**"]
 path = ./profiles/RShirohara@proton.me.gitconfig
 
+[includeIf "gitdir:~/Projects/codeberg.org/**"]
+path = ./profiles/RShirohara@proton.me.gitconfig
+
 ## Aliases
 [alias]
 log-graph = log --color --abbrev-commit --date=short --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset'
