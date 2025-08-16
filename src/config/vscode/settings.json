@@ -13,6 +13,7 @@
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "$schema": "vscode://schemas/settings/user",
+  "chat.agent.enabled": false,
   "chat.commandCenter.enabled": false,
   "chat.detectParticipant.enabled": false,
   "cSpell.spellCheckOnlyWorkspaceFiles": true,
@@ -59,17 +60,19 @@
   "git.openRepositoryInParentFolders": "never",
   "git.pruneOnFetch": true,
   "githubPullRequests.createOnPublishBranch": "never",
+  "githubPullRequests.experimental.chat": false,
   "markdown.preview.fontFamily": "'Noto Sans CJK JP', 'Noto Sans CJK', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
   "merge-conflict.autoNavigateNextConflict.enabled": true,
   "search.useGlobalIgnoreFiles": true,
+  "telemetry.feedback.enabled": false,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.defaultProfile.linux": "nushell",
+  "terminal.integrated.defaultProfile.linux": "NuShell",
   "terminal.integrated.enableVisualBell": true,
   "terminal.integrated.fontFamily": "'HackGen Console NF', 'Noto Sans Mono CJK JP', monospace",
   "terminal.integrated.profiles.linux": {
-    "nushell": {
+    "NuShell": {
 {{- if (and (eq .chezmoi.os "linux") (lookPath "flatpak")) }}
       "args": [
         "--env=TERM,COLORTERM,TERM_PROGRAM",
@@ -81,13 +84,7 @@
       "overrideName": true,
       "path": "host-spawn"
 {{- else }}
-      "args": [
-        "-i",
-        "-c",
-        "nu"
-      ],
-      "overrideName": true,
-      "path": "bash"
+      "path": "nu"
 {{- end }}
     }
   },
@@ -96,14 +93,18 @@
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.wordSeparators": " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
   "update.mode": "none",
-  "window.customTitleBarVisibility": "auto",
   "window.newWindowProfile": "Default",
   "workbench.activityBar.location": "bottom",
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.commandPalette.experimental.enableNaturalLanguageSearch": false,
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.preferredDarkColorTheme": "GitHub Dark Dimmed",
+  "workbench.preferredHighContrastColorTheme": "GitHub Dark High Contrast",
+  "workbench.preferredHighContrastLightColorTheme": "GitHub Light High Contrast",
+  "workbench.preferredLightColorTheme": "GitHub Light Default",
   "workbench.settings.applyToAllProfiles": [
+    "chat.agent.enabled",
     "chat.commandCenter.enabled",
     "chat.detectParticipant.enabled",
     "cSpell.spellCheckOnlyWorkspaceFiles",
@@ -139,12 +140,16 @@
     "git.blame.editorDecoration.enabled",
     "git.confirmSync",
     "git.enableCommitSigning",
+    "git.inputValidation",
     "git.mergeEditor",
     "git.openRepositoryInParentFolders",
     "git.pruneOnFetch",
+    "githubPullRequests.createOnPublishBranch",
+    "githubPullRequests.experimental.chat",
     "markdown.preview.fontFamily",
     "merge-conflict.autoNavigateNextConflict.enabled",
     "search.useGlobalIgnoreFiles",
+    "telemetry.feedback.enabled",
     "telemetry.telemetryLevel",
     "terminal.integrated.cursorBlinking",
     "terminal.integrated.cursorStyle",
@@ -157,14 +162,16 @@
     "terminal.integrated.smoothScrolling",
     "terminal.integrated.wordSeparators",
     "update.mode",
-    "window.customTitleBarVisibility",
     "window.newWindowProfile",
     "workbench.activityBar.location",
     "workbench.colorTheme",
     "workbench.commandPalette.experimental.enableNaturalLanguageSearch",
     "workbench.editor.defaultBinaryEditor",
     "workbench.iconTheme",
-    "workbench.settings.applyToAllProfiles",
+    "workbench.preferredDarkColorTheme",
+    "workbench.preferredHighContrastColorTheme",
+    "workbench.preferredHighContrastLightColorTheme",
+    "workbench.preferredLightColorTheme",
     "workbench.settings.enableNaturalLanguageSearch",
     "workbench.startupEditor",
     "workbench.tips.enabled",
