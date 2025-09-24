@@ -74,10 +74,10 @@ width = -2
 root = ~/Projects
 
 ## Profiles
-[includeIf "gitdir:~/Projects/github.com/**"]
+[includeIf "gitdir:~/Projects/codeberg.org/**"]
 path = ./profiles/RShirohara@proton.me.gitconfig
 
-[includeIf "gitdir:~/Projects/codeberg.org/**"]
+[includeIf "gitdir:~/Projects/github.com/**"]
 path = ./profiles/RShirohara@proton.me.gitconfig
 
 ## Aliases
