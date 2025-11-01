@@ -79,6 +79,7 @@
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.defaultProfile.linux": "NuShell",
+  "terminal.integrated.enableImages": true,
   "terminal.integrated.enableVisualBell": true,
   "terminal.integrated.fontFamily": "'HackGen Console NF', 'Noto Sans Mono CJK JP', monospace",
   "terminal.integrated.profiles.linux": {
@@ -165,6 +166,7 @@
     "terminal.integrated.cursorBlinking",
     "terminal.integrated.cursorStyle",
     "terminal.integrated.defaultProfile.linux",
+    "terminal.integrated.enableImages",
     "terminal.integrated.enableVisualBell",
     "terminal.integrated.fontFamily",
     "terminal.integrated.profiles.linux",

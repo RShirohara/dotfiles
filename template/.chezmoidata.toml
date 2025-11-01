@@ -18,6 +18,7 @@ packages = [
   "git",
   "helix",
   "nushell",
+  "serie",
   "sops",
   "starship",
 ]
@@ -35,6 +36,7 @@ brews = [
   "git",
   "helix",
   "nushell",
+  "serie",
   "sops",
   "starship",
 ]

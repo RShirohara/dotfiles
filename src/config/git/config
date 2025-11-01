@@ -82,5 +82,5 @@ path = ./profiles/RShirohara@proton.me.gitconfig
 
 ## Aliases
 [alias]
-log-graph = log --color --abbrev-commit --date=short --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset'
+log-graph = !serie
 push-force = push --force-if-includes --force-with-lease
