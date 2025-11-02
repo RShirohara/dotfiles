@@ -12,3 +12,7 @@
 {{ if (or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "arch")) -}}
 .config/pacman/
 {{- end }}
+
+{{ if (or (ne .chezmoi.os "linux") (not (lookPath "flatpak"))) -}}
+.var
+{{- end }}
