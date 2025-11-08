@@ -71,13 +71,13 @@ navigate = true
 width = -2
 
 [ghq]
-root = ~/Projects
+root = ~/Workspace
 
 ## Profiles
-[includeIf "gitdir:~/Projects/codeberg.org/**"]
+[includeIf "gitdir:~/Workspace/codeberg.org/**"]
 path = ./profiles/RShirohara@proton.me.gitconfig
 
-[includeIf "gitdir:~/Projects/github.com/**"]
+[includeIf "gitdir:~/Workspace/github.com/**"]
 path = ./profiles/RShirohara@proton.me.gitconfig
 
 ## Aliases

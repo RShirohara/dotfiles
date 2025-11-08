@@ -15,7 +15,7 @@ RShirohara's dotfiles managed by [chezmoi](https://github.com/twpayne/chezmoi).
 2. Run this command:
 
    ```shell
-   chezmoi init --apply --source=~/Projects/github.com/RShirohara/dotfiles github.com/RShirohara/dotfiles
+   chezmoi init --apply --source=~/Workspace/github.com/RShirohara/dotfiles github.com/RShirohara/dotfiles
    ```
 
 ## Environment information
