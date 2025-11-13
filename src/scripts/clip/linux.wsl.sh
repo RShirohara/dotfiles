@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-# System clipboard integration
+
+set -o "errexit" -o "nounset" -o "pipefail"
+
+# System clipboard integration.
 #
 # Supported Platform:
 # - WSL (`clip.exe`, `Get-Clipboard` (powershell.exe))

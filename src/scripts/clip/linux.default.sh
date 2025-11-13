@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-# System clipboard integration
+
+set -o "errexit" -o "nounset" -o "pipefail"
+
+# System clipboard integration.
 #
 # Supported Platform:
 # - X11 (`xclip`)
@@ -19,6 +22,10 @@ if [[ -t 0 && $# -eq 0 ]]; then
   ## Wayland
   elif [[ "${XDG_SESSION_TYPE:-}" == "wayland" && -x $(command -v wl-paste) ]]; then
     wl-paste
+
+  else
+    echo "Can't find platform."
+    exit 1
   fi
 
 # copy from stdin
@@ -30,5 +37,9 @@ else
   ## Wayland
   elif [[ "${XDG_SESSION_TYPE:-}" == "wayland" && -x $(command -v wl-copy) ]]; then
     wl-copy < "${1:-/dev/stdin}"
+
+  else
+    echo "Can't find platform."
+    exit 1
   fi
 fi

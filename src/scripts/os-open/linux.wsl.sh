@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-# System link-handler integration
+
+set -o "errexit" -o "nounset" -o "pipefail"
+
+# System link-handler integration.
 #
 # Supported Platform:
 # - WSL (`explorer.exe`)

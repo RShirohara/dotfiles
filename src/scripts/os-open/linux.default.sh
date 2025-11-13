@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-# System link-handler integration
+
+set -o "errexit" -o "nounset" -o "pipefail"
+
+# System link-handler integration.
 #
 # Supported Platform:
 # - XDG (`xdg-open`)
@@ -9,4 +12,7 @@
 
 if [[ -x $(command -v xdg-open) ]]; then
   xdg-open "$@"
+else
+  echo "Can't detect platform."
+  exit 1
 fi
