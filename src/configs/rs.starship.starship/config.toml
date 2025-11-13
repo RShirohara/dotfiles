@@ -1,4 +1,3 @@
-# Starship prompt configs.
 "$schema" = "https://starship.rs/config-schema.json"
 
 format = """
