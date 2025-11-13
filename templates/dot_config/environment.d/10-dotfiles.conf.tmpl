@@ -1,0 +1,3 @@
+{{- if (eq .chezmoi.os "linux") }}
+{{-   includeTemplate "remove_dot_chezmoidata/env.linux.tmpl" . }}
+{{- end -}}

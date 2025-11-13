@@ -1,0 +1,3 @@
+{{- if (eq .chezmoi.os "linux") }}
+{{-   includeTemplate "environments/internal.shell/linux.locale.env" . }}
+{{- end -}}
