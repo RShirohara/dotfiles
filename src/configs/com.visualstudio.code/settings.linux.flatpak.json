@@ -1,0 +1,17 @@
+{
+  "$schema": "vscode://schemas/settings/user",
+  "terminal.integrated.defaultProfile.linux": "Nushell",
+  "terminal.integrated.profiles.linux": {
+    "Nushell": {
+      "args": [
+        "--env=TERM,COLORTERM,TERM_PROGRAM",
+        "bash",
+        "-i",
+        "-c",
+        "nu"
+      ],
+      "overrideName": true,
+      "path": "host-spawn"
+    }
+  }
+}

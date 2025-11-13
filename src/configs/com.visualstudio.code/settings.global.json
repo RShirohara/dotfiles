@@ -3,23 +3,23 @@
     "editor.autoIndent": "advanced",
     "editor.defaultFormatter": "redhat.vscode-yaml",
     "editor.insertSpaces": true,
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[github-actions-workflow]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "[json][jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[markdown]": {
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
-    "editor.wordWrap": "bounded",
+    "editor.wordWrap": "bounded"
   },
   "[toml]": {
-    "editor.defaultFormatter": "tamasfe.even-better-toml",
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
   "[yaml]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "$schema": "vscode://schemas/settings/user",
   "chat.agent.enabled": false,
@@ -37,7 +37,7 @@
   "editor.minimap.maxColumn": 80,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.quickSuggestions": {
-    "other": "inline",
+    "other": "inline"
   },
   "editor.renderWhitespace": "all",
   "editor.smoothScrolling": true,
@@ -56,7 +56,7 @@
   "files.associations": {
     "*.env": "properties",
     "*config": "properties",
-    "*ignore": "ignore",
+    "*ignore": "ignore"
   },
   "files.autoGuessEncoding": true,
   "files.eol": "\n",
@@ -79,27 +79,9 @@
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.defaultProfile.linux": "NuShell",
   "terminal.integrated.enableImages": true,
   "terminal.integrated.enableVisualBell": true,
   "terminal.integrated.fontFamily": "'HackGen Console NF', 'Noto Sans Mono CJK JP', monospace",
-  "terminal.integrated.profiles.linux": {
-    "NuShell": {
-{{- if (and (eq .chezmoi.os "linux") (lookPath "flatpak")) }}
-      "args": [
-        "--env=TERM,COLORTERM,TERM_PROGRAM",
-        "bash",
-        "-i",
-        "-c",
-        "nu"
-      ],
-      "overrideName": true,
-      "path": "host-spawn"
-{{- else }}
-      "path": "nu"
-{{- end }}
-    }
-  },
   "terminal.integrated.rightClickBehavior": "default",
   "terminal.integrated.scrollback": 1000000,
   "terminal.integrated.smoothScrolling": true,
@@ -193,7 +175,7 @@
     "zenMode.hideLineNumbers",
     "zenMode.hideStatusBar",
     "zenMode.restore",
-    "zenMode.silentNotifications",
+    "zenMode.silentNotifications"
   ],
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "none",
@@ -201,5 +183,5 @@
   "zenMode.hideLineNumbers": false,
   "zenMode.hideStatusBar": false,
   "zenMode.restore": false,
-  "zenMode.silentNotifications": false,
+  "zenMode.silentNotifications": false
 }
