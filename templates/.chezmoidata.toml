@@ -9,6 +9,7 @@ signingKey = "E7321F26D8EACF39!"
 taps = []
 brews = [
   "age",
+  "aws-vault",
   "ghq",
   "git",
   "git-credential-libsecret",
