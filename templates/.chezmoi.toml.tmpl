@@ -1,5 +1,3 @@
-# Chezmoi settings.
-
 encryption = "age"
 sourceDir = "{{ .chezmoi.sourceDir }}"
 
@@ -13,8 +11,4 @@ recipient = "age1jta6ueq3ht9gpzu2n4pdh0z9rwlw4h63330dajate8802kjad42qvzdyq5"
 pager = "delta"
 
 [edit]
-{{- if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch")) }}
-command = "helix"
-{{- else }}
 command = "hx"
-{{- end }}
