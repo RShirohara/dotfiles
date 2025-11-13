@@ -1,5 +1,3 @@
-# Helix settings
-
 theme = "github_dark"
 
 [editor]
