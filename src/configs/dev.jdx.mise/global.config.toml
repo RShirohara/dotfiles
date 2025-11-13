@@ -5,5 +5,4 @@ paranoid = true
 [settings.python]
 uv_venv_auto = true
 
-[settings.sops]
-age_key_file = "~/.config/mise/secret.txt"
+# Platform specific settings.

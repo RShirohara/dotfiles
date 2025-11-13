@@ -15,5 +15,7 @@ brews = [
   "git-credential-oauth",
   "git-delta",
   "helix",
-  "starship"
+  "mise",
+  "sops",
+  "starship",
 ]

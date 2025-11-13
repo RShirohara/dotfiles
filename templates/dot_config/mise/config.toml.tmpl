@@ -1,0 +1,5 @@
+{{- includeTemplate "configs/dev.jdx.mise/global.config.toml" . }}
+
+{{- if (eq .chezmoi.os "linux") }}
+{{-   includeTemplate "configs/dev.jdx.mise/linux.config.toml" . }}
+{{- end -}}
