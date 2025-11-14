@@ -144,6 +144,7 @@
     "githubPullRequests.experimental.chat",
     "markdown.preview.fontFamily",
     "merge-conflict.autoNavigateNextConflict.enabled",
+    "nushellLanguageServer.nushellExecutablePath",
     "search.useGlobalIgnoreFiles",
     "telemetry.feedback.enabled",
     "telemetry.telemetryLevel",

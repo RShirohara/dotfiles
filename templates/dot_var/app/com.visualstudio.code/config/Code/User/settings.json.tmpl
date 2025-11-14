@@ -1,12 +1,12 @@
-{{- with $root := (.) }}
+{{- with $root := (.) -}}
 {{- with $global := (fromJson (includeTemplate "configs/com.visualstudio.code/settings.global.json" .)) }}
 {{- with $linux_flatpak := (fromJson (includeTemplate "configs/com.visualstudio.code/settings.linux.flatpak.json" .)) }}
 {{- with $linux_default := (fromJson (includeTemplate "configs/com.visualstudio.code/settings.linux.default.json" .)) }}
 
 {{- if (and (eq $root.chezmoi.os "linux") (lookPath "flatpak")) }}
-{{/*  TODO: change `merge` to `mergeWithAppendSlice`.
-      Ref: <https://github.com/Masterminds/sprig/issues/300>
- */}}
+{{- /* TODO: change `merge` to `mergeWithAppendSlice`.
+       Ref: <https://github.com/Masterminds/sprig/issues/300>
+*/}}
 {{-   merge $global $linux_flatpak
       | toPrettyJson
 }}
@@ -19,4 +19,4 @@
 {{- end }}
 {{- end }}
 {{- end }}
-{{- end }}
+{{- end -}}
