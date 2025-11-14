@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -o "errexit" -o "nounset" -o "pipefail"
+
+KEY_FILE_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/chezmoi"
+KEY_FILE_PATH="${KEY_FILE_DIR}/chezmoi.encrypt.txt"
+
+if [[ ! -f "${KEY_FILE_PATH}" ]]; then
+  mkdir --mode=700 --parents "${KEY_FILE_DIR}"
+  chezmoi age decrypt \
+    --output="${KEY_FILE_PATH}" \
+    --passphrase \
+    "{{ .chezmoi.sourceDir }}/.chezmoi.encrypt.age"
+  chmod 600 "${KEY_FILE_PATH}"
+fi

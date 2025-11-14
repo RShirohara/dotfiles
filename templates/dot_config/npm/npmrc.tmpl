@@ -1,0 +1,3 @@
+{{- if (eq .chezmoi.os "linux") }}
+{{-   includeTemplate "configs/com.npmjs.cli/linux.npmjs" . }}
+{{- end -}}

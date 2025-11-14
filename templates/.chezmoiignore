@@ -1,0 +1,13 @@
+*
+
+# Linux.
+{{- if (eq .chezmoi.os "linux") }}
+!/.config/
+!/.local/
+!/.face.icon
+
+{{- if (lookPath "flatpak") }}
+!/.var/
+{{- end }}
+
+{{- end }}

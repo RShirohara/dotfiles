@@ -1,0 +1,22 @@
+# Users.
+[users."RShirohara@proton.me"]
+name = "Ray Shirohara"
+email = "RShirohara@proton.me"
+signingKey = "E7321F26D8EACF39!"
+
+# Package dependencies.
+[dependency.linux.homebrew]
+taps = []
+brews = [
+  "age",
+  "aws-vault",
+  "ghq",
+  "git",
+  "git-credential-libsecret",
+  "git-credential-oauth",
+  "git-delta",
+  "helix",
+  "mise",
+  "sops",
+  "starship",
+]
