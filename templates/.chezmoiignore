@@ -2,12 +2,21 @@
 
 # Linux.
 {{- if (eq .chezmoi.os "linux") }}
-!/.config/
-!/.local/
+!/.config/aws/
+!/.config/environment.d/
+!/.config/git/
+!/.config/helix/
+!/.config/mise/
+!/.config/npm/
+!/.config/nushell/
+!/.config/sops/
+!/.config/starship/
+!/.config/locale.conf
+!/.local/bin/
 !/.face.icon
 
 {{- if (lookPath "flatpak") }}
-!/.var/
+!/.var/app/
 {{- end }}
 
 {{- end }}
