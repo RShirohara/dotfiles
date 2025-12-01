@@ -1,0 +1,16 @@
+*
+
+# Linux.
+{{- if (eq .chezmoi.os "linux") }}
+!aws/**
+!environment.d/**
+!git/**
+!helix/**
+!mise/**
+!npm/**
+!nushell/**
+!sops/**
+!starship/**
+!locale.conf
+
+{{- end }}
