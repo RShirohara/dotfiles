@@ -1,5 +1,7 @@
-{{- if (and (eq .chezmoi.os "linux") (lookPath "flatpak")) }}
-{{-   includeTemplate "configs/sh.nushell.nushell/modules/com.visualstudio.code./linux.flatpak.mod.nu" . }}
+{{- if (eq .chezmoi.os "darwin") }}
+{{-   includeTemplate "configs/sh.nushell.nushell/modules/com.visualstudio.code./mod.darwin.nu" . }}
+{{- else if (and (eq .chezmoi.os "linux") (lookPath "flatpak")) }}
+{{-   includeTemplate "configs/sh.nushell.nushell/modules/com.visualstudio.code./mod.linux.flatpak.nu" . }}
 {{- else if (eq .chezmoi.os "linux") }}
-{{-   includeTemplate "configs/sh.nushell.nushell/modules/com.visualstudio.code./linux.default.mod.nu" . }}
+{{-   includeTemplate "configs/sh.nushell.nushell/modules/com.visualstudio.code./mod.linux.default.nu" . }}
 {{- end -}}

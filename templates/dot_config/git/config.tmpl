@@ -1,6 +1,8 @@
 {{- includeTemplate "configs/com.git-scm.git/global.gitconfig" . }}
 
-{{- if (and
+{{- if (eq .chezmoi.os "darwin") }}
+{{-   includeTemplate "configs/com.git-scm.git/credential.darwin.gitconfig" . }}
+{{- else if (and
       (eq .chezmoi.os "linux")
       (.chezmoi.kernel.osrelease | lower | contains "microsoft")
 ) }}

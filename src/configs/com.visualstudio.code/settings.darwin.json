@@ -1,0 +1,11 @@
+{
+  "$schema": "vscode://schemas/settings/user",
+  "nushellLanguageServer.nushellExecutablePath": "/opt/homebrew/bin/nu",
+  "terminal.integrated.defaultProfile.linux": "Nushell",
+  "terminal.integrated.profiles.linux": {
+    "Nushell": {
+      "overrideName": true,
+      "path": "nu"
+    }
+  }
+}
