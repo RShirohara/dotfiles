@@ -1,7 +1,17 @@
 *
 
+{{- if (eq .chezmoi.os "darwin") }}
+!aws/**
+!git/**
+!helix/**
+!mise/**
+!npm/**
+!nushell/**
+!sops/**
+!starship/**
+
+{{- else if (eq .chezmoi.os "linux") }}
 # Linux.
-{{- if (eq .chezmoi.os "linux") }}
 !aws/**
 !environment.d/**
 !git/**
