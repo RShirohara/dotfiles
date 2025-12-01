@@ -5,12 +5,14 @@
 !/.config/
 !/.local/
 !/Library/
+!/.zshenv
 
 {{- else if (eq .chezmoi.os "linux") }}
 # Linux.
 !/.config/
 !/.local/
 !/.face.icon
+!/.zshenv
 
 {{-   if (lookPath "flatpak") }}
 !/.var/
