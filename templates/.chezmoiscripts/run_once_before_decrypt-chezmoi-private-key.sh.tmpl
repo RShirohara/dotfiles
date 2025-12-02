@@ -11,7 +11,7 @@ KEY_FILE_PATH="${KEY_FILE_DIR}/chezmoi.encrypt.txt"
 {{- end }}
 
 if [[ ! -f "${KEY_FILE_PATH}" ]]; then
-  mkdir --mode=700 --parents "${KEY_FILE_DIR}"
+  mkdir -m 700 -p "${KEY_FILE_DIR}"
   chezmoi age decrypt \
     --output="${KEY_FILE_PATH}" \
     --passphrase \

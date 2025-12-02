@@ -2,7 +2,9 @@ encryption = "age"
 sourceDir = "{{ .chezmoi.sourceDir }}"
 
 [age]
-{{- if (eq .chezmoi.os "linux") }}
+{{- if (eq .chezmoi.os "darwin") }}
+identity = "~/.config/chezmoi/chezmoi.encrypt.txt"
+{{- else if (eq .chezmoi.os "linux") }}
 identity = "~/.config/chezmoi/chezmoi.encrypt.txt"
 {{- end }}
 recipient = "age1jta6ueq3ht9gpzu2n4pdh0z9rwlw4h63330dajate8802kjad42qvzdyq5"

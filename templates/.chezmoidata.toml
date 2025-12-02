@@ -10,6 +10,7 @@ taps = []
 brews = [
   "age",
   "aws-vault",
+  "carapace",
   "ghq",
   "git-credential-oauth",
   "git-delta",
@@ -17,6 +18,7 @@ brews = [
   "gnupg",
   "helix",
   "mise",
+  "nushell",
   "pinentry-mac",
   "sops",
   "starship",
@@ -30,13 +32,15 @@ taps = []
 brews = [
   "age",
   "aws-vault",
+  "carapace",
   "ghq",
-  "git",
   "git-credential-libsecret",
   "git-credential-oauth",
   "git-delta",
+  "git",
   "helix",
   "mise",
+  "nushell",
   "sops",
   "starship",
 ]

@@ -1,4 +1,6 @@
-{{- if (and
+{{- if (eq .chezmoi.os "darwin") }}
+{{-   includeTemplate "scripts/clip/darwin.sh" }}
+{{- else if (and
       (eq .chezmoi.os "linux")
       (.chezmoi.kernel.osrelease | lower | contains "microsoft")
 )}}
