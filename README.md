@@ -4,6 +4,9 @@ RShirohara's dotfiles managed by [chezmoi](https://www.chezmoi.io).
 
 ## Supported environments
 
+- macOS
+  - Requirements:
+    - Package Manager: [Homebrew](https://brew.sh)
 - Linux
   - Distributions:
     - Red Hat
