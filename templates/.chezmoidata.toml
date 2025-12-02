@@ -24,7 +24,8 @@ brews = [
   "starship",
 ]
 casks = [
-  "visual-studio-code"
+  "ghostty",
+  "visual-studio-code",
 ]
 
 [dependency.linux.homebrew]

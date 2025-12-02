@@ -1,0 +1,5 @@
+font-family = "Hackgen Console NF"
+font-feature = "-calt, -liga, -dlig"
+font-size = 14
+theme = "Vercel"
+command = "zsh --interactive -c /opt/homebrew/bin/nu"
