@@ -1,13 +1,21 @@
 *
 
+{{- if (eq .chezmoi.os "darwin") }}
+# macOS.
+!/.config/
+!/.local/
+!/Library/
+!/.zshenv
+
+{{- else if (eq .chezmoi.os "linux") }}
 # Linux.
-{{- if (eq .chezmoi.os "linux") }}
 !/.config/
 !/.local/
 !/.face.icon
+!/.zshenv
 
-{{- if (lookPath "flatpak") }}
+{{-   if (lookPath "flatpak") }}
 !/.var/
-{{- end }}
+{{-   end }}
 
 {{- end }}
