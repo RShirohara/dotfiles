@@ -1,0 +1,9 @@
+*
+
+# macOS.
+{{- if (eq .chezmoi.os "darwin") }}
+
+# Linux.
+{{- else if (eq .chezmoi.os "linux") }}
+
+{{- end }}
