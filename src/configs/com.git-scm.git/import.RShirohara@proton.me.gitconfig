@@ -1,5 +1,0 @@
-[includeIf "gitdir:~/Workspace/codeberg.org/**"]
-path = "./profiles/RShirohara@proton.me.gitconfig"
-
-[includeIf "gitdir:~/Workspace/github.com/**"]
-path = "./profiles/RShirohara@proton.me.gitconfig"

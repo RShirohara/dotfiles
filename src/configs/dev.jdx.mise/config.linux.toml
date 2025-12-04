@@ -1,2 +1,0 @@
-[settings.sops]
-age_key_file = "~/.config/mise/secret.txt"
