@@ -2,9 +2,14 @@
 
 # macOS.
 {{- if (eq .chezmoi.os "darwin") }}
+!/.bash_profile
+!/.zshenv
 
 # Linux.
 {{- else if (eq .chezmoi.os "linux") }}
+!/.config/
+!/.bash_profile
 !/.face.icon
+!/.zshenv
 
 {{- end }}
