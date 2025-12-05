@@ -2,4 +2,5 @@
 {{-   includeTemplate "configs/org.gnu.bash/bashrc.darwin.sh" . }}
 {{- else if (eq .chezmoi.os "linux") }}
 {{-   includeTemplate "configs/org.gnu.bash/bashrc.linux.sh" . }}
-{{- end -}}
+{{- end }}
+{{- includeTemplate "configs/org.gnu.bash/bashrc.global.sh" . -}}
