@@ -1,15 +1,22 @@
 *
+**/.*keep
 
 # macOS.
 {{- if (eq .chezmoi.os "darwin") }}
+!/.zsh_sessions/
+!/Library/
 !/.bash_profile
+!/.zsh_history
 !/.zshenv
 
 # Linux.
 {{- else if (eq .chezmoi.os "linux") }}
 !/.config/
+!/.local/
+!/.zsh_sessions/
 !/.bash_profile
 !/.face.icon
+!/.zsh_history
 !/.zshenv
 
 {{- end }}
