@@ -5,7 +5,9 @@
 {{- if (eq .chezmoi.os "darwin") }}
 !/.zsh_sessions/
 !/Library/
+!/.bash_history
 !/.bash_profile
+!/.bashrc
 !/.zsh_history
 !/.zshenv
 
@@ -14,7 +16,9 @@
 !/.config/
 !/.local/
 !/.zsh_sessions/
+!/.bash_history
 !/.bash_profile
+!/.bashrc
 !/.face.icon
 !/.zsh_history
 !/.zshenv
