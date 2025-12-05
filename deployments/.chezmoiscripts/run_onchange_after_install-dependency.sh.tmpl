@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -o "errexit" -o "nounset" -o "pipefail"
+
+{{- if (eq .chezmoi.os "darwin") }}
+cat <<PACKAGES | "${HOMEBREW_EXECUTABLE}" bundle --file="/dev/stdin"
+{{-   range .dependency.darwin.homebrew.taps }}
+tap {{ .name | quote }}{{ if hasKey . "url" }}, {{ .url | quote }}{{ end }}
+{{-   end }}
+{{-   range .dependency.darwin.homebrew.formulae }}
+brew {{ .name | quote }}
+{{-   end }}
+{{-   range .dependency.darwin.homebrew.casks }}
+cask {{ .name | quote }}{{ if hasKey . "args" }}, args: {{ .args | toJson }}{{ end }}
+{{-   end }}
+PACKAGES
+{{- else if (eq .chezmoi.os "linux") }}
+cat <<PACKAGES | "${HOMEBREW_EXECUTABLE}" bundle --file="/dev/stdin"
+{{-   range .dependency.linux.homebrew.taps }}
+tap {{ .name | quote }}{{ if hasKey . "url" }}, {{ .url | quote }}{{ end }}
+{{-   end }}
+{{-   range .dependency.linux.homebrew.formulae }}
+brew {{ .name | quote }}
+{{-   end }}
+PACKAGES
+{{- end }}
