@@ -14,9 +14,11 @@ formulae = [
   { name = "git" },
   { name = "git-credential-oauth" },
   { name = "git-delta" },
+  { name = "gnupg" },
   { name = "helix" },
   { name = "mise" },
   { name = "nushell" },
+  { name = "pinentry-mac" },
   { name = "sops" },
   { name = "starship" },
 ]
