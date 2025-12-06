@@ -17,6 +17,7 @@
 {{- if (lookPath "podman") }}
 {{-   includeTemplate "environments/io.podman.engine/linux.env" . }}
 {{- end }}
+{{- includeTemplate "environments/io.pypa.virtualenv/global.env" . }}
 {{- includeTemplate "environments/org.gnupg/linux.env" . }}
 {{- includeTemplate "environments/org.zsh/linux.env" . }}
 {{- includeTemplate "environments/rs.starship/linux.env" . }}
