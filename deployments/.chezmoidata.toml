@@ -23,6 +23,7 @@ formulae = [
   { name = "starship" },
 ]
 casks = [
+  { name = "ghostty", args = { appdir = "~/Applications" } },
   { name = "visual-studio-code", args = { appdir = "~/Applications" } }
 ]
 
