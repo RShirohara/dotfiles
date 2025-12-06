@@ -15,7 +15,9 @@ formulae = [
   { name = "git-credential-oauth" },
   { name = "git-delta" },
   { name = "helix" },
+  { name = "mise" },
   { name = "nushell" },
+  { name = "sops" },
   { name = "starship" },
 ]
 casks = []
@@ -30,7 +32,9 @@ taps = [
   { name = "git-credential-oauth" },
   { name = "git-delta" },
   { name = "helix" },
+  { name = "mise" },
   { name = "nushell" },
+  { name = "sops" },
   { name = "starship" },
 ]
 formulae = []

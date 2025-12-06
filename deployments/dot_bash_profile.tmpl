@@ -17,3 +17,5 @@ if [[ "${DOTFILES_ENV_LOADED:-false}" != "true" ]]; then
 {{-   end }}
 {{- end -}}
 fi
+
+{{  includeTemplate "configs/org.gnu.bash/bash_profile.global.sh" . -}}
