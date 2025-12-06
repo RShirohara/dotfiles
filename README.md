@@ -5,23 +5,17 @@ RShirohara's dotfiles managed by [chezmoi](https://www.chezmoi.io).
 ## Supported environments
 
 - macOS
-  - Requirements:
-    - Package Manager: [Homebrew](https://brew.sh)
+  - Apps:
+    - CLI Applications (managed by [Homebrew](https://brew.sh))
+    - GUI Applications (managed by [Homebrew](https://brew.sh))
 - Linux
   - Distributions:
     - Red Hat
-  - Requirements:
-    - Package Manager for CLI Applications: [Homebrew](https://brew.sh)
-    - Package Manager for GUI Applications (optional): [Flatpak](https://flatpak.org/)
+  - Apps:
+    - CLI Applications (managed by [Homebrew](https://brew.sh))
 
 ## Installation
 
-1. Install [chezmoi](https://www.chezmoi.io).
-2. Run this command to apply dotfiles:
-
-    ```shell
-    chezmoi init \
-      --apply \
-      --source="~/Workspace/github.com/RShirohara/dotfiles" \
-      github.com/RShirohara/dotfiles
-    ```
+```shell
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/RShirohara/dotfiles/refs/heads/main/scripts/install.sh)"
+```

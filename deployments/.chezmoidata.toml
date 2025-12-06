@@ -1,0 +1,47 @@
+# Users.
+[users."RShirohara@proton.me"]
+name = "Ray Shirohara"
+email = "RShirohara@proton.me"
+signingKey = "E7321F26D8EACF39!"
+
+# Dependencies.
+[dependency.darwin.homebrew]
+taps = []
+formulae = [
+  { name = "age" },
+  { name = "aws-vault" },
+  { name = "carapace" },
+  { name = "ghq" },
+  { name = "git" },
+  { name = "git-credential-oauth" },
+  { name = "git-delta" },
+  { name = "gnupg" },
+  { name = "helix" },
+  { name = "mise" },
+  { name = "nushell" },
+  { name = "pinentry-mac" },
+  { name = "sops" },
+  { name = "starship" },
+]
+casks = [
+  { name = "ghostty", args = { appdir = "~/Applications" } },
+  { name = "visual-studio-code", args = { appdir = "~/Applications" } }
+]
+
+[dependency.linux.homebrew]
+taps = []
+formulae = [
+  { name = "age" },
+  { name = "aws-vault" },
+  { name = "carapace" },
+  { name = "ghq" },
+  { name = "git" },
+  { name = "git-credential-libsecret" },
+  { name = "git-credential-oauth" },
+  { name = "git-delta" },
+  { name = "helix" },
+  { name = "mise" },
+  { name = "nushell" },
+  { name = "sops" },
+  { name = "starship" },
+]

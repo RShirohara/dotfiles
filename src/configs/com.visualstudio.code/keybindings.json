@@ -2,7 +2,12 @@
   {
     "command": "explorer.newFile",
     "key": "ctrl+alt+n",
-    "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
+    "when": "isWindows && filesExplorerFocus && foldersViewVisible && !inputFocus"
+  },
+  {
+    "command": "explorer.newFile",
+    "key": "alt+cmd+n",
+    "when": "isMacNative && filesExplorerFocus && foldersViewVisible && !inputFocus"
   },
   {
     "command": "jumpToNextSnippetPlaceholder",

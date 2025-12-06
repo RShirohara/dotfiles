@@ -1,2 +1,0 @@
-HISTFILE="${XDG_STATE_HOME}/zsh/history"
-SHELL_SESSION_DIR="${XDG_STATE_HOME}/zsh/session"

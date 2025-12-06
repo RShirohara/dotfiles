@@ -1,0 +1,11 @@
+{{- includeTemplate "configs/com.git-scm.git/gitconfig.global.conf" . }}
+
+{{  if (and
+      (eq .chezmoi.os "linux")
+      (.chezmoi.kernel.osrelease | lower | contains "microsoft")
+) }}
+{{-   includeTemplate "configs/com.git-scm.git/gitconfig.credential.linux.wsl.conf" . }}
+{{  else if (eq .chezmoi.os "linux") }}
+{{-   includeTemplate "configs/com.git-scm.git/gitconfig.credential.linux.default.conf" . }}
+{{-  end }}
+{{ includeTemplate "configs/com.git-scm.git/gitconfig.profile.RShirohara@proton.me.conf" . -}}

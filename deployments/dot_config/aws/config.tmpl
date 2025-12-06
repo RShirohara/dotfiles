@@ -1,0 +1,5 @@
+{{- includeTemplate "configs/com.amazon.aws.aws-cli/config.default.conf" . }}
+
+{{ includeTemplate "configs/com.amazon.aws.aws-cli/config.profile.eee8c709.conf.age" .
+    | decrypt
+-}}

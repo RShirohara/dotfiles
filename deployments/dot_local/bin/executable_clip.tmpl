@@ -1,0 +1,8 @@
+{{- if (and
+      (eq .chezmoi.os "linux")
+      (.chezmoi.kernel.osrelease | lower | contains "microsoft")
+)}}
+{{-   includeTemplate "scripts/clip/linux.wsl.sh" . }}
+{{- else if (eq .chezmoi.os "linux") }}
+{{-   includeTemplate "scripts/clip/linux.default.sh" . }}
+{{- end -}}

@@ -1,0 +1,22 @@
+{{- includeTemplate "environments/org.freedesktop.specifications.basedir/darwin.env" . }}
+{{- includeTemplate "environments/io.github.rshirohara.dotfiles/editor.env" }}
+{{- includeTemplate "environments/io.github.rshirohara.dotfiles/locale.env" }}
+{{- includeTemplate "environments/io.github.rshirohara.dotfiles/path.darwin.env" }}
+
+{{- includeTemplate "environments/com.amazon.aws.aws-cli/darwin.env" . }}
+{{- includeTemplate "environments/com.helix-editor.helix/darwin.env" . }}
+{{- includeTemplate "environments/com.npmjs.cli/darwin.env" . }}
+{{- includeTemplate "environments/com.visualstudio.code/darwin.env" . }}
+{{- includeTemplate "environments/dev.go/darwin.env" . }}
+{{- includeTemplate "environments/io.github.byteness.aws-vault/darwin.env" . }}
+{{- includeTemplate "environments/io.pypa.virtualenv/global.env" . }}
+{{- includeTemplate "environments/net.php/darwin.env" . }}
+{{- includeTemplate "environments/org.gnupg/darwin.env" . }}
+{{- includeTemplate "environments/org.nodejs/darwin.env" . }}
+{{- includeTemplate "environments/org.python/darwin.env" . }}
+{{- includeTemplate "environments/org.rust-lang.cargo/darwin.env" . }}
+{{- includeTemplate "environments/org.rust-lang.rustup/darwin.env" . }}
+{{- includeTemplate "environments/org.zsh/darwin.env" . }}
+{{- includeTemplate "environments/rs.starship/darwin.env" . }}
+
+{{- includeTemplate "environments/io.github.rshirohara.dotfiles/loaded.env" . -}}

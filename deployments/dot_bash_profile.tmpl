@@ -1,0 +1,21 @@
+if [[ "${DOTFILES_ENV_LOADED:-false}" != "true" ]]; then
+{{ if (eq .chezmoi.os "darwin") }}
+{{-   with $envs := (includeTemplate ".chezmoienvironments/darwin.tmpl" .) }}
+{{-     $envs
+        | replaceAllRegex "^" "\n"
+        | replaceAllRegex "\n(.+=)" "\n  export $1"
+        | replaceAllRegex "^\n" ""
+}}
+{{-   end }}
+{{- else if (eq .chezmoi.os "linux") }}
+{{-   with $envs := (includeTemplate ".chezmoienvironments/linux.tmpl" .) }}
+{{-     $envs
+        | replaceAllRegex "^" "\n"
+        | replaceAllRegex "\n(.+=)" "\n  export $1"
+        | replaceAllRegex "^\n" ""
+}}
+{{-   end }}
+{{- end -}}
+fi
+
+{{  includeTemplate "configs/org.gnu.bash/bash_profile.global.sh" . -}}

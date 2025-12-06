@@ -1,0 +1,1 @@
+export HISTFILE="${XDG_STATE_HOME_INTERNAL_HISTORY}/bash/history"
