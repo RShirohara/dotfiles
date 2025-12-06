@@ -22,7 +22,9 @@ formulae = [
   { name = "sops" },
   { name = "starship" },
 ]
-casks = []
+casks = [
+  { name = "visual-studio-code", args = { appdir = "~/Applications" } }
+]
 
 [dependency.linux.homebrew]
 taps = [
