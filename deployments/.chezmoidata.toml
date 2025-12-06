@@ -28,7 +28,8 @@ casks = [
 ]
 
 [dependency.linux.homebrew]
-taps = [
+taps = []
+formulae = [
   { name = "age" },
   { name = "carapace" },
   { name = "ghq" },
@@ -42,4 +43,3 @@ taps = [
   { name = "sops" },
   { name = "starship" },
 ]
-formulae = []
