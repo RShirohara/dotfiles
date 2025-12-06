@@ -10,6 +10,9 @@ taps = []
 formulae = [
   { name = "age" },
   { name = "carapace" },
+  { name = "git" },
+  { name = "git-credential-oauth" },
+  { name = "git-delta" },
   { name = "nushell" },
   { name = "starship" },
 ]
@@ -19,6 +22,10 @@ casks = []
 taps = [
   { name = "age" },
   { name = "carapace" },
+  { name = "git" },
+  { name = "git-credential-libsecret" },
+  { name = "git-credential-oauth" },
+  { name = "git-delta" },
   { name = "nushell" },
   { name = "starship" },
 ]
