@@ -9,6 +9,7 @@ signingKey = "E7321F26D8EACF39!"
 taps = []
 formulae = [
   { name = "age" },
+  { name = "carapace" },
   { name = "nushell" },
 ]
 casks = []
@@ -16,6 +17,7 @@ casks = []
 [dependency.linux.homebrew]
 taps = [
   { name = "age" },
+  { name = "carapace" },
   { name = "nushell" },
 ]
 formulae = []
