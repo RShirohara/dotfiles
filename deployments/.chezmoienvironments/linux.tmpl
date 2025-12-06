@@ -9,6 +9,7 @@
 {{- end }}
 {{- includeTemplate "environments/com.helix-editor.helix/linux.env" . }}
 {{- includeTemplate "environments/com.npmjs.cli/linux.env" . }}
+{{- includeTemplate "environments/dev.go/linux.env" . }}
 {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 {{-   includeTemplate "environments/io.github.byteness.aws-vault/linux.wsl.env" . }}
 {{- else }}
