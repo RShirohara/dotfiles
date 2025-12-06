@@ -16,4 +16,6 @@ RShirohara's dotfiles managed by [chezmoi](https://www.chezmoi.io).
 
 ## Installation
 
-TODO: Add
+```shell
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/RShirohara/dotfiles/refs/heads/main/scripts/install.sh)"
+```
