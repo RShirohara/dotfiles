@@ -11,6 +11,7 @@ formulae = [
   { name = "age" },
   { name = "carapace" },
   { name = "nushell" },
+  { name = "starship" },
 ]
 casks = []
 
@@ -19,5 +20,6 @@ taps = [
   { name = "age" },
   { name = "carapace" },
   { name = "nushell" },
+  { name = "starship" },
 ]
 formulae = []
