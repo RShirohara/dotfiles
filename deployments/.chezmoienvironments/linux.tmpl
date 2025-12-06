@@ -14,6 +14,9 @@
 {{- else }}
 {{-   includeTemplate "environments/io.github.byteness.aws-vault/linux.default.env" . }}
 {{- end }}
+{{- if (lookPath "podman") }}
+{{-   includeTemplate "environments/io.podman.engine/linux.env" . }}
+{{- end }}
 {{- includeTemplate "environments/org.gnupg/linux.env" . }}
 {{- includeTemplate "environments/org.zsh/linux.env" . }}
 {{- includeTemplate "environments/rs.starship/linux.env" . }}
