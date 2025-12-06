@@ -14,6 +14,7 @@ formulae = [
   { name = "git" },
   { name = "git-credential-oauth" },
   { name = "git-delta" },
+  { name = "helix" },
   { name = "nushell" },
   { name = "starship" },
 ]
@@ -28,6 +29,7 @@ taps = [
   { name = "git-credential-libsecret" },
   { name = "git-credential-oauth" },
   { name = "git-delta" },
+  { name = "helix" },
   { name = "nushell" },
   { name = "starship" },
 ]
