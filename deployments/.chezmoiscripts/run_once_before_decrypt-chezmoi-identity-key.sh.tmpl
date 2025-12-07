@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -o "errexit" -o "nounset" -o "pipefail"
+
+if [[ ! -f "{{ .chezmoi.config.age.identity }}" ]]; then
+  mkdir -m 700 -p "{{ .chezmoi.config.age.identity | dir }}"
+  "{{ .chezmoi.executable }}" age decrypt \
+    --output="{{ .chezmoi.config.age.identity }}" \
+    --passphrase \
+    "{{ .chezmoi.sourceDir }}/.chezmoi.identity.age"
+  chmod 600 "{{ .chezmoi.config.age.identity }}"
+fi

@@ -1,0 +1,45 @@
+# Common settings.
+encryption = "age"
+sourceDir = "{{ .chezmoi.sourceDir }}"
+umask = 0o022
+
+age.recipient = "age12sfw56zukp29ec2jr8gjmlh6pss49drufkurqkcvhslc2qylzaks8kxasa"
+
+diff.pager = "delta"
+
+edit.command = "edit"
+
+# Platform specific settings.
+{{- if (eq .chezmoi.os "darwin") }}
+## macOS.
+cacheDir = "~/Library/Caches/chezmoi"
+persistentState = "~/Library/CLI States/chezmoi/chezmoi.boltdb"
+
+age.identity = "~/Library/Application Support/chezmoi/chezmoi.identity.key"
+
+env.HOMEBREW_EXECUTABLE = "/opt/homebrew/bin/brew"
+env.XDG_CONFIG_HOME = "~/Library/CLI Preferences"
+env.XDG_CACHE_HOME = "~/Library/Caches"
+env.XDG_DATA_HOME = "~/Library/Application Support"
+env.XDG_STATE_HOME = "~/Library/CLI States"
+env.XDG_STATE_HOME_INTERNAL_HISTORY = "~/Library/CLI States"
+env.XDG_STATE_HOME_INTERNAL_LOG = "~/Library/Logs"
+env.XDG_STATE_HOME_INTERNAL_STATE = "~/Library/CLI States"
+
+{{- else if (eq .chezmoi.os "linux") }}
+## Linux.
+cacheDir = "~/.cache/chezmoi"
+persistentState = "~/.local/share/chezmoi/chezmoi.boltdb"
+
+age.identity = "~/.local/share/chezmoi/chezmoi.identity.key"
+
+env.HOMEBREW_EXECUTABLE = "/home/linuxbrew/.linuxbrew/bin/brew"
+env.XDG_CONFIG_HOME = "~/.config"
+env.XDG_CACHE_HOME = "~/Library/Caches"
+env.XDG_DATA_HOME = "~/.local/share"
+env.XDG_STATE_HOME = "~/.local/state"
+env.XDG_STATE_HOME_INTERNAL_HISTORY = "~/.local/state"
+env.XDG_STATE_HOME_INTERNAL_LOG = "~/.local/state"
+env.XDG_STATE_HOME_INTERNAL_STATE = "~/.local/state"
+
+{{- end }}

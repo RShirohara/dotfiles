@@ -1,0 +1,31 @@
+{{- includeTemplate "environments/org.freedesktop.specifications.basedir/linux.env" . }}
+{{- includeTemplate "environments/io.github.rshirohara.dotfiles/editor.env" }}
+{{- includeTemplate "environments/io.github.rshirohara.dotfiles/locale.env" }}
+{{- includeTemplate "environments/io.github.rshirohara.dotfiles/path.linux.env" }}
+
+{{- includeTemplate "environments/com.amazon.aws.aws-cli/linux.env" . }}
+{{- if (lookPath "docker") }}
+{{-   includeTemplate "environments/com.docker.engine/linux.env" . }}
+{{- end }}
+{{- includeTemplate "environments/com.helix-editor.helix/linux.env" . }}
+{{- includeTemplate "environments/com.npmjs.cli/linux.env" . }}
+{{- includeTemplate "environments/dev.go/linux.env" . }}
+{{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{-   includeTemplate "environments/io.github.byteness.aws-vault/linux.wsl.env" . }}
+{{- else }}
+{{-   includeTemplate "environments/io.github.byteness.aws-vault/linux.default.env" . }}
+{{- end }}
+{{- if (lookPath "podman") }}
+{{-   includeTemplate "environments/io.podman.engine/linux.env" . }}
+{{- end }}
+{{- includeTemplate "environments/io.pypa.virtualenv/global.env" . }}
+{{- includeTemplate "environments/net.php/linux.env" . }}
+{{- includeTemplate "environments/org.gnupg/linux.env" . }}
+{{- includeTemplate "environments/org.nodejs/linux.env" . }}
+{{- includeTemplate "environments/org.python/linux.env" . }}
+{{- includeTemplate "environments/org.rust-lang.cargo/linux.env" . }}
+{{- includeTemplate "environments/org.rust-lang.rustup/linux.env" . }}
+{{- includeTemplate "environments/org.zsh/linux.env" . }}
+{{- includeTemplate "environments/rs.starship/linux.env" . }}
+
+{{- includeTemplate "environments/io.github.rshirohara.dotfiles/loaded.env" . -}}

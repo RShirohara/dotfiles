@@ -1,0 +1,17 @@
+{{- with $root := (.) -}}
+{{- with $global := (
+      fromJson (includeTemplate "configs/com.visualstudio.code/settings.global.json" .)
+) }}
+{{- with $darwin := (
+      fromJson (includeTemplate "configs/com.visualstudio.code/settings.darwin.json" .)
+) }}
+{{- with $linux := (
+      fromJson (includeTemplate "configs/com.visualstudio.code/settings.linux.json" .)
+) }}
+{{-   merge $global $darwin $linux
+      | toPrettyJson
+}}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end -}}
