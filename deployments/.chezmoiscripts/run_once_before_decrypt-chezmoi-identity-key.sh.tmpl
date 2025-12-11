@@ -5,8 +5,8 @@ set -o "errexit" -o "nounset" -o "pipefail"
 if [[ ! -f "{{ .chezmoi.config.age.identity }}" ]]; then
   mkdir -m 700 -p "{{ .chezmoi.config.age.identity | dir }}"
   "{{ .chezmoi.executable }}" age decrypt \
-    --output="{{ .chezmoi.config.age.identity }}" \
     --passphrase \
-    "{{ .chezmoi.sourceDir }}/.chezmoi.identity.age"
+    "{{ .chezmoi.sourceDir }}/.chezmoi.identity.age" \
+    > "{{ .chezmoi.config.age.identity }}"
   chmod 600 "{{ .chezmoi.config.age.identity }}"
 fi
