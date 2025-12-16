@@ -5,7 +5,6 @@ export-env {
   $env.HOMEBREW_PREFIX = "/opt/homebrew"
   $env.HOMEBREW_CELLAR = "/opt/homebrew/Cellar"
   $env.HOMEBREW_REPOSITORY = "/opt/homebrew"
-  $env.HOMEBREW_NO_ANALYTICS = "1"
   $env.PATH = (
     /usr/bin/env PATH_HELPER_ROOT="/opt/homebrew" /usr/libexec/path_helper -c
     | lines
