@@ -7,7 +7,5 @@ use ($nu.default-config-dir | path join "modules/sh.nushell.miscellaneous.nu")
 use ($nu.default-config-dir | path join "modules/sh.nushell.terminal.nu")
 
 use ($nu.default-config-dir | path join "modules/com.visualstudio.code.nu")
-use ($nu.default-config-dir | path join "modules/io.github.rshirohara.dotfiles.nu")
 use ($nu.default-config-dir | path join "modules/io.github.x-motemen.ghq.nu")
 use ($nu.default-config-dir | path join "modules/org.gnupg.nu")
-use ($nu.default-config-dir | path join "modules/sh.brew.homebrew.nu")
