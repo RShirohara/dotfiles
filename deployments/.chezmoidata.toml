@@ -21,7 +21,6 @@ formulae = [
   { name = "mise" },
   { name = "nushell" },
   { name = "pinentry-mac" },
-  { name = "sops" },
   { name = "starship" },
 ]
 casks = [
@@ -46,6 +45,5 @@ formulae = [
   { name = "helix" },
   { name = "mise" },
   { name = "nushell" },
-  { name = "sops" },
   { name = "starship" },
 ]

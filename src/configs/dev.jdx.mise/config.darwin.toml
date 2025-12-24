@@ -1,2 +1,2 @@
-[settings.sops]
-age_key_file = "~/Library/CLI Preferences/mise/secret.key"
+[settings.age]
+key_file = "~/Library/CLI Preferences/mise/secret.key"
