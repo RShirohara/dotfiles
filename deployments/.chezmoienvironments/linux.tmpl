@@ -1,6 +1,6 @@
 {{- includeTemplate "environments/org.freedesktop.specifications.basedir/linux.env" . }}
-{{- includeTemplate "environments/io.github.rshirohara.dotfiles/editor.env" }}
-{{- includeTemplate "environments/io.github.rshirohara.dotfiles/locale.env" }}
+{{- includeTemplate "environments/io.github.rshirohara.dotfiles/editor.env" . }}
+{{- includeTemplate "environments/io.github.rshirohara.dotfiles/locale.env" . }}
 
 {{- includeTemplate "environments/com.amazon.aws.aws-cli/linux.env" . }}
 {{- if (lookPath "docker") }}
