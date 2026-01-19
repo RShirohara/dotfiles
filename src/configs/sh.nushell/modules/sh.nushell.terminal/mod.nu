@@ -11,7 +11,7 @@ def create_set_title_pre_prompt []: nothing -> closure {
   return {
     let user: string = (whoami)
     let host: string = (sys host | get "hostname")
-    let dir: string = ($env.PWD | str replace $nu.home-path "~")
+    let dir: string = ($env.PWD | str replace $nu.home-dir "~")
     print --no-newline $"(ansi title)($user)@($host): ($dir)(ansi reset)"
   }
 }
