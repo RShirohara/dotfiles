@@ -1,8 +1,0 @@
-[settings]
-experimental = true
-paranoid = true
-
-[settings.python]
-uv_venv_auto = true
-
-# Platform specific settings.
