@@ -13,6 +13,7 @@
       ../apps/com.git-scm.git
       ../apps/com.git-scm.git/platforms/darwin.nix
       ../apps/com.git-scm.git/profiles/rshirohara_proton.me.nix
+      ../apps/com.helix-editor.helix
     ];
   };
 }
