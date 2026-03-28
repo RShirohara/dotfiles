@@ -20,6 +20,7 @@
       ../apps/com.git-scm.git/profiles/rshirohara_proton.me.nix
       ../apps/com.helix-editor.helix
       ../apps/com.mitchellh.ghostty
+      ../apps/com.npmjs.cli
     ];
   };
 }
