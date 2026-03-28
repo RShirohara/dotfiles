@@ -3,6 +3,11 @@
     pkgs = import inputs.nixpkgs { system = "aarch64-darwin"; };
     modules = [
       {
+        nixpkgs.overlays = [
+          inputs.brew-nix.overlays.default
+        ];
+      }
+      {
         home.homeDirectory = "/Users/rshirohara";
         home.preferXdgDirectories = true;
         home.stateVersion = "25.11";
