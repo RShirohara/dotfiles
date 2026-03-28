@@ -4,9 +4,12 @@
     modules = [
       {
         home.homeDirectory = "/Users/rshirohara";
+        home.preferXdgDirectories = true;
         home.stateVersion = "25.11";
         home.username = "rshirohara";
       }
+      ../apps/com.amazon.aws.cli
+      ../apps/com.amazon.aws.cli/profiles/third-branches-prd.nix
     ];
   };
 }
