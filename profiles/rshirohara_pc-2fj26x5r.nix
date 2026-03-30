@@ -3,6 +3,9 @@
     pkgs = import inputs.nixpkgs { system = "aarch64-darwin"; };
     modules = [
       {
+        nixpkgs.config = {
+          allowUnfree = true;
+        };
         nixpkgs.overlays = [
           inputs.brew-nix.overlays.default
         ];
@@ -21,6 +24,7 @@
       ../apps/com.helix-editor.helix
       ../apps/com.mitchellh.ghostty
       ../apps/com.npmjs.cli
+      ../apps/com.visualstudio.code
     ];
   };
 }
