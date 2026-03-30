@@ -26,6 +26,7 @@
       ../apps/com.npmjs.cli
       ../apps/com.visualstudio.code
       ../apps/dev.jdx.mise
+      ../apps/rs.starship
     ];
   };
 }
