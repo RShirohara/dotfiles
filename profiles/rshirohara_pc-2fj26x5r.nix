@@ -26,6 +26,7 @@
       ../apps/com.mitchellh.ghostty
       ../apps/com.npmjs.cli
       ../apps/com.visualstudio.code
+      ../apps/dev.go
       ../apps/dev.jdx.mise
       ../apps/rs.starship
       ../apps/sh.nushell
