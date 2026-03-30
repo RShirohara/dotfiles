@@ -28,6 +28,8 @@
       ../apps/com.visualstudio.code
       ../apps/dev.go
       ../apps/dev.jdx.mise
+      ../apps/io.github.byteness.aws-vault
+      ../apps/io.github.byteness.aws-vault/platforms/darwin.nix
       ../apps/rs.starship
       ../apps/sh.nushell
       ../apps/sh.nushell/platforms/darwin.nix
