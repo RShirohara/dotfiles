@@ -33,6 +33,7 @@
       ../apps/io.pypa.virtualenv
       ../apps/net.php
       ../apps/org.nodejs
+      ../apps/org.python
       ../apps/rs.starship
       ../apps/sh.nushell
       ../apps/sh.nushell/platforms/darwin.nix
