@@ -34,6 +34,7 @@
       ../apps/net.php
       ../apps/org.nodejs
       ../apps/org.python
+      ../apps/org.rust-lang.cargo
       ../apps/rs.starship
       ../apps/sh.nushell
       ../apps/sh.nushell/platforms/darwin.nix
