@@ -30,6 +30,7 @@
       ../apps/dev.jdx.mise
       ../apps/io.github.byteness.aws-vault
       ../apps/io.github.byteness.aws-vault/platforms/darwin.nix
+      ../apps/io.pypa.virtualenv
       ../apps/rs.starship
       ../apps/sh.nushell
       ../apps/sh.nushell/platforms/darwin.nix
