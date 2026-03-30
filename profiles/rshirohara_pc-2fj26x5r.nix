@@ -15,6 +15,7 @@
         home.preferXdgDirectories = true;
         home.stateVersion = "25.11";
         home.username = "rshirohara";
+        xdg.enable = true;
       }
       ../apps/com.amazon.aws.cli
       ../apps/com.amazon.aws.cli/profiles/third-branches-prd.nix
@@ -27,6 +28,8 @@
       ../apps/com.visualstudio.code
       ../apps/dev.jdx.mise
       ../apps/rs.starship
+      ../apps/sh.nushell
+      ../apps/sh.nushell/platforms/darwin.nix
     ];
   };
 }
