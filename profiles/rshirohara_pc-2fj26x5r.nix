@@ -17,6 +17,7 @@
         home.username = "rshirohara";
         xdg.enable = true;
       }
+      ../apps/au.org.apana.gondor.herbert.dash
       ../apps/com.amazon.aws.cli
       ../apps/com.amazon.aws.cli/profiles/third-branches-prd.nix
       ../apps/com.git-scm.git
