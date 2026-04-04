@@ -33,6 +33,8 @@
       ../apps/io.github.byteness.aws-vault/platforms/darwin.nix
       ../apps/io.pypa.virtualenv
       ../apps/net.php
+      ../apps/org.gnupg
+      ../apps/org.gnupg/platforms/darwin.nix
       ../apps/org.nodejs
       ../apps/org.python
       ../apps/org.rust-lang.cargo
