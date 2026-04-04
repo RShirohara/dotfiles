@@ -1,19 +1,34 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-REPO_URL="github.com/RShirohara/dotfiles"
-REPO_SOURCE="~/Workspace/${REPO_URL}"
+set -o "errexit" -o "nounset" -o "pipefail"
 
-case "$(uname -s)" in
-  Darwin*)  CONFIG_FILE="~/Library/CLI Preferences/chezmoi/chezmoi.toml";;
-  Linux*)   CONFIG_FILE="~/.config/chezmoi/chezmoi.toml";;
-  *)        echo "This os isn't supported."; exit 1;;
-esac
+REPOSITORY_PATH="github.com/RShirohara/dotfiles"
+REPOSITORY_INSTALL_PATH_PREFIX="${HOME}/Workspace"
 
-bash -c "$(curl -fsLS https://get.chezmoi.io)" -- \
-  -b "/tmp/chezmoi" \
-  init \
-  --apply \
-  --config="${CONFIG_FILE}" \
-  --source="${REPO_SOURCE}" \
-  --purge-binary \
-  "${REPO_URL}"
+# Install nix if not installed.
+if [ ! -d "/nix" ]; then
+  curl -fsSL https://install.determinate.systems/nix | sh -s -- install
+  . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+fi
+
+# Clone repository.
+nix run nixpkgs#git -- clone --filter="blob:none" \
+  "https://${REPOSITORY_PATH}" \
+  "${REPOSITORY_INSTALL_PATH_PREFIX}/${REPOSITORY_PATH}"
+
+# Apply specified profiles to home environment.
+PROFILE="${1:-$( \
+  find "${REPOSITORY_INSTALL_PATH_PREFIX}/${REPOSITORY_PATH}/profiles" \
+    -depth 1 \
+    -type f \
+    -name "*.nix" \
+    -print0 \
+  | xargs -0 -I@ \
+    basename @ \
+  | sed \
+    -e "s/.nix//g" \
+    -e "s/_/@/g" \
+  | nix run nixpkgs#gum -- choose
+)}"
+nix run home-manager -- switch \
+  --flake "${REPOSITORY_INSTALL_PATH_PREFIX}/${REPOSITORY_PATH}#${PROFILE}"
