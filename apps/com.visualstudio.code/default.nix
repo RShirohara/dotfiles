@@ -154,12 +154,35 @@
         "telemetry.telemetryLevel" = "off";
         "terminal.integrated.cursorBlinking" = true;
         "terminal.integrated.cursorStyle" = "line";
+        "terminal.integrated.defaultProfile.linux" = "Nushell";
         "terminal.integrated.defaultProfile.osx" = "Nushell";
         "terminal.integrated.enableImages" = true;
         "terminal.integrated.enableVisualBell" = true;
         "terminal.integrated.fontFamily" = "'HackGen Console NF', monospace";
         "terminal.integrated.fontSize" = 14;
         "terminal.integrated.macOptionIsMeta" = true;
+        "terminal.integrated.profiles.linux" = {
+          "Nushell" = {
+            "overrideName" = true;
+            "path" = "dash";
+            "args" = [
+              "-l"
+              "-c"
+              "nu --interactive"
+            ];
+          };
+        };
+        "terminal.integrated.profiles.osx" = {
+          "Nushell" = {
+            "overrideName" = true;
+            "path" = "dash";
+            "args" = [
+              "-l"
+              "-c"
+              "nu --interactive"
+            ];
+          };
+        };
         "terminal.integrated.rightClickBehavior" = "default";
         "terminal.integrated.scrollback" = 1000000;
         "terminal.integrated.sendKeybindingsToShell" = true;
@@ -220,12 +243,15 @@
           "telemetry.telemetryLevel"
           "terminal.integrated.cursorBlinking"
           "terminal.integrated.cursorStyle"
+          "terminal.integrated.defaultProfile.linux"
           "terminal.integrated.defaultProfile.osx"
           "terminal.integrated.enableImages"
           "terminal.integrated.enableVisualBell"
           "terminal.integrated.fontFamily"
           "terminal.integrated.fontSize"
           "terminal.integrated.macOptionIsMeta"
+          "terminal.integrated.profiles.linux"
+          "terminal.integrated.profiles.osx"
           "terminal.integrated.rightClickBehavior"
           "terminal.integrated.scrollback"
           "terminal.integrated.sendKeybindingsToShell"
