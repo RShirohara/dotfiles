@@ -92,7 +92,7 @@
 
   programs.git.settings = {
     # Git core settings.
-    branch.sort = "-commiterdate";
+    branch.sort = "-committerdate";
     commit.verbose = true;
     core.editor = "hx";
     core.fsmonitor = true;
