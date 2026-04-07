@@ -19,7 +19,6 @@ nix run nixpkgs#git -- clone --filter="blob:none" \
 # Apply specified profiles to home environment.
 PROFILE="${1:-$( \
   find "${REPOSITORY_INSTALL_PATH_PREFIX}/${REPOSITORY_PATH}/profiles" \
-    -depth 1 \
     -type f \
     -name "*.nix" \
     -print0 \
