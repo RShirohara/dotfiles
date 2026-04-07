@@ -9,13 +9,16 @@
     ] {
       match ($in | describe) {
         "nothing" => (
-          powershell.exe -noprofile -command "Get-Clipboard"
+          powershell.exe -noprofile -command '
+            [Console]::OutputEncoding = [System.Text.Encoding]::UTF8;
+            Get-Clipboard -Raw
+          '
         ),
         _ => (
           $in
           | to text
           | powershell.exe -noprofile -command '
-              [Console.InputEncoding] = [System.Text.Encoding]::UTF8;
+              [Console]::InputEncoding = [System.Text.Encoding]::UTF8;
               $reader = [System.IO.StreamReader]::new(
                 [System.IO.Stream]::Synchronized([System.Console]::OpenStandardInput())
               );
