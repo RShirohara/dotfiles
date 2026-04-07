@@ -6,7 +6,7 @@
         home.homeDirectory = "/home/tsegawa";
         home.preferXdgDirectories = true;
         home.stateVersion = "25.11";
-        home.username = "rshirohara";
+        home.username = "tsegawa";
         xdg.enable = true;
       }
       ../apps/au.org.apana.gondor.herbert.dash
