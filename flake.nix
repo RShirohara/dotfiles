@@ -32,6 +32,7 @@
     imports = [
       inputs.home-manager.flakeModules.home-manager
       ./profiles/rshirohara_pc-2fj26x5r.nix
+      ./profiles/tsegawa_pc-h0019054.nix
     ];
   };
 }
