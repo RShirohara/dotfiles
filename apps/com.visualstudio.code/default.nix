@@ -166,10 +166,13 @@
             "overrideName" = true;
             "path" = "dash";
             "args" = [
-              "-l"
+              "-i"
               "-c"
-              "nu --interactive"
+              "nu"
             ];
+            "env" = {
+              "ENV" = ".shrc";
+            };
           };
         };
         "terminal.integrated.profiles.osx" = {
@@ -177,10 +180,13 @@
             "overrideName" = true;
             "path" = "dash";
             "args" = [
-              "-l"
+              "-i"
               "-c"
-              "nu --interactive"
+              "nu"
             ];
+            "env" = {
+              "ENV" = ".shrc";
+            };
           };
         };
         "terminal.integrated.rightClickBehavior" = "default";

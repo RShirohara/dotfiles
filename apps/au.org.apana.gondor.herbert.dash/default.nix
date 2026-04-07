@@ -4,7 +4,7 @@
   ];
 
   home.file = {
-    ".profile" = {
+    ".shrc" = {
       enable = true;
       text = ''
         . ~/.nix-profile/etc/profile.d/hm-session-vars.sh

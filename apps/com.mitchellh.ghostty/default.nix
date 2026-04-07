@@ -7,7 +7,8 @@
 
   programs.ghostty.settings = {
     auto-update = "off";
-    command = "dash -l -c 'nu --interactive'";
+    command = "dash -i -c 'nu'";
+    env = "ENV=.shrc";
     font-family = "Hackgen Console NF";
     font-feature = "-calt, -liga, -dlig";
     font-size = 14;
