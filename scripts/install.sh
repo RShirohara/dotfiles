@@ -12,9 +12,11 @@ if [ ! -d "/nix" ]; then
 fi
 
 # Clone repository.
-nix run nixpkgs#git -- clone --filter="blob:none" \
-  "https://${REPOSITORY_PATH}" \
-  "${REPOSITORY_INSTALL_PATH_PREFIX}/${REPOSITORY_PATH}"
+if [ ! -d "${REPOSITORY_INSTALL_PATH_PREFIX}/${REPOSITORY_PATH}" ]; then
+  nix run nixpkgs#git -- clone --filter="blob:none" \
+    "https://${REPOSITORY_PATH}" \
+    "${REPOSITORY_INSTALL_PATH_PREFIX}/${REPOSITORY_PATH}"
+fi
 
 # Apply specified profiles to home environment.
 PROFILE="${1:-$( \
