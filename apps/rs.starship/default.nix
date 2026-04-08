@@ -2,7 +2,7 @@
   programs.starship.enable = true;
 
   programs.starship.settings = {
-    add_newline = true;
+    add_newline = false;
     format = lib.concatStrings [
       "$os"
       "$directory"
