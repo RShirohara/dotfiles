@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   home.packages = [
     pkgs.hackgen-nf-font
   ];
@@ -8,7 +8,7 @@
   programs.ghostty.settings = {
     auto-update = "off";
     command = "dash -i -c 'nu'";
-    env = "ENV=.shrc";
+    env = "ENV=${config.home.homeDirectory}/.shrc";
     font-family = "Hackgen Console NF";
     font-feature = "-calt, -liga, -dlig";
     font-size = 14;

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   home.packages = [
     pkgs.hackgen-font
   ];
@@ -171,7 +171,7 @@
               "nu"
             ];
             "env" = {
-              "ENV" = ".shrc";
+              "ENV" = "${config.home.homeDirectory}/.shrc";
             };
           };
         };
@@ -185,7 +185,7 @@
               "nu"
             ];
             "env" = {
-              "ENV" = ".shrc";
+              "ENV" = "${config.home.homeDirectory}/.shrc";
             };
           };
         };
