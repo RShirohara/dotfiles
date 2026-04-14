@@ -91,7 +91,7 @@
         };
         "[markdown]" = {
           "editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
-          "editor.workWrap" = "bounded";
+          "editor.wordWrap" = "bounded";
         };
         "[toml]" = {
           "editor.defaultFormatter" = "tamasfe.even-better-toml";
