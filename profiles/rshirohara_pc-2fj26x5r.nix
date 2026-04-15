@@ -20,6 +20,7 @@
       ../apps/au.org.apana.gondor.herbert.dash
       ../apps/com.amazon.aws.cli
       ../apps/com.amazon.aws.cli/profiles/third-branches-prd.nix
+      ../apps/com.docker.engine
       ../apps/com.git-scm.git
       ../apps/com.git-scm.git/platforms/darwin.nix
       ../apps/com.git-scm.git/profiles/rshirohara_proton.me.nix

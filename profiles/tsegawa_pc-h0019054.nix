@@ -11,6 +11,7 @@
       }
       ../apps/au.org.apana.gondor.herbert.dash
       ../apps/com.amazon.aws.cli
+      ../apps/com.docker.engine
       ../apps/com.git-scm.git
       ../apps/com.git-scm.git/platforms/linux-wsl.nix
       ../apps/com.git-scm.git/profiles/tatsuya.segawa_tss21.co.jp.nix
