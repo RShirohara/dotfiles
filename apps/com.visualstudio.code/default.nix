@@ -164,15 +164,12 @@
         "terminal.integrated.profiles.linux" = {
           "Nushell" = {
             "overrideName" = true;
-            "path" = "dash";
+            "path" = "bash";
             "args" = [
               "-i"
               "-c"
               "nu"
             ];
-            "env" = {
-              "ENV" = "${config.home.homeDirectory}/.shrc";
-            };
           };
         };
         "terminal.integrated.profiles.osx" = {
@@ -309,6 +306,7 @@
         "python.analysis.inlayHints.variableTypes" = true;
         "python.analysis.languageServerMode" = "full";
         "python.analysis.typeCheckingMode" = "strict";
+        "python.terminal.activateEnvironment" = false;
       };
     };
   };

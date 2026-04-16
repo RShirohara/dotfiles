@@ -10,7 +10,6 @@
         home.username = "tsegawa";
         xdg.enable = true;
       }
-      ../apps/au.org.apana.gondor.herbert.dash
       ../apps/com.amazon.aws.cli
       ../apps/com.docker.engine/platforms/linux-wsl.nix
       ../apps/com.git-scm.git
@@ -24,6 +23,7 @@
       ../apps/io.github.byteness.aws-vault/platforms/linux-wsl.nix
       ../apps/io.pypa.virtualenv
       ../apps/net.php
+      ../apps/org.gnu.bash
       ../apps/org.gnupg
       ../apps/org.gnupg/platforms/linux-wsl.nix
       ../apps/org.nodejs
