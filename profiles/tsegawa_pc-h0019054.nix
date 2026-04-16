@@ -6,12 +6,13 @@
         home.homeDirectory = "/home/tsegawa";
         home.preferXdgDirectories = true;
         home.stateVersion = "25.11";
+        home.uid = 1000;
         home.username = "tsegawa";
         xdg.enable = true;
       }
       ../apps/au.org.apana.gondor.herbert.dash
       ../apps/com.amazon.aws.cli
-      ../apps/com.docker.engine
+      ../apps/com.docker.engine/platforms/linux-wsl.nix
       ../apps/com.git-scm.git
       ../apps/com.git-scm.git/platforms/linux-wsl.nix
       ../apps/com.git-scm.git/profiles/tatsuya.segawa_tss21.co.jp.nix
