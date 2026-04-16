@@ -175,15 +175,13 @@
         "terminal.integrated.profiles.osx" = {
           "Nushell" = {
             "overrideName" = true;
-            "path" = "dash";
+            "path" = "sh";
             "args" = [
+              "-l"
               "-i"
               "-c"
               "nu"
             ];
-            "env" = {
-              "ENV" = "${config.home.homeDirectory}/.shrc";
-            };
           };
         };
         "terminal.integrated.rightClickBehavior" = "default";
