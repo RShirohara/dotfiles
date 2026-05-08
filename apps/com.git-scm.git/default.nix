@@ -63,6 +63,16 @@
     "Temporary Items"
     ".apdisk"
 
+    # mise.
+    ## https://mise.jdx.dev/configuration.html
+    ## https://mise.jdx.dev/configuration/environments.html
+    ".mise.*.local.toml"
+    ".mise.local.toml"
+    "mise.*.local.toml"
+    "mise.local.toml"
+    ".mise/*.local.toml"
+    "mise/*.local.toml"
+
     # Windows.
     ## Windows thumbnail cache files.
     "Thumbs.db"
