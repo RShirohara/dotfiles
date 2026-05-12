@@ -30,6 +30,7 @@
       ../apps/dev.jdx.mise
       ../apps/io.github.byteness.aws-vault
       ../apps/io.github.byteness.aws-vault/platforms/darwin.nix
+      ../apps/io.github.nix-community.home-manager
       ../apps/io.pypa.virtualenv
       ../apps/net.php
       ../apps/org.gnu.bash
