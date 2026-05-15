@@ -13,6 +13,11 @@
     "*.orig"
     "*.tmp"
 
+    # Devenv.
+    ".devenv*"
+    "devenv.local.nix"
+    "devenv.local.yaml"
+
     # Diff.
     "*.patch"
     "*.diff"
