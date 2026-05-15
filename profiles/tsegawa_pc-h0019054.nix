@@ -23,6 +23,7 @@
       ../apps/io.github.byteness.aws-vault
       ../apps/io.github.byteness.aws-vault/platforms/linux-wsl.nix
       ../apps/io.github.nix-community.home-manager
+      ../apps/io.github.topgrade-rs.topgrade
       ../apps/io.pypa.virtualenv
       ../apps/net.php
       ../apps/org.gnu.bash
