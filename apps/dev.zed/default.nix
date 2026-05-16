@@ -1,17 +1,22 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = [
+    pkgs.alejandra
     pkgs.hackgen-font
+    pkgs.nil
+    pkgs.nixd
   ];
   programs.zed-editor.enable = true;
 
   programs.zed-editor.extensions = [
     "github-theme"
+    "nix"
   ];
   programs.zed-editor.mutableUserDebug = false;
   programs.zed-editor.mutableUserKeymaps = false;
   programs.zed-editor.mutableUserSettings = false;
   programs.zed-editor.mutableUserTasks = false;
-  programs.zed-editor.userKeymaps = [];
+  programs.zed-editor.userKeymaps = [ ];
   programs.zed-editor.userSettings = {
     auto_update = false;
     base_keymap = "VSCode";
@@ -31,8 +36,8 @@
     inlay_hints = {
       enabled = true;
     };
-    languages = {};
-    profiles = {};
+    languages = { };
+    profiles = { };
     semantic_tokens = "combined";
     show_whitespaces = "all";
     tab_size = 2;
@@ -75,7 +80,6 @@
     outline_panel = {
       dock = "right";
     };
-
     ui_font_family = ".SystemUIFont";
   };
 }
