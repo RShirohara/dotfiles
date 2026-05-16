@@ -28,6 +28,7 @@
       ../apps/com.visualstudio.code
       ../apps/dev.go
       ../apps/dev.jdx.mise
+      ../apps/dev.zed
       ../apps/io.github.byteness.aws-vault
       ../apps/io.github.byteness.aws-vault/platforms/darwin.nix
       ../apps/io.github.nix-community.home-manager
