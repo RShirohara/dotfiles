@@ -16,6 +16,7 @@
         github.vscode-github-actions
         github.vscode-pull-request-github
         gruntfuggly.todo-tree
+        jnoortheen.nix-ide
         mhutchie.git-graph
         ms-azuretools.vscode-containers
         ms-vscode.hexeditor
