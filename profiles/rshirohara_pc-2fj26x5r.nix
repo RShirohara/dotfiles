@@ -13,7 +13,7 @@
       {
         home.homeDirectory = "/Users/rshirohara";
         home.preferXdgDirectories = true;
-        home.stateVersion = "25.11";
+        home.stateVersion = "26.05";
         home.username = "rshirohara";
         xdg.enable = true;
       }
@@ -34,13 +34,13 @@
       ../apps/io.github.topgrade-rs.topgrade
       ../apps/io.pypa.virtualenv
       ../apps/net.php
-      ../apps/org.gnu.bash
       ../apps/org.gnupg
       ../apps/org.gnupg/platforms/darwin.nix
       ../apps/org.nodejs
       ../apps/org.python
       ../apps/org.rust-lang.cargo
       ../apps/org.rust-lang.rustup
+      ../apps/org.zsh
       ../apps/rs.starship
       ../apps/sh.devenv
       ../apps/sh.nushell

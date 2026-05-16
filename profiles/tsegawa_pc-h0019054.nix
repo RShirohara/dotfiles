@@ -5,7 +5,7 @@
       {
         home.homeDirectory = "/home/tsegawa";
         home.preferXdgDirectories = true;
-        home.stateVersion = "25.11";
+        home.stateVersion = "26.05";
         home.uid = 1000;
         home.username = "tsegawa";
         xdg.enable = true;

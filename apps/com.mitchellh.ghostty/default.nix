@@ -7,7 +7,7 @@
 
   programs.ghostty.settings = {
     auto-update = "off";
-    command = "sh -i -c 'nu'";
+    command = "zsh --interactive -c 'nu'";
     font-family = "Hackgen Console NF";
     font-feature = "-calt, -liga, -dlig";
     font-size = 14;

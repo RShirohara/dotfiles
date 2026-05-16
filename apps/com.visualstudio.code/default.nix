@@ -175,10 +175,9 @@
         "terminal.integrated.profiles.osx" = {
           "Nushell" = {
             "overrideName" = true;
-            "path" = "sh";
+            "path" = "zsh";
             "args" = [
-              "-l"
-              "-i"
+              "--interactive"
               "-c"
               "nu"
             ];
