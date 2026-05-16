@@ -1,0 +1,11 @@
+version: 2
+
+updates:
+  - package-ecosystem: "nix"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      time: "03:00"
+      timezone: "Asia/Tokyo"
+    labels:
+      - "Type: Dependencies"
