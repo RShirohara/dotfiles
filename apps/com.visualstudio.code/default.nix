@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   home.packages = [
     pkgs.hackgen-font
   ];
@@ -8,33 +9,36 @@
     default = {
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = false;
-      extensions = with pkgs.vscode-extensions; [
-        codezombiech.gitignore
-        davidanson.vscode-markdownlint
-        editorconfig.editorconfig
-        github.github-vscode-theme
-        github.vscode-github-actions
-        github.vscode-pull-request-github
-        gruntfuggly.todo-tree
-        jnoortheen.nix-ide
-        mhutchie.git-graph
-        ms-azuretools.vscode-containers
-        ms-vscode.hexeditor
-        pkief.material-icon-theme
-        redhat.vscode-yaml
-        streetsidesoftware.code-spell-checker
-        tamasfe.even-better-toml
-        thenuprojectcontributors.vscode-nushell-lang
-        yzhang.markdown-all-in-one
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          # https://sgryjp.gallery.vsassets.io/_apis/public/gallery/publisher/sgryjp/extension/japanese-word-handler/latest/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
-          name = "japanese-word-handler";
-          publisher = "sgryjp";
-          version = "1.4.1";
-          sha256 = "0e682895d5221ca40373003327fd5f51bd0d2d521f5b93eab93ccd2d467d472b";
-        }
-      ];
+      extensions =
+        with pkgs.vscode-extensions;
+        [
+          codezombiech.gitignore
+          davidanson.vscode-markdownlint
+          editorconfig.editorconfig
+          github.github-vscode-theme
+          github.vscode-github-actions
+          github.vscode-pull-request-github
+          gruntfuggly.todo-tree
+          jnoortheen.nix-ide
+          mhutchie.git-graph
+          ms-azuretools.vscode-containers
+          ms-vscode.hexeditor
+          pkief.material-icon-theme
+          redhat.vscode-yaml
+          streetsidesoftware.code-spell-checker
+          tamasfe.even-better-toml
+          thenuprojectcontributors.vscode-nushell-lang
+          yzhang.markdown-all-in-one
+        ]
+        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            # https://sgryjp.gallery.vsassets.io/_apis/public/gallery/publisher/sgryjp/extension/japanese-word-handler/latest/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
+            name = "japanese-word-handler";
+            publisher = "sgryjp";
+            version = "1.4.1";
+            sha256 = "0e682895d5221ca40373003327fd5f51bd0d2d521f5b93eab93ccd2d467d472b";
+          }
+        ];
       keybindings = [
         {
           command = "explorer.newFile";
@@ -93,6 +97,9 @@
         "[markdown]" = {
           "editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
           "editor.wordWrap" = "bounded";
+        };
+        "[nix]" = {
+          "editor.formatOnSaveMode" = "file";
         };
         "[toml]" = {
           "editor.defaultFormatter" = "tamasfe.even-better-toml";
