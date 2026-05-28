@@ -18,7 +18,6 @@
           github.github-vscode-theme
           github.vscode-github-actions
           github.vscode-pull-request-github
-          gruntfuggly.todo-tree
           jnoortheen.nix-ide
           mhutchie.git-graph
           ms-azuretools.vscode-containers
@@ -26,8 +25,8 @@
           pkief.material-icon-theme
           redhat.vscode-yaml
           streetsidesoftware.code-spell-checker
-          tamasfe.even-better-toml
           thenuprojectcontributors.vscode-nushell-lang
+          tombi-toml.tombi
           yzhang.markdown-all-in-one
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
@@ -102,7 +101,7 @@
           "editor.formatOnSaveMode" = "file";
         };
         "[toml]" = {
-          "editor.defaultFormatter" = "tamasfe.even-better-toml";
+          "editor.defaultFormatter" = "tombi-toml.tombi";
         };
         "[yaml]" = {
           "editor.defaultFormatter" = "redhat.vscode-yaml";
