@@ -1,4 +1,5 @@
-{ inputs, ... }: {
+{ inputs, ... }:
+{
   flake.homeConfigurations."tsegawa@pc-h0019054" = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
     modules = [
@@ -34,7 +35,6 @@
       ../apps/org.rust-lang.cargo
       ../apps/org.rust-lang.rustup
       ../apps/rs.starship
-      ../apps/sh.devenv
       ../apps/sh.nushell
       ../apps/sh.nushell/platforms/linux-wsl.nix
     ];

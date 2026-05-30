@@ -45,7 +45,6 @@
           ../apps/org.rust-lang.rustup
           ../apps/org.zsh
           ../apps/rs.starship
-          ../apps/sh.devenv
           ../apps/sh.nushell
           ../apps/sh.nushell/platforms/darwin.nix
         ];
