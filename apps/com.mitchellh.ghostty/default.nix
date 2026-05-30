@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = [
     pkgs.hackgen-nf-font
   ];

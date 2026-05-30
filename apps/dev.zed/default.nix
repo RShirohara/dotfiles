@@ -22,7 +22,7 @@
     auto_update = false;
     base_keymap = "VSCode";
     buffer_font_family = "HackGen";
-    buffer_font_fallback = [
+    buffer_font_fallbacks = [
       "monospace"
     ];
     buffer_font_size = 14;
@@ -83,4 +83,18 @@
     };
     ui_font_family = ".SystemUIFont";
   };
+
+  programs.nushell.extraConfig = ''
+    if ($env | default null "TERM_PROGRAM" | get "TERM_PROGRAM") == "zed" {
+      # Fix path resolving order on zed terminal.
+      $env.PATH = (
+        $env.PATH
+        | prepend [
+          $"($env.HOME)/.nix-profile/bin",
+          "/nix/var/nix/profiles/default/bin"
+        ]
+        | uniq
+      )
+    }
+  '';
 }
