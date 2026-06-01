@@ -19,6 +19,7 @@
       ../apps/com.git-scm.git/profiles/tatsuya.segawa_tss21.co.jp.nix
       ../apps/com.helix-editor.helix
       ../apps/com.npmjs.cli
+      ../apps/com.visualstudio.code/platforms/linux-wsl.nix
       ../apps/dev.go
       ../apps/dev.jdx.mise
       ../apps/io.github.byteness.aws-vault
