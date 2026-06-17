@@ -19,8 +19,8 @@
       cd $target
     }
 
-    def la [path?: path = .] {
-      ls --all --long $path
+    def la [path?: path = ., --du] {
+      ls --all --long --du=$du $path
       | select "name" "type" "mode" "size" "modified"
       | sort-by --ignore-case "type" "name"
     }
