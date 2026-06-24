@@ -12,6 +12,7 @@
     "git-firefly"
     "github-theme"
     "nix"
+    "toml"
   ];
   programs.zed-editor.mutableUserDebug = false;
   programs.zed-editor.mutableUserKeymaps = false;
