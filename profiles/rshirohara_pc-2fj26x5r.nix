@@ -29,7 +29,6 @@
           ../apps/com.mitchellh.ghostty
           ../apps/com.npmjs.cli
           ../apps/dev.go
-          ../apps/dev.jdx.fnox
           ../apps/dev.jdx.mise
           ../apps/dev.zed
           ../apps/io.github.byteness.aws-vault
