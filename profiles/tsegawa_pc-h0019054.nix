@@ -27,6 +27,7 @@
       ../apps/io.github.nix-community.home-manager
       ../apps/io.github.topgrade-rs.topgrade
       ../apps/io.pypa.virtualenv
+      ../apps/me.proton.pass.cli
       ../apps/net.php
       ../apps/org.gnu.bash
       ../apps/org.gnupg
