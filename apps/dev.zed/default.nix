@@ -12,6 +12,7 @@
     "git-firefly"
     "github-theme"
     "nix"
+    "opentofu"
     "toml"
   ];
   programs.zed-editor.mutableUserDebug = false;
