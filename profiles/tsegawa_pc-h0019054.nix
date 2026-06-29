@@ -19,7 +19,7 @@
       ../apps/com.docker.engine/platforms/linux-wsl.nix
       ../apps/com.git-scm.git
       ../apps/com.git-scm.git/platforms/linux-wsl.nix
-      ../apps/com.git-scm.git/profiles/tatsuya.segawa_tss21.co.jp.nix
+      ../apps/com.git-scm.git/profiles/tsegawa_pc-h0019054.nix
       ../apps/com.helix-editor.helix
       ../apps/com.npmjs.cli
       ../apps/com.visualstudio.code/platforms/linux-wsl.nix

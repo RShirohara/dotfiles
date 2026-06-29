@@ -24,7 +24,7 @@
           ../apps/com.amazon.aws.cli/profiles/third-branches-prd.nix
           ../apps/com.git-scm.git
           ../apps/com.git-scm.git/platforms/darwin.nix
-          ../apps/com.git-scm.git/profiles/rshirohara_proton.me.nix
+          ../apps/com.git-scm.git/profiles/rshirohara_pc-2fj26x5r.nix
           ../apps/com.helix-editor.helix
           ../apps/com.mitchellh.ghostty
           ../apps/com.npmjs.cli
