@@ -9,6 +9,7 @@
   programs.zed-editor.enable = true;
 
   programs.zed-editor.extensions = [
+    "biome"
     "git-firefly"
     "github-theme"
     "nix"
