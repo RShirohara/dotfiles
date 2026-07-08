@@ -106,6 +106,14 @@
         "[yaml]" = {
           "editor.defaultFormatter" = "redhat.vscode-yaml";
         };
+        "acp.agents" = {
+          "Cursor CLI" = {
+            "command" = "cursor-agent",
+            "args" = [
+              "acp"
+            ];
+          };
+        };
         "cSpell.spellCheckOnlyWorkspaceFiles" = true;
         "chat.agent.enabled" = false;
         "chat.detectParticipant.enabled" = false;

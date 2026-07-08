@@ -16,6 +16,7 @@
       }
       ../apps/com.amazon.aws.cli
       ../apps/com.amazon.aws.cli/profiles/dorayaki-prd-ope.nix
+      ../apps/com.cursor.cli
       ../apps/com.docker.engine/platforms/linux-wsl.nix
       ../apps/com.git-scm.git
       ../apps/com.git-scm.git/platforms/linux-wsl.nix
