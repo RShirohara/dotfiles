@@ -15,6 +15,7 @@
         xdg.enable = true;
       }
       ../apps/com.amazon.aws.cli
+      ../apps/com.amazon.aws.cli/profiles/dorayaki-dev.nix
       ../apps/com.amazon.aws.cli/profiles/dorayaki-prd-ope.nix
       ../apps/com.cursor.cli
       ../apps/com.docker.engine/platforms/linux-wsl.nix
