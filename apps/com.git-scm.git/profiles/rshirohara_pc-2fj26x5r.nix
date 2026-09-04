@@ -5,7 +5,7 @@
       contents = {
         commit.gpgSign = true;
         gpg.format = "ssh";
-        user.email = "RShirohara@proton.me";
+        user.email = "rshirohara@third-branches.net";
         user.name = "Ray Shirohara";
         user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJNQ34Y8/tBKVVtw1KnkUgg9uE6VeqXJjqnjyTlTB0Y";
       };
@@ -15,7 +15,7 @@
       contents = {
         commit.gpgSign = true;
         gpg.format = "ssh";
-        user.email = "RShirohara@proton.me";
+        user.email = "rshirohara@third-branches.net";
         user.name = "Ray Shirohara";
         user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJNQ34Y8/tBKVVtw1KnkUgg9uE6VeqXJjqnjyTlTB0Y";
       };
