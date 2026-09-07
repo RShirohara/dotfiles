@@ -97,6 +97,7 @@
       "$localip"
       "$battery"
     ];
+    command_timeout = 2000;
 
     aws.symbol = " ";
 
