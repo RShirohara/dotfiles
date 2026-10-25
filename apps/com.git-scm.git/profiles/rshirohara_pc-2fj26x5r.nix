@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, ... }: {
   programs.git.includes = [
     {
       condition = "gitdir:~/Workspace/codeberg.org/**";
@@ -7,7 +7,7 @@
         gpg.format = "ssh";
         user.email = "rshirohara@third-branches.net";
         user.name = "Ray Shirohara";
-        user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJNQ34Y8/tBKVVtw1KnkUgg9uE6VeqXJjqnjyTlTB0Y";
+        user.signingKey = "${config.home.homeDirectory}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/6390a366c8054c35f280aab9748a04f4.pub";
       };
     }
     {
@@ -17,7 +17,7 @@
         gpg.format = "ssh";
         user.email = "rshirohara@third-branches.net";
         user.name = "Ray Shirohara";
-        user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJNQ34Y8/tBKVVtw1KnkUgg9uE6VeqXJjqnjyTlTB0Y";
+        user.signingKey = "${config.home.homeDirectory}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/6390a366c8054c35f280aab9748a04f4.pub";
       };
     }
   ];

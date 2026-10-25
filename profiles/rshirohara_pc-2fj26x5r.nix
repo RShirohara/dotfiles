@@ -30,6 +30,7 @@
           ../apps/com.npmjs.cli
           ../apps/dev.go
           ../apps/dev.jdx.mise
+          ../apps/dev.secretive
           ../apps/dev.zed
           ../apps/io.github.byteness.aws-vault
           ../apps/io.github.byteness.aws-vault/platforms/darwin.nix

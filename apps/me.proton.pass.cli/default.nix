@@ -1,4 +1,6 @@
-{ ... }:
+{ pkgs, ... }:
 {
-  services.proton-pass-agent.enable = true;
+  home.packages = [
+    pkgs.proton-pass-cli
+  ];
 }
